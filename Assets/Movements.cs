@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Movements : MonoBehaviour
 {
-    
-    public float movementSpeed = 1.0f;
+	
+    public float movementSpeed = 2.0f;
     float speedX, speedY;
-    
-    bool is_walking = false;
-    bool is_walking_reversed = false;
-    
+    private bool is_seeing_right;
     Rigidbody2D rb2D;
+    public Camera camera;
     public Animator animator;
     
     
@@ -27,30 +25,31 @@ public class Movements : MonoBehaviour
         speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
         speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
         
-        if (speedX < 0) // Gauche
-        {
-            if (Input.mousePosition[0] - gameObject.transform.position[0] >= 0) (is_walking, is_walking_reversed) = (false, true);
-            else (is_walking, is_walking_reversed) = (true, false);
-        }
-        else if (speedX > 0) // Droite 
-        {
-            if (Input.mousePosition[0] - gameObject.transform.position[0] >= 0) (is_walking, is_walking_reversed) = (true, false);
-            else (is_walking, is_walking_reversed) = (false, true);
-        }
-        else (is_walking, is_walking_reversed) = (false, false);
-        
-        if (speedX == 0 && speedY == 0) 
-        {
-            animator.SetBool("is_walking", false);
-            animator.SetBool("is_walking_reversed", false);
-        }
+        Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        is_seeing_right = mousePos[0] >= gameObject.transform.position[0];
+		        
+		
+        if (speedX == 0 && speedY == 0) animator.SetBool("is_walking", false);
         else 
         {
-            animator.SetBool("is_walking", is_walking);
-            animator.SetBool("is_walking_reversed", is_walking_reversed);
+            animator.SetBool("is_walking", true);
+            
+			if (speedX < 0) // Mouvement Gauche
+        	{
+            	if (is_seeing_right) animator.SetBool("is_reversed", true); // Regarde a droite
+            	else animator.SetBool("is_reversed", false);
+        	}
+        	else if (speedX > 0) // Mouvement Droite 
+        	{
+            	if (is_seeing_right) animator.SetBool("is_reversed", false);
+            	else animator.SetBool("is_reversed", true);
+        	}
         }
-        
-        
-        rb2D.velocity = new Vector2(speedX, speedY);
+
+		// Rotation while looking
+		if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+		else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+
+        rb2D.velocity = new Vector2(speedX, speedY).normalized;
     }
 }
