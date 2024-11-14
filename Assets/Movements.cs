@@ -5,6 +5,10 @@ using UnityEngine;
 public class Movements : MonoBehaviour
 {
 	
+	[SerializeField] private GameObject BulletPrefab;
+	[SerializeField] private Transform firing;
+	private float fireRate = 0.5f;
+	
     public float movementSpeed = 2.0f;
     float speedX, speedY;
     private bool is_seeing_right;
@@ -45,11 +49,23 @@ public class Movements : MonoBehaviour
             	else animator.SetBool("is_reversed", true);
         	}
         }
+        
+        if (Input.GetMouseButtonDown(0)){
+	        Shoot();
+	        //fireRate = 0.5f;
+        }
 
 		// Rotation while looking
 		if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 		else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
 
         rb2D.velocity = new Vector2(speedX, speedY).normalized;
+
+    }
+    
+    private void Shoot()
+    {
+	    print("shoot");
+	    Instantiate(BulletPrefab,firing.position,firing.rotation);
     }
 }
