@@ -5,12 +5,13 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
 
-[Range(1,100)]
+[Range(0,100)]
 [SerializeField] private float speed = -10f;
 
-[Range(1,10)]
+[Range(0,10)]
 [SerializeField] private float lifeTime = 3f;
-
+public Health PlayerHealth;
+public float Damage;
 private Rigidbody2D rb;
 
 
@@ -29,8 +30,14 @@ private Rigidbody2D rb;
 
     }
         private void OnCollisionEnter2D (Collision2D other){
-        if (other.gameObject.CompareTag("enemy")){
-            Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Player")){
+            if (PlayerHealth == null){
+                print("numm"); return;
+            }
+            PlayerHealth.HealthP -= Damage;
+            Destroy(gameObject);
+            //Destroy(other.gameObject);
+            
         }
     }
 }

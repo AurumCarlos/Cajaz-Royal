@@ -6,6 +6,7 @@ public class Movements : MonoBehaviour
 {
 	
 	[SerializeField] private GameObject BulletPrefab;
+	[SerializeField] private GameObject ExploPrefab;
 	[SerializeField] private Transform firing;
 	private float fireRate = 0.5f;
 	
@@ -31,8 +32,8 @@ public class Movements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
-        speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
+        speedX = Input.GetAxisRaw("Horizontal");
+        speedY = Input.GetAxisRaw("Vertical");
         
         Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
         is_seeing_right = mousePos[0] >= gameObject.transform.position[0];
@@ -65,11 +66,13 @@ public class Movements : MonoBehaviour
 	        //fireRate = 0.5f;
         }
 
+
+
 		// Rotation while looking
 		if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 		else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
 
-        rb2D.velocity = new Vector2(speedX, speedY);
+        rb2D.velocity = new Vector2(speedX, speedY).normalized*movementSpeed;
     }
     
     private void checkanimation(bool w,bool r){
@@ -82,21 +85,21 @@ public class Movements : MonoBehaviour
         else changeanimation("Idle");
     }
 	
-    private void Shoot()
-    {
-	    Instantiate(BulletPrefab,firing.position,firing.rotation);
-    }
 
-    private void changeanimation (string animation)
+
+    private void changeanimation (string animation) 
 	{
-
 	if (currentanimation != animation)
 		{
-        print(animation);
 		currentanimation = animation;
 		animator.Play(animation);
 		}
+    }
 
+    private void Shoot()
+    {
+	    Instantiate(BulletPrefab,firing.position,firing.rotation);
+	    Instantiate(ExploPrefab,firing.position,firing.rotation);
     }
     
 }
