@@ -11,7 +11,7 @@ public class Movements : NetworkBehaviour
 	[SerializeField] private Transform firing;
 	private float fireRate = 0.5f;
 	
-
+	private Vector2 mousePos;
     [Range(1,100)]
     [SerializeField] public float movementSpeed;
     //public float movementSpeed = 5.0f;
@@ -39,8 +39,9 @@ public class Movements : NetworkBehaviour
         speedY = Input.GetAxisRaw("Vertical");
         
         //Vector2 mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
-        //is_seeing_right = mousePos[0] >= gameObject.transform.position[0];
-	    is_seeing_right = true;
+        mousePos = Input.mousePosition;
+        is_seeing_right = mousePos[0] >= (gameObject.transform.position[0]+9)*Screen.width/18;
+		print((is_seeing_right,mousePos[0],(gameObject.transform.position[0]+9)*1920/9));
 		
         if (speedX == 0 && speedY == 0) {
             //animator.SetBool("is_walking", false);
