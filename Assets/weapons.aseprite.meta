@@ -121,9 +121,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: arme_1
+  - name: gun1
     originalName: 
-    pivot: {x: 3.5555556, y: -3.923077}
+    pivot: {x: 0.37461048, y: 0.5750169}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 313
       width: 18
       height: 13
-    spriteID: 3ace1bf7f5e49ad4ab72b4094df6285c
+    spriteID: 75ef2fddd3c019b4cbef8d03c343101c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 80, y: 313}
-  - name: arme_2
+  - name: Layer 1
     originalName: 
     pivot: {x: 3.5555556, y: -3.923077}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 146
       width: 18
       height: 13
-    spriteID: 4c688534bd590dc4eb616ee913e71adf
+    spriteID: 961ba787458ff584785b292a3dea56ff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 234, y: 146}
-  - name: arme_3
+  - name: Layer 2
     originalName: 
     pivot: {x: 3.5555556, y: -3.923077}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 173
       width: 18
       height: 13
-    spriteID: 63ec474b53880ff438d29b853aae76e6
+    spriteID: 8f405bf083c1bc34c83f8a18e313b279
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 232, y: 173}
-  - name: arme_4
+  - name: Layer 3
     originalName: 
     pivot: {x: 3.5555556, y: -3.923077}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 336
       width: 18
       height: 13
-    spriteID: b380b7ce27f0360428b7b08013fe7eb5
+    spriteID: 59c86b2b496004149bdb9acac2cac903
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 227, y: 336}
-  - name: arme_5
+  - name: Layer 4
     originalName: 
     pivot: {x: 4.571429, y: -3.923077}
     alignment: 9
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 255
       width: 14
       height: 13
-    spriteID: f22f409eeb8d80c4da3f0bb12a3b3aac
+    spriteID: e27def824528e374b95a3d11f21d4da2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 82, y: 255}
-  - name: arme_6
+  - name: Layer 5
     originalName: 
     pivot: {x: 3.764706, y: -3.923077}
     alignment: 9
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 428
       width: 17
       height: 13
-    spriteID: 299dae257e7874d4d9112e7f1e23d6ec
+    spriteID: 8a93d4720e8d9c240b44e4cff79a3141
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 81, y: 428}
-  - name: arme_7
+  - name: Layer 6
     originalName: 
     pivot: {x: 3.764706, y: -3.923077}
     alignment: 9
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 59
       width: 17
       height: 13
-    spriteID: a99c990d4172f8c41bbbbef4a6908314
+    spriteID: 923c936c6a8d4b14a84f61fa1a6a16b1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 232, y: 59}
-  - name: arme_8
+  - name: Layer 7
     originalName: 
     pivot: {x: 3.368421, y: -3.923077}
     alignment: 9
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 315
       width: 19
       height: 13
-    spriteID: e176d94e4243019479049c1a9ac252b1
+    spriteID: dbc0937ebc3d657428083d4561c22e6f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,7 +281,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 228, y: 315}
-  - name: arme_9
+  - name: Layer 8
     originalName: 
     pivot: {x: 1.6410257, y: -2.5555556}
     alignment: 9
@@ -292,7 +292,7 @@ ScriptedImporter:
       y: 289
       width: 39
       height: 18
-    spriteID: 929e0c1a09b74054f9028bdc58120469
+    spriteID: 5b0b4a83292c7f24aba7b3246cc09fb4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 289}
-  - name: arme_10
+  - name: Layer 9
     originalName: 
     pivot: {x: 2.064516, y: -2.2}
     alignment: 9
@@ -312,7 +312,7 @@ ScriptedImporter:
       y: 454
       width: 31
       height: 20
-    spriteID: 6d19f9baf1e95b744b3fb9994d48ae95
+    spriteID: 39e8b4a33191b844189595d4bf6b67c9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +321,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 67, y: 454}
-  - name: arme_11
+  - name: Layer 10
     originalName: 
     pivot: {x: 1.882353, y: -2.5555556}
     alignment: 9
@@ -332,7 +332,7 @@ ScriptedImporter:
       y: 289
       width: 34
       height: 18
-    spriteID: 0a640efd53c21a4489be44a8ce425864
+    spriteID: e98519f00d3bc4a4ea5f2d16a1884a34
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,10 +341,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 214, y: 289}
-  - name: arme_12
+  - name: Layer 11
     originalName: 
-    pivot: {x: 1.882353, y: -2.2}
-    alignment: 9
+    pivot: {x: 0, y: 0.5}
+    alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -352,7 +352,7 @@ ScriptedImporter:
       y: 484
       width: 34
       height: 20
-    spriteID: 6dc36e103c09b604b88a775c1ae2cfce
+    spriteID: 4f6a88b3f34fd6e49ae7e7fb2f543d1d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,7 +361,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 484}
-  - name: arme_13
+  - name: Layer 12
     originalName: 
     pivot: {x: 7.111111, y: -3}
     alignment: 9
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 197
       width: 9
       height: 16
-    spriteID: 9617a46a6c717a04a931dd3d38172923
+    spriteID: 2adcebeb7b53aba4ca5d0944715d25e2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -381,7 +381,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 89, y: 197}
-  - name: arme_14
+  - name: Layer 13
     originalName: 
     pivot: {x: 8, y: -5.4}
     alignment: 9
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 284
       width: 8
       height: 10
-    spriteID: ac24cb640aa0b5a4fa7088306d191654
+    spriteID: 89addf08946c64f40bf38a739902e714
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -401,7 +401,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 79, y: 284}
-  - name: arme_15
+  - name: Layer 14
     originalName: 
     pivot: {x: 8, y: -3.5714288}
     alignment: 9
@@ -412,7 +412,7 @@ ScriptedImporter:
       y: 102
       width: 8
       height: 14
-    spriteID: 5f8943f7b846543439eafeff75107c72
+    spriteID: 2d7b4630662df3a4dad7bbdee6b41b6d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -421,7 +421,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 88, y: 102}
-  - name: arme_16
+  - name: Layer 15
     originalName: 
     pivot: {x: 8, y: -4.3333335}
     alignment: 9
@@ -432,7 +432,7 @@ ScriptedImporter:
       y: 166
       width: 8
       height: 12
-    spriteID: 9efee7e37d38c9947914d1d6cda4a1a2
+    spriteID: 26c5b086fc449434fb75657b08b48959
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -441,7 +441,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 82, y: 166}
-  - name: arme_17
+  - name: Layer 16
     originalName: 
     pivot: {x: 8, y: -2.5555556}
     alignment: 9
@@ -452,7 +452,7 @@ ScriptedImporter:
       y: 33
       width: 8
       height: 18
-    spriteID: bdca2e902e98fc7499a0dc9e0e4922e7
+    spriteID: 19ae5d0e815a97b419d2ec3a005e22dd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -461,7 +461,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 239, y: 33}
-  - name: arme_18
+  - name: Layer 17
     originalName: 
     pivot: {x: 1.1851852, y: -2.047619}
     alignment: 9
@@ -472,7 +472,7 @@ ScriptedImporter:
       y: 87
       width: 54
       height: 21
-    spriteID: dc9e598366527d64d9ec6830cc68bac3
+    spriteID: 96a7381b5efbaf046b13ab2b301be968
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -481,7 +481,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 87}
-  - name: arme_19
+  - name: Layer 18
     originalName: 
     pivot: {x: 1.254902, y: -1.909091}
     alignment: 9
@@ -492,7 +492,7 @@ ScriptedImporter:
       y: 116
       width: 51
       height: 22
-    spriteID: 8cad5726bea64124eb4352c4d53535eb
+    spriteID: c6cc297452353994a809795da12dc55a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -501,10 +501,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 116}
-  - name: arme_20
+  - name: Layer 20
     originalName: 
-    pivot: {x: 1.28, y: -1.6666667}
-    alignment: 9
+    pivot: {x: 0, y: 0.5}
+    alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -512,7 +512,7 @@ ScriptedImporter:
       y: 484
       width: 50
       height: 24
-    spriteID: 036dfa461c8d61248831b150b6663b0c
+    spriteID: 83e87e3f74b868b4f8d9db04a6e2adf9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -521,7 +521,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 484}
-  - name: arme_21
+  - name: Layer 21
     originalName: 
     pivot: {x: 1.28, y: -2.047619}
     alignment: 9
@@ -532,7 +532,7 @@ ScriptedImporter:
       y: 230
       width: 50
       height: 21
-    spriteID: 6d1a898fafb01e4499e04c0d8f217c89
+    spriteID: f52df962974de8541a1f33c9c776b3e4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -541,7 +541,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 230}
-  - name: arme_22
+  - name: Layer 22
     originalName: 
     pivot: {x: 1.3333334, y: -1.6666667}
     alignment: 9
@@ -552,7 +552,7 @@ ScriptedImporter:
       y: 34
       width: 48
       height: 24
-    spriteID: a919a52fa7925814abcc1e878d0ed510
+    spriteID: 4dc047b1742240c45a3ac84738fcd87a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -561,7 +561,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 106, y: 34}
-  - name: arme_23
+  - name: Layer 23
     originalName: 
     pivot: {x: 1.2307693, y: -1.909091}
     alignment: 9
@@ -572,7 +572,7 @@ ScriptedImporter:
       y: 66
       width: 52
       height: 22
-    spriteID: ea7aa42301a09854999648aaf269490a
+    spriteID: dd0d25f59bf10b6479341a34b4b1ee61
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -581,7 +581,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 106, y: 66}
-  - name: arme_24
+  - name: Layer 24
     originalName: 
     pivot: {x: 1.122807, y: -2.2}
     alignment: 9
@@ -592,7 +592,7 @@ ScriptedImporter:
       y: 59
       width: 57
       height: 20
-    spriteID: b9ab7a32c105f48408f39317128021fa
+    spriteID: 8c7922b85cc2bf4478a5bf48f61591ec
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -601,7 +601,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 59}
-  - name: arme_25
+  - name: Layer 25
     originalName: 
     pivot: {x: 1.0847458, y: -2.368421}
     alignment: 9
@@ -612,7 +612,7 @@ ScriptedImporter:
       y: 146
       width: 59
       height: 19
-    spriteID: c8537e0e49ecddd428e541345d6d1d77
+    spriteID: 1d101062edf144641a88e5d7b78e5c05
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -621,7 +621,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 146}
-  - name: arme_26
+  - name: Layer 26
     originalName: 
     pivot: {x: 1.1636363, y: -2.047619}
     alignment: 9
@@ -632,7 +632,7 @@ ScriptedImporter:
       y: 4
       width: 55
       height: 21
-    spriteID: 3b8dd1fa717aa8144b42a14924d65291
+    spriteID: 09e31bb421a035546a88e2b9d35467d0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -641,7 +641,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 4}
-  - name: arme_27
+  - name: Layer 27
     originalName: 
     pivot: {x: 1.3061224, y: -1.909091}
     alignment: 9
@@ -652,7 +652,7 @@ ScriptedImporter:
       y: 200
       width: 49
       height: 22
-    spriteID: f810611ba4fa0a449a688cec1cf95e86
+    spriteID: 8eabf30bd33fa6449ba49bab7802f2bc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -661,7 +661,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 200}
-  - name: arme_28
+  - name: Layer 19
     originalName: 
     pivot: {x: 1.122807, y: -1.909091}
     alignment: 9
@@ -672,7 +672,7 @@ ScriptedImporter:
       y: 398
       width: 57
       height: 22
-    spriteID: 6a1997568e5e54f43ae6de434d3cea22
+    spriteID: b78bd6dc90da32a49aaf236c493949a0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -681,7 +681,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 398}
-  - name: arme_29
+  - name: Layer 28
     originalName: 
     pivot: {x: 1.2307693, y: -3.923077}
     alignment: 9
@@ -692,7 +692,7 @@ ScriptedImporter:
       y: 336
       width: 52
       height: 13
-    spriteID: 6f122c8d63b8a8548a43e563115309a9
+    spriteID: e1f6679c6219dc44ea427147bd571727
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -701,7 +701,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 336}
-  - name: arme_30
+  - name: Layer 29
     originalName: 
     pivot: {x: 1.2075472, y: -1.909091}
     alignment: 9
@@ -712,7 +712,7 @@ ScriptedImporter:
       y: 4
       width: 53
       height: 22
-    spriteID: 50f2ed58463bc8a4ab11e4f9eaaea2b2
+    spriteID: 8c243c85a2027794bbe4f00c816965cd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -721,7 +721,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 106, y: 4}
-  - name: arme_31
+  - name: Layer 30
     originalName: 
     pivot: {x: 1.3617021, y: -1.909091}
     alignment: 9
@@ -732,7 +732,7 @@ ScriptedImporter:
       y: 259
       width: 47
       height: 22
-    spriteID: c5509cbddebabae4aac4cc358f83f920
+    spriteID: b0cd525f8c04af6449bc6e21fad79366
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -741,10 +741,10 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 259}
-  - name: arme_32
+  - name: Layer 31
     originalName: 
-    pivot: {x: 1.1636363, y: -1.909091}
-    alignment: 9
+    pivot: {x: 0, y: 0.5}
+    alignment: 4
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -752,7 +752,7 @@ ScriptedImporter:
       y: 454
       width: 55
       height: 22
-    spriteID: f8e1f9d1541ccd14aa0557d21dc96b81
+    spriteID: dde3ddd2b75a71443afbdb0eedd218c9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -761,7 +761,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 454}
-  - name: arme_33
+  - name: Layer 32
     originalName: 
     pivot: {x: 1.122807, y: -2.368421}
     alignment: 9
@@ -772,7 +772,7 @@ ScriptedImporter:
       y: 173
       width: 57
       height: 19
-    spriteID: 7f8c0d4956a722647ab64eb7fdfcb615
+    spriteID: 9790ede3495b9ef46b447beef9b32f01
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -781,7 +781,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 173}
-  - name: arme_34
+  - name: Layer 33
     originalName: 
     pivot: {x: 1.0491803, y: -2.047619}
     alignment: 9
@@ -792,7 +792,7 @@ ScriptedImporter:
       y: 340
       width: 61
       height: 21
-    spriteID: 96090fbcae6baaf409b61b99f2ccc5a7
+    spriteID: 98465814ceb5d9a41b02ac81ef93f5a4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -801,7 +801,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 340}
-  - name: arme_35
+  - name: Layer 34
     originalName: 
     pivot: {x: 1, y: -2.5555556}
     alignment: 9
@@ -812,7 +812,7 @@ ScriptedImporter:
       y: 33
       width: 64
       height: 18
-    spriteID: 9889a6fddb4f8524298b9765dec69500
+    spriteID: 286c22bc180e74742bdb249848944fd7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -821,9 +821,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 33}
-  - name: arme_36
+  - name: Layer 35
     originalName: 
-    pivot: {x: 1.2075472, y: -3.923077}
+    pivot: {x: 0.21606848, y: 0.42777663}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -832,7 +832,7 @@ ScriptedImporter:
       y: 315
       width: 53
       height: 13
-    spriteID: 00a7efb7b442b044f85ac4557b92c6d7
+    spriteID: f0f8131d9ff3bc244b70985014722d56
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -841,7 +841,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 315}
-  - name: arme_37
+  - name: Layer 36
     originalName: 
     pivot: {x: 1.4883721, y: -3.5714288}
     alignment: 9
@@ -852,7 +852,7 @@ ScriptedImporter:
       y: 357
       width: 43
       height: 14
-    spriteID: b48be8fde0b31a042a2fa6a304a36b54
+    spriteID: 4c49c9e9a047bde4381fa59e5bd4dcc5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -861,7 +861,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 167, y: 357}
-  - name: arme_38
+  - name: Layer 37
     originalName: 
     pivot: {x: 0.95522386, y: -1.909091}
     alignment: 9
@@ -872,7 +872,7 @@ ScriptedImporter:
       y: 225
       width: 67
       height: 22
-    spriteID: aeeb8a9a827129a44ab0a5b50914aefa
+    spriteID: 25131dd199664854a8419264e7677c4f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -881,7 +881,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 225}
-  - name: arme_39
+  - name: Layer 38
     originalName: 
     pivot: {x: 0.84210527, y: -1.7826087}
     alignment: 9
@@ -892,7 +892,7 @@ ScriptedImporter:
       y: 102
       width: 76
       height: 23
-    spriteID: c4a01d1fb9057aa48882fad1ae6c0255
+    spriteID: 234112ba912c8394d8f0de5b667573be
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -901,7 +901,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 102}
-  - name: arme_40
+  - name: Layer 39
     originalName: 
     pivot: {x: 0.95522386, y: -1.56}
     alignment: 9
@@ -912,7 +912,7 @@ ScriptedImporter:
       y: 133
       width: 67
       height: 25
-    spriteID: 726b71cf535cc6f4aa5473148d9364fb
+    spriteID: e09f8f8bdacee394daf6ef0fa7e77ec9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -921,7 +921,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 133}
-  - name: arme_41
+  - name: Layer 40
     originalName: 
     pivot: {x: 0.7710843, y: -1.7826087}
     alignment: 9
@@ -932,7 +932,7 @@ ScriptedImporter:
       y: 71
       width: 83
       height: 23
-    spriteID: 256cbe78a3451354c8cae6cc7ef34e84
+    spriteID: c54cbb8b8e7350040b8117f87dedff24
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -941,7 +941,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 71}
-  - name: arme_42
+  - name: Layer 41
     originalName: 
     pivot: {x: 0.9411765, y: -2.368421}
     alignment: 9
@@ -952,7 +952,7 @@ ScriptedImporter:
       y: 313
       width: 68
       height: 19
-    spriteID: 33d818768e5dbb64393aea136d0c471c
+    spriteID: ed79f17b66c279b48b21afbfd3e72f77
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -961,7 +961,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 313}
-  - name: arme_43
+  - name: Layer 42
     originalName: 
     pivot: {x: 0.74418604, y: -1.56}
     alignment: 9
@@ -972,7 +972,7 @@ ScriptedImporter:
       y: 38
       width: 86
       height: 25
-    spriteID: 655d25f0e4f34554d9162d86efc64485
+    spriteID: 83ffd14e0610f84489ca70a64e0a3a10
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -981,7 +981,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 38}
-  - name: arme_44
+  - name: Layer 43
     originalName: 
     pivot: {x: 0.92753625, y: -2.5555556}
     alignment: 9
@@ -992,7 +992,7 @@ ScriptedImporter:
       y: 428
       width: 69
       height: 18
-    spriteID: 0ff230820c7019944880df3de2e0c5e4
+    spriteID: b87768ca6b72b0d4c8934be3875cbea7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1001,7 +1001,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 428}
-  - name: arme_45
+  - name: Layer 44
     originalName: 
     pivot: {x: 0.68085104, y: -1.4615386}
     alignment: 9
@@ -1012,7 +1012,7 @@ ScriptedImporter:
       y: 4
       width: 94
       height: 26
-    spriteID: 265cd9e387b7a7b419328cd34045293e
+    spriteID: e26e048b6a099e14385ff773c65c9fa1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1021,7 +1021,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: arme_46
+  - name: Layer 45
     originalName: 
     pivot: {x: 0.9142857, y: -2.047619}
     alignment: 9
@@ -1032,7 +1032,7 @@ ScriptedImporter:
       y: 255
       width: 70
       height: 21
-    spriteID: 91185e76bb141764cbe44f127adc1a35
+    spriteID: 11ee4810417af214ead8baa104da5242
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1041,7 +1041,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 255}
-  - name: arme_47
+  - name: Layer 46
     originalName: 
     pivot: {x: 1.0491803, y: -2.047619}
     alignment: 9
@@ -1052,7 +1052,7 @@ ScriptedImporter:
       y: 369
       width: 61
       height: 21
-    spriteID: 2516f02899593404794d437f500aab17
+    spriteID: d6d83f58e2e3f644ca9c25b88db49b14
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1061,7 +1061,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 369}
-  - name: arme_48
+  - name: Layer 47
     originalName: 
     pivot: {x: 0.95522386, y: -2.047619}
     alignment: 9
@@ -1072,7 +1072,7 @@ ScriptedImporter:
       y: 284
       width: 67
       height: 21
-    spriteID: 7b8eaa8b1f77ed74480f8e0841b7e0d3
+    spriteID: f27a6b350699c364595f3f7ea49d388a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1081,7 +1081,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 284}
-  - name: arme_49
+  - name: Layer 48
     originalName: 
     pivot: {x: 0.9142857, y: -1.7826087}
     alignment: 9
@@ -1092,7 +1092,7 @@ ScriptedImporter:
       y: 166
       width: 70
       height: 23
-    spriteID: 3df16fb1221b41e4a95a2a1768c0af4c
+    spriteID: 587768b32c656e249aba71fbba04a668
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1101,7 +1101,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 166}
-  - name: arme_50
+  - name: Layer 49
     originalName: 
     pivot: {x: 0.83116883, y: -2.2}
     alignment: 9
@@ -1112,7 +1112,7 @@ ScriptedImporter:
       y: 197
       width: 77
       height: 20
-    spriteID: e5f404e6772c3cf42bb598abaee44af4
+    spriteID: 2a67493e23341e342b071d340d09b10a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1132,6 +1132,150 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 1
+    guid: 1091200252
+    name: gun1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: gun1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 18
+        height: 13
+      spriteId: 75ef2fddd3c019b4cbef8d03c343101c
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 2
+    guid: 1317222746
+    name: Layer 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 18
+        height: 13
+      spriteId: 961ba787458ff584785b292a3dea56ff
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 3
+    guid: 1317221554
+    name: Layer 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 18
+        height: 13
+      spriteId: 8f405bf083c1bc34c83f8a18e313b279
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 4
+    guid: 1317221946
+    name: Layer 3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 18
+        height: 13
+      spriteId: 59c86b2b496004149bdb9acac2cac903
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 5
+    guid: 1317223930
+    name: Layer 4
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 4
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 14
+        height: 13
+      spriteId: e27def824528e374b95a3d11f21d4da2
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 6
+    guid: 1317224330
+    name: Layer 5
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 5
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 17
+        height: 13
+      spriteId: 8a93d4720e8d9c240b44e4cff79a3141
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 7
+    guid: 1317223138
+    name: Layer 6
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 6
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 17
+        height: 13
+      spriteId: 923c936c6a8d4b14a84f61fa1a6a16b1
+    linkedCells: []
+    parentIndex: 0
+  - layerIndex: 8
+    guid: 1317223546
+    name: Layer 7
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 7
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 19
+        height: 13
+      spriteId: dbc0937ebc3d657428083d4561c22e6f
+    linkedCells: []
+    parentIndex: 0
   - layerIndex: 9
     guid: 416705901
     name: light_auto
@@ -1141,6 +1285,78 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 10
+    guid: 1317225529
+    name: Layer 8
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 8
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 46
+        width: 39
+        height: 18
+      spriteId: 5b0b4a83292c7f24aba7b3246cc09fb4
+    linkedCells: []
+    parentIndex: 9
+  - layerIndex: 11
+    guid: 1317225931
+    name: Layer 9
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 9
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 44
+        width: 31
+        height: 20
+      spriteId: 39e8b4a33191b844189595d4bf6b67c9
+    linkedCells: []
+    parentIndex: 9
+  - layerIndex: 12
+    guid: 1999284132
+    name: Layer 10
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 10
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 46
+        width: 34
+        height: 18
+      spriteId: e98519f00d3bc4a4ea5f2d16a1884a34
+    linkedCells: []
+    parentIndex: 9
+  - layerIndex: 13
+    guid: -1260749814
+    name: Layer 11
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 11
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 44
+        width: 34
+        height: 20
+      spriteId: 4f6a88b3f34fd6e49ae7e7fb2f543d1d
+    linkedCells: []
+    parentIndex: 9
   - layerIndex: 14
     guid: 1192769072
     name: explosives
@@ -1150,6 +1366,96 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 15
+    guid: -70582555
+    name: Layer 12
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 12
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 48
+        width: 9
+        height: 16
+      spriteId: 2adcebeb7b53aba4ca5d0944715d25e2
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 16
+    guid: 964350809
+    name: Layer 13
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 13
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 54
+        width: 8
+        height: 10
+      spriteId: 89addf08946c64f40bf38a739902e714
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 17
+    guid: -2140449219
+    name: Layer 14
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 14
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 50
+        width: 8
+        height: 14
+      spriteId: 2d7b4630662df3a4dad7bbdee6b41b6d
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 18
+    guid: -1105515879
+    name: Layer 15
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 15
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 52
+        width: 8
+        height: 12
+      spriteId: 26c5b086fc449434fb75657b08b48959
+    linkedCells: []
+    parentIndex: 14
+  - layerIndex: 19
+    guid: 84651389
+    name: Layer 16
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 16
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 46
+        width: 8
+        height: 18
+      spriteId: 19ae5d0e815a97b419d2ec3a005e22dd
+    linkedCells: []
+    parentIndex: 14
   - layerIndex: 20
     guid: 1919171739
     name: auto
@@ -1159,6 +1465,330 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 21
+    guid: 1119584728
+    name: Layer 17
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 17
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 43
+        width: 54
+        height: 21
+      spriteId: 96a7381b5efbaf046b13ab2b301be968
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 22
+    guid: -1985215322
+    name: Layer 18
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 18
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 51
+        height: 22
+      spriteId: c6cc297452353994a809795da12dc55a
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 23
+    guid: 1999282966
+    name: Layer 20
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 20
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 40
+        width: 50
+        height: 24
+      spriteId: 83e87e3f74b868b4f8d9db04a6e2adf9
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 24
+    guid: -1260750984
+    name: Layer 21
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 21
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 43
+        width: 50
+        height: 21
+      spriteId: f52df962974de8541a1f33c9c776b3e4
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 25
+    guid: -70583718
+    name: Layer 22
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 22
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 40
+        width: 48
+        height: 24
+      spriteId: 4dc047b1742240c45a3ac84738fcd87a
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 26
+    guid: 964349624
+    name: Layer 23
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 23
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 52
+        height: 22
+      spriteId: dd0d25f59bf10b6479341a34b4b1ee61
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 27
+    guid: -2140450402
+    name: Layer 24
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 24
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 44
+        width: 57
+        height: 20
+      spriteId: 8c7922b85cc2bf4478a5bf48f61591ec
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 28
+    guid: -1105517064
+    name: Layer 25
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 25
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 45
+        width: 59
+        height: 19
+      spriteId: 1d101062edf144641a88e5d7b78e5c05
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 29
+    guid: 84650202
+    name: Layer 26
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 26
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 43
+        width: 55
+        height: 21
+      spriteId: 09e31bb421a035546a88e2b9d35467d0
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 30
+    guid: 1119583544
+    name: Layer 27
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 27
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 49
+        height: 22
+      spriteId: 8eabf30bd33fa6449ba49bab7802f2bc
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 31
+    guid: -950281968
+    name: Layer 19
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 19
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 57
+        height: 22
+      spriteId: b78bd6dc90da32a49aaf236c493949a0
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 32
+    guid: -1985216471
+    name: Layer 28
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 28
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 52
+        height: 13
+      spriteId: e1f6679c6219dc44ea427147bd571727
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 33
+    guid: -950283191
+    name: Layer 29
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 29
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 53
+        height: 22
+      spriteId: 8c243c85a2027794bbe4f00c816965cd
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 34
+    guid: 1999283372
+    name: Layer 30
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 30
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 47
+        height: 22
+      spriteId: b0cd525f8c04af6449bc6e21fad79366
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 35
+    guid: -1260750642
+    name: Layer 31
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 31
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 55
+        height: 22
+      spriteId: dde3ddd2b75a71443afbdb0eedd218c9
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 36
+    guid: -70583308
+    name: Layer 32
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 32
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 45
+        width: 57
+        height: 19
+      spriteId: 9790ede3495b9ef46b447beef9b32f01
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 37
+    guid: 964349962
+    name: Layer 33
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 33
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 43
+        width: 61
+        height: 21
+      spriteId: 98465814ceb5d9a41b02ac81ef93f5a4
+    linkedCells: []
+    parentIndex: 20
+  - layerIndex: 38
+    guid: -2140449996
+    name: Layer 34
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 34
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 46
+        width: 64
+        height: 18
+      spriteId: 286c22bc180e74742bdb249848944fd7
+    linkedCells: []
+    parentIndex: 20
   - layerIndex: 39
     guid: -890657784
     name: shotguns
@@ -1168,6 +1798,42 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 40
+    guid: -1105516711
+    name: Layer 35
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 35
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 51
+        width: 53
+        height: 13
+      spriteId: f0f8131d9ff3bc244b70985014722d56
+    linkedCells: []
+    parentIndex: 39
+  - layerIndex: 41
+    guid: 84650621
+    name: Layer 36
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 36
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 50
+        width: 43
+        height: 14
+      spriteId: 4c49c9e9a047bde4381fa59e5bd4dcc5
+    linkedCells: []
+    parentIndex: 39
   - layerIndex: 42
     guid: 1789980133
     name: rockets
@@ -1177,6 +1843,78 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 43
+    guid: 1119583896
+    name: Layer 37
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 37
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 67
+        height: 22
+      spriteId: 25131dd199664854a8419264e7677c4f
+    linkedCells: []
+    parentIndex: 42
+  - layerIndex: 44
+    guid: -1985216070
+    name: Layer 38
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 38
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 41
+        width: 76
+        height: 23
+      spriteId: 234112ba912c8394d8f0de5b667573be
+    linkedCells: []
+    parentIndex: 42
+  - layerIndex: 45
+    guid: -950282792
+    name: Layer 39
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 39
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 39
+        width: 67
+        height: 25
+      spriteId: e09f8f8bdacee394daf6ef0fa7e77ec9
+    linkedCells: []
+    parentIndex: 42
+  - layerIndex: 46
+    guid: 1999285345
+    name: Layer 40
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 40
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 41
+        width: 83
+        height: 23
+      spriteId: c54cbb8b8e7350040b8117f87dedff24
+    linkedCells: []
+    parentIndex: 42
   - layerIndex: 47
     guid: -868466792
     name: rifles
@@ -1186,6 +1924,96 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
+  - layerIndex: 48
+    guid: -1260748642
+    name: Layer 41
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 41
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 45
+        width: 68
+        height: 19
+      spriteId: ed79f17b66c279b48b21afbfd3e72f77
+    linkedCells: []
+    parentIndex: 47
+  - layerIndex: 49
+    guid: -70581344
+    name: Layer 42
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 42
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 39
+        width: 86
+        height: 25
+      spriteId: 83ffd14e0610f84489ca70a64e0a3a10
+    linkedCells: []
+    parentIndex: 47
+  - layerIndex: 50
+    guid: 964351938
+    name: Layer 43
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 43
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 46
+        width: 69
+        height: 18
+      spriteId: b87768ca6b72b0d4c8934be3875cbea7
+    linkedCells: []
+    parentIndex: 47
+  - layerIndex: 51
+    guid: -2140448032
+    name: Layer 44
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 44
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 38
+        width: 94
+        height: 26
+      spriteId: e26e048b6a099e14385ff773c65c9fa1
+    linkedCells: []
+    parentIndex: 47
+  - layerIndex: 52
+    guid: -1105514746
+    name: Layer 45
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Layer 45
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 43
+        width: 70
+        height: 21
+      spriteId: 11ee4810417af214ead8baa104da5242
+    linkedCells: []
+    parentIndex: 47
   - layerIndex: 53
     guid: -1700504698
     name: heavy_auto
@@ -1195,842 +2023,14 @@ ScriptedImporter:
     cells: []
     linkedCells: []
     parentIndex: -1
-  - layerIndex: 1
-    guid: -432563424
-    name: arme_1
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_1
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 18
-        height: 13
-      spriteId: 3ace1bf7f5e49ad4ab72b4094df6285c
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 2
-    guid: -1622730692
-    name: arme_2
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_2
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 18
-        height: 13
-      spriteId: 4c688534bd590dc4eb616ee913e71adf
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 3
-    guid: 1637303260
-    name: arme_3
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_3
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 18
-        height: 13
-      spriteId: 63ec474b53880ff438d29b853aae76e6
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 4
-    guid: 757603840
-    name: arme_4
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_4
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 18
-        height: 13
-      spriteId: b380b7ce27f0360428b7b08013fe7eb5
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 5
-    guid: -277329504
-    name: arme_5
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_5
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 14
-        height: 13
-      spriteId: f22f409eeb8d80c4da3f0bb12a3b3aac
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 6
-    guid: -1467496764
-    name: arme_6
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_6
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 17
-        height: 13
-      spriteId: 299dae257e7874d4d9112e7f1e23d6ec
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 7
-    guid: 1792537188
-    name: arme_7
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_7
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 17
-        height: 13
-      spriteId: a99c990d4172f8c41bbbbef4a6908314
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 8
-    guid: 912837760
-    name: arme_8
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_8
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 19
-        height: 13
-      spriteId: e176d94e4243019479049c1a9ac252b1
-    linkedCells: []
-    parentIndex: 0
-  - layerIndex: 10
-    guid: -122095581
-    name: arme_9
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_9
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 46
-        width: 39
-        height: 18
-      spriteId: 929e0c1a09b74054f9028bdc58120469
-    linkedCells: []
-    parentIndex: 9
-  - layerIndex: 11
-    guid: -75573318
-    name: arme_10
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_10
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 44
-        width: 31
-        height: 20
-      spriteId: 6d19f9baf1e95b744b3fb9994d48ae95
-    linkedCells: []
-    parentIndex: 9
-  - layerIndex: 12
-    guid: -75572942
-    name: arme_11
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_11
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 46
-        width: 34
-        height: 18
-      spriteId: 0a640efd53c21a4489be44a8ce425864
-    linkedCells: []
-    parentIndex: 9
-  - layerIndex: 13
-    guid: -75574118
-    name: arme_12
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_12
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 44
-        width: 34
-        height: 20
-      spriteId: 6dc36e103c09b604b88a775c1ae2cfce
-    linkedCells: []
-    parentIndex: 9
-  - layerIndex: 15
-    guid: -75573717
-    name: arme_13
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_13
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 48
-        width: 9
-        height: 16
-      spriteId: 9617a46a6c717a04a931dd3d38172923
-    linkedCells: []
-    parentIndex: 14
-  - layerIndex: 16
-    guid: -75574931
-    name: arme_14
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_14
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 54
-        width: 8
-        height: 10
-      spriteId: ac24cb640aa0b5a4fa7088306d191654
-    linkedCells: []
-    parentIndex: 14
-  - layerIndex: 17
-    guid: -75574501
-    name: arme_15
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_15
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 50
-        width: 8
-        height: 14
-      spriteId: 5f8943f7b846543439eafeff75107c72
-    linkedCells: []
-    parentIndex: 14
-  - layerIndex: 18
-    guid: -75575695
-    name: arme_16
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_16
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 52
-        width: 8
-        height: 12
-      spriteId: 9efee7e37d38c9947914d1d6cda4a1a2
-    linkedCells: []
-    parentIndex: 14
-  - layerIndex: 19
-    guid: -75575325
-    name: arme_17
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_17
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 46
-        width: 8
-        height: 18
-      spriteId: bdca2e902e98fc7499a0dc9e0e4922e7
-    linkedCells: []
-    parentIndex: 14
-  - layerIndex: 21
-    guid: -75570164
-    name: arme_18
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_18
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 43
-        width: 54
-        height: 21
-      spriteId: dc9e598366527d64d9ec6830cc68bac3
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 22
-    guid: -75569744
-    name: arme_19
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_19
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 51
-        height: 22
-      spriteId: 8cad5726bea64124eb4352c4d53535eb
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 23
-    guid: -1265740583
-    name: arme_20
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_20
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 40
-        width: 50
-        height: 24
-      spriteId: 036dfa461c8d61248831b150b6663b0c
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 24
-    guid: -1265740221
-    name: arme_21
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_21
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 43
-        width: 50
-        height: 21
-      spriteId: 6d1a898fafb01e4499e04c0d8f217c89
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 25
-    guid: -1265741395
-    name: arme_22
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_22
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 40
-        width: 48
-        height: 24
-      spriteId: a919a52fa7925814abcc1e878d0ed510
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 26
-    guid: -1265740965
-    name: arme_23
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_23
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 52
-        height: 22
-      spriteId: ea7aa42301a09854999648aaf269490a
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 27
-    guid: -1265742207
-    name: arme_24
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_24
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 44
-        width: 57
-        height: 20
-      spriteId: b9ab7a32c105f48408f39317128021fa
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 28
-    guid: -1265741765
-    name: arme_25
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_25
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 45
-        width: 59
-        height: 19
-      spriteId: c8537e0e49ecddd428e541345d6d1d77
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 29
-    guid: -1265742947
-    name: arme_26
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_26
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 43
-        width: 55
-        height: 21
-      spriteId: 3b8dd1fa717aa8144b42a14924d65291
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 30
-    guid: -1265742573
-    name: arme_27
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_27
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 49
-        height: 22
-      spriteId: f810611ba4fa0a449a688cec1cf95e86
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 31
-    guid: -1265737431
-    name: arme_28
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_28
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 57
-        height: 22
-      spriteId: 6a1997568e5e54f43ae6de434d3cea22
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 32
-    guid: -1265736989
-    name: arme_29
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_29
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 52
-        height: 13
-      spriteId: 6f122c8d63b8a8548a43e563115309a9
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 33
-    guid: 1994293326
-    name: arme_30
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_30
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 53
-        height: 22
-      spriteId: 50f2ed58463bc8a4ab11e4f9eaaea2b2
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 34
-    guid: 1994293726
-    name: arme_31
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_31
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 47
-        height: 22
-      spriteId: c5509cbddebabae4aac4cc358f83f920
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 35
-    guid: 1994292598
-    name: arme_32
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_32
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 55
-        height: 22
-      spriteId: f8e1f9d1541ccd14aa0557d21dc96b81
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 36
-    guid: 1994292934
-    name: arme_33
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_33
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 45
-        width: 57
-        height: 19
-      spriteId: 7f8c0d4956a722647ab64eb7fdfcb615
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 37
-    guid: 1994291742
-    name: arme_34
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_34
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 43
-        width: 61
-        height: 21
-      spriteId: 96090fbcae6baaf409b61b99f2ccc5a7
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 38
-    guid: 1994292206
-    name: arme_35
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_35
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 46
-        width: 64
-        height: 18
-      spriteId: 9889a6fddb4f8524298b9765dec69500
-    linkedCells: []
-    parentIndex: 20
-  - layerIndex: 40
-    guid: 1994290953
-    name: arme_36
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_36
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 51
-        width: 53
-        height: 13
-      spriteId: 00a7efb7b442b044f85ac4557b92c6d7
-    linkedCells: []
-    parentIndex: 39
-  - layerIndex: 41
-    guid: 1994291335
-    name: arme_37
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_37
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 50
-        width: 43
-        height: 14
-      spriteId: b48be8fde0b31a042a2fa6a304a36b54
-    linkedCells: []
-    parentIndex: 39
-  - layerIndex: 43
-    guid: 1994296572
-    name: arme_38
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_38
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 42
-        width: 67
-        height: 22
-      spriteId: aeeb8a9a827129a44ab0a5b50914aefa
-    linkedCells: []
-    parentIndex: 42
-  - layerIndex: 44
-    guid: 1994296904
-    name: arme_39
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_39
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 41
-        width: 76
-        height: 23
-      spriteId: c4a01d1fb9057aa48882fad1ae6c0255
-    linkedCells: []
-    parentIndex: 42
-  - layerIndex: 45
-    guid: 1114593977
-    name: arme_40
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_40
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 39
-        width: 67
-        height: 25
-      spriteId: 726b71cf535cc6f4aa5473148d9364fb
-    linkedCells: []
-    parentIndex: 42
-  - layerIndex: 46
-    guid: 1114594319
-    name: arme_41
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_41
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 41
-        width: 83
-        height: 23
-      spriteId: 256cbe78a3451354c8cae6cc7ef34e84
-    linkedCells: []
-    parentIndex: 42
-  - layerIndex: 48
-    guid: 1114593098
-    name: arme_42
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_42
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 45
-        width: 68
-        height: 19
-      spriteId: 33d818768e5dbb64393aea136d0c471c
-    linkedCells: []
-    parentIndex: 47
-  - layerIndex: 49
-    guid: 1114593590
-    name: arme_43
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_43
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 39
-        width: 86
-        height: 25
-      spriteId: 655d25f0e4f34554d9162d86efc64485
-    linkedCells: []
-    parentIndex: 47
-  - layerIndex: 50
-    guid: 1114592338
-    name: arme_44
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_44
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 46
-        width: 69
-        height: 18
-      spriteId: 0ff230820c7019944880df3de2e0c5e4
-    linkedCells: []
-    parentIndex: 47
-  - layerIndex: 51
-    guid: 1114592734
-    name: arme_45
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_45
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 38
-        width: 94
-        height: 26
-      spriteId: 265cd9e387b7a7b419328cd34045293e
-    linkedCells: []
-    parentIndex: 47
-  - layerIndex: 52
-    guid: 1114591602
-    name: arme_46
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: arme_46
-      frameIndex: 0
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 43
-        width: 70
-        height: 21
-      spriteId: 91185e76bb141764cbe44f127adc1a35
-    linkedCells: []
-    parentIndex: 47
   - layerIndex: 54
-    guid: 1114591973
-    name: arme_47
+    guid: 84652579
+    name: Layer 46
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: arme_47
+    - name: Layer 46
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -2038,17 +2038,17 @@ ScriptedImporter:
         y: 43
         width: 61
         height: 21
-      spriteId: 2516f02899593404794d437f500aab17
+      spriteId: d6d83f58e2e3f644ca9c25b88db49b14
     linkedCells: []
     parentIndex: 53
   - layerIndex: 55
-    guid: 1114597067
-    name: arme_48
+    guid: 1119585859
+    name: Layer 47
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: arme_48
+    - name: Layer 47
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -2056,17 +2056,17 @@ ScriptedImporter:
         y: 43
         width: 67
         height: 21
-      spriteId: 7b8eaa8b1f77ed74480f8e0841b7e0d3
+      spriteId: f27a6b350699c364595f3f7ea49d388a
     linkedCells: []
     parentIndex: 53
   - layerIndex: 56
-    guid: 1114597553
-    name: arme_49
+    guid: -1985214097
+    name: Layer 48
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: arme_49
+    - name: Layer 48
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -2074,17 +2074,17 @@ ScriptedImporter:
         y: 41
         width: 70
         height: 23
-      spriteId: 3df16fb1221b41e4a95a2a1768c0af4c
+      spriteId: 587768b32c656e249aba71fbba04a668
     linkedCells: []
     parentIndex: 53
   - layerIndex: 57
-    guid: 79660556
-    name: arme_50
+    guid: -950280817
+    name: Layer 49
     layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: arme_50
+    - name: Layer 49
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -2092,7 +2092,7 @@ ScriptedImporter:
         y: 44
         width: 77
         height: 20
-      spriteId: e5f404e6772c3cf42bb598abaee44af4
+      spriteId: 2a67493e23341e342b071d340d09b10a
     linkedCells: []
     parentIndex: 53
   platformSettings:
