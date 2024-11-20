@@ -31,4 +31,5 @@ public class gun : MonoBehaviour
         
         transform.localRotation = Quaternion.Euler((!is_seeing_right ? 180f : 0f),(!is_seeing_right ? 180f : 0f),(!is_seeing_right ? -angle: angle));
     }
+    
 }
