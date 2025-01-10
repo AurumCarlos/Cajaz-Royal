@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5604109955140159332}
   - component: {fileID: 1814760198358477911}
   - component: {fileID: 7847731644358845319}
-  - component: {fileID: 734596443327251807}
   m_Layer: 0
   m_Name: bulletPrefab
   m_TagString: bullet
@@ -31,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -162,28 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3245a1d84f12c44b857185d342645e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 16.4
+  speed: 30
   lifeTime: 5
-  PlayerHealth: {fileID: 0}
-  Damage: 0
---- !u!114 &734596443327251807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6120589989386761699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1763972704
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 1
-  AutoObjectParentSync: 1

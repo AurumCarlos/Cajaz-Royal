@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
 
-public class Movements : NetworkBehaviour
+public class Movements : MonoBehaviour
 {
 	
 	[SerializeField] private GameObject BulletPrefab;
@@ -11,19 +10,18 @@ public class Movements : NetworkBehaviour
 	[SerializeField] private Transform firing;
 	private float fireRate = 0.5f;
 	
-	private Vector2 mousePos;
+
     [Range(1,100)]
     [SerializeField] public float movementSpeed;
     //public float movementSpeed = 5.0f;
     float speedX, speedY;
     private bool is_seeing_right;
     Rigidbody2D rb2D;
-    //public Camera camera;
+    public Camera camera;
     public Animator animator;
     private string currentanimation;
     private bool is_walking = false;
     private bool is_reversed = false;
-    private bool is_shooting = false;
     
     // Start is called before the first frame update
     void Start()
@@ -34,14 +32,15 @@ public class Movements : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-	    if (!IsOwner) return;
         speedX = Input.GetAxisRaw("Horizontal");
         speedY = Input.GetAxisRaw("Vertical");
+
         
-        //Vector2 mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
-        mousePos = Input.mousePosition;
-        is_seeing_right = mousePos[0] >= (gameObject.transform.position[0]+9)*Screen.width/18;
-		print((is_seeing_right,mousePos[0],(gameObject.transform.position[0]+9)*1920/9));
+        Vector2 mousePos = Input.mousePosition;
+       // Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+       Debug.Log((mousePos[0]/1000*18/3.840,gameObject.transform.position[0] + 9));	
+        is_seeing_right = mousePos[0]/1000*18/3.840 >= gameObject.transform.position[0] + 9;
+		Debug.Log(is_seeing_right);        
 		
         if (speedX == 0 && speedY == 0) {
             //animator.SetBool("is_walking", false);
@@ -64,22 +63,11 @@ public class Movements : NetworkBehaviour
         	}
         }
         checkanimation(is_walking,is_reversed);    
-		
-        if (Input.GetMouseButtonDown(0)){
-	        is_shooting = true;
-	        //fireRate = 0.5f;
-        }if (Input.GetMouseButtonUp(0)){
-	        is_shooting = false;
-	        //fireRate = 0.5f;
-        }
-        
 
-        if (is_shooting && fireRate <= 0)
-        {
+        if (Input.GetMouseButtonDown(0)){
 	        Shoot();
-	        fireRate = 0.2f;
+	        //fireRate = 0.5f;
         }
-        fireRate = fireRate -0.01f;
 
 
 

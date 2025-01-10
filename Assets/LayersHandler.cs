@@ -1,72 +1,46 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LayersHandler : MonoBehaviour
 {
-    private Dictionary<string,GameObject[]> allLayers = new Dictionary<string, GameObject[]>();
+    public GameObject[] equipedLayers = new GameObject[4];
     public GameObject toEquip;
-    public GameObject toUnequip;
-    
-    void Start()
+
+    private static int GetIndexObject(GameObject child)
     {
-        //string debug = "";
-        
-        // loads all layers 
-        GameObject group, layer;
-        for (int i = 0; i < gameObject.transform.childCount; i++) 
+        GameObject parent = child.transform.parent.gameObject;
+        for (int i = 0; i < parent.transform.childCount; i++) 
         {
-            group = gameObject.transform.GetChild(i).gameObject;
-            //debug += group.name + "\n";
-            
-            GameObject[] layers = new GameObject[group.transform.childCount];
-            for (int j = 0; j < group.transform.childCount; j++) 
-            {
-                // debug += " | " + group.transform.GetChild(j).gameObject.name + "\n";
-                layer = group.transform.GetChild(j).gameObject;
-                layer.SetActive(false);
-                layers[j] = layer; 
-            }
-            
-            allLayers.Add(group.name, layers);
+            if (GameObject.ReferenceEquals(parent.transform.GetChild(i), child)) return i;
         }
-        //print(debug);
+
+        return -1;
+    }
+    
+    void equip(GameObject equipement)
+    {
+        GameObject parent = equipement.transform.parent.gameObject;
         
-    }
-
-    void UnequipGroup(GameObject group)
-    {
-        Unequip(group.name);
-    }
-    
-    void Unequip(string groupName)
-    {
-        foreach (GameObject layer in allLayers[groupName]) layer.SetActive(false);
-    }
-    
-    void Equip(GameObject equipement)
-    {
-        // Equipements data
-        string[] inputs = equipement.name.Split('_');
-
-        Unequip(inputs[0]);
-        equipement.SetActive(true);
+        for (int i = 0; i < parent.transform.childCount; i++) 
+        {
+            parent.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        equipedLayers[GetIndexObject(parent)] = equipement;
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (toEquip != null)
+        if (toEquip != null) 
         {
-            Equip(toEquip);
+            equip(toEquip);
             toEquip = null;
         }
-
-        if (toUnequip != null)
+        
+        foreach (GameObject layer in equipedLayers)
         {
-            UnequipGroup(toUnequip);
-            toUnequip = null;
+            layer.SetActive(true);
         }
     }
 }
