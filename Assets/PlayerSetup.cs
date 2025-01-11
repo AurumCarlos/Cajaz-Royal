@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PlayerSetup : MonoBehaviour
+public class PlayerSetup : MonoBehaviourPunCallbacks
 {
-    public Movements movement;   
+    [SerializeField] private  Movements movement;   
+    [SerializeField] private  Playermouv Playermouv;   
     
-    public GameObject camera;
+    [SerializeField] private GameObject camera;
 
     public void IsLocalplayer()
     {
         movement.enabled = true;
+        Playermouv.enabled = true;
         camera.SetActive(true);
     }
 }

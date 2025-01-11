@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class gun : MonoBehaviour
+public class gun : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
     
     private Vector2 mousePos;
     Rigidbody2D rb;
-
+    [SerializeField] private Camera Camera;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

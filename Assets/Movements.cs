@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Movements : MonoBehaviour
+public class Movements : MonoBehaviourPunCallbacks
 {
 	
 	[SerializeField] private GameObject BulletPrefab;
@@ -22,10 +23,13 @@ public class Movements : MonoBehaviour
     private string currentanimation;
     private bool is_walking = false;
     private bool is_reversed = false;
+    private bool is_sprinting = false;
+    private SpriteRenderer sr;
     
     // Start is called before the first frame update
     void Start()
     {
+	    sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
     }
 
@@ -34,35 +38,14 @@ public class Movements : MonoBehaviour
     {
         speedX = Input.GetAxisRaw("Horizontal");
         speedY = Input.GetAxisRaw("Vertical");
+        is_sprinting = Input.GetButton("Sprint");
 
         
-        Vector2 mousePos = Input.mousePosition;
-       // Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-       Debug.Log((mousePos[0]/1000*18/3.840,gameObject.transform.position[0] + 9));	
-        is_seeing_right = mousePos[0]/1000*18/3.840 >= gameObject.transform.position[0] + 9;
-		Debug.Log(is_seeing_right);        
-		
-        if (speedX == 0 && speedY == 0) {
-            //animator.SetBool("is_walking", false);
-            is_walking = false;
-            }
-        else 
-        {
-            //animator.SetBool("is_walking", true);
-            is_walking = true;
-            
-			if (speedX < 0) // Mouvement Gauche
-        	{
-            	if (is_seeing_right) is_reversed = true;//animator.SetBool("is_reversed", true); // Regarde a droite
-                else is_reversed = false; // animator.SetBool("is_reversed", false);
-        	}
-        	else if (speedX > 0) // Mouvement Droite 
-        	{
-            	if (is_seeing_right) is_reversed = false; // animator.SetBool("is_reversed", false);
-            	else is_reversed = true;// animator.SetBool("is_reversed", true);
-        	}
-        }
-        checkanimation(is_walking,is_reversed);    
+        //Vector2 mousePos = Input.mousePosition;
+		Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log((mousePos.x,gameObject.transform.position[0],is_seeing_right));	
+        //is_seeing_right = mousePos[0]/1000*18/3.840 >= gameObject.transform.position[0] + 9;
+	    
 
         if (Input.GetMouseButtonDown(0)){
 	        Shoot();
@@ -72,32 +55,14 @@ public class Movements : MonoBehaviour
 
 
 		// Rotation while looking
-		if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-		else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+		
 
-        rb2D.velocity = new Vector2(speedX, speedY).normalized*movementSpeed;
+
+
+        rb2D.velocity = new Vector2(speedX, speedY).normalized*(is_sprinting ? (float)(movementSpeed * 2) : movementSpeed);
     }
     
-    private void checkanimation(bool w,bool r){
 
-        if (w==true) 
-        {
-            if (is_reversed)changeanimation("reversed_walk");
-            else changeanimation("Walk");
-        }
-        else changeanimation("Idle");
-    }
-	
-
-
-    private void changeanimation (string animation) 
-	{
-	if (currentanimation != animation)
-		{
-		currentanimation = animation;
-		animator.Play(animation);
-		}
-    }
 
     private void Shoot()
     {
