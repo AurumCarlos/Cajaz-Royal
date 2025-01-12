@@ -43,7 +43,7 @@ public class Movements : MonoBehaviourPunCallbacks
         
         //Vector2 mousePos = Input.mousePosition;
 		Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log((mousePos.x,gameObject.transform.position[0],is_seeing_right));	
+        //Debug.Log((mousePos.x,gameObject.transform.position[0],is_seeing_right));	
         //is_seeing_right = mousePos[0]/1000*18/3.840 >= gameObject.transform.position[0] + 9;
 	    
 

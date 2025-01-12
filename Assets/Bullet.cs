@@ -31,7 +31,7 @@ private Rigidbody2D rb;
     }
         private void OnCollisionEnter2D (Collision2D other){
         if (other.gameObject.CompareTag("Player")){
-            if (PlayerHealth == null){
+            if (PlayerHealth == null){ 
                 print("numm"); return;
             }
             PlayerHealth.HealthP -= Damage;

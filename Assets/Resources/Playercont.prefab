@@ -183,6 +183,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4040739405806090275, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
+      propertyPath: t
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040739405806090275, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
+      propertyPath: toEquip
+      value: 
+      objectReference: {fileID: 6256756917377570740}
+    - target: {fileID: 4040739405806090275, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
+      propertyPath: toUnequip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040739405806090275, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
+      propertyPath: childToEquip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040739405806090275, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
+      propertyPath: parentToUnequip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6977079932458730504, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -249,6 +269,11 @@ Animator:
 --- !u!50 &1581965821828047957 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 455702950629617470, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
+  m_PrefabInstance: {fileID: 1416029018372606827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6256756917377570740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5004283857306688735, guid: 9cf8b3ffad830e740875313cf3b2e75f, type: 3}
   m_PrefabInstance: {fileID: 1416029018372606827}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8319608494484033379 stripped
