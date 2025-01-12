@@ -34,7 +34,7 @@ public class Playermouv : MonoBehaviourPunCallbacks
         
         is_sprinting = Input.GetButton("Sprint");
         
-        Debug.Log(gameObject.transform.position);
+        //Debug.Log(gameObject.transform.position);
         
         Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
         

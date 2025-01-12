@@ -519,8 +519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a3d49d7ca8a4c4d92225b36b6d13bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipedLayers: []
-  toEquip: {fileID: 0}
+  childToEquip: {fileID: 0}
+  parentToUnequip: {fileID: 0}
+  t: 4
 --- !u!61 &5422008478971740440
 BoxCollider2D:
   m_ObjectHideFlags: 0
