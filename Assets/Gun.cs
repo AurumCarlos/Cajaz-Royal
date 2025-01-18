@@ -9,7 +9,13 @@ public class gun : MonoBehaviourPunCallbacks
     
     private Vector2 mousePos;
     Rigidbody2D rb;
+    [SerializeField] private GameObject ExploPrefab;
+    [SerializeField] private Transform firing;
     [SerializeField] private Camera Camera;
+    [SerializeField] private float Firerate;
+    [SerializeField] private int damage;
+    private float Fire;
+    //int layerMask = ~LayerMask.GetMask("Ignore Raycast");
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,17 +25,42 @@ public class gun : MonoBehaviourPunCallbacks
     void Update()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
-
         float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x)*Mathf.Rad2Deg -0f;
-
-        
         bool is_seeing_right = mousePos[0] >= gameObject.transform.position[0];
-        // Rotation while looking
-        //if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, angle);
-        //else gameObject.transform.rotation = Quaternion.Euler(0, 180f, angle-180f);
-        
-        
         transform.localRotation = Quaternion.Euler((!is_seeing_right ? 180f : 0f),(!is_seeing_right ? 180f : 0f),(!is_seeing_right ? -angle: angle));
+        
+        if (Fire > 0) Fire -= Time.deltaTime;
+        
+        
+        if (Input.GetMouseButtonDown(0) && Fire<=0){
+            Shoot();
+            Fire = 1/Firerate;
+                
+        }
+        
+        
     }
+    
+    private void Shoot()
+    {
+        Ray ray = new (firing.transform.position, firing.transform.up);
+
+        RaycastHit2D hit;
+        Debug.Log(1);
+        Debug.DrawRay(firing.transform.position, firing.transform.up * 10, Color.red);
+        hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        
+        if (hit.collider != null)
+        {
+            Debug.Log(2);
+            if (hit.transform.gameObject.GetComponent<Health>())
+            {
+                hit.transform.gameObject.GetComponent<PhotonView>().RPC("damage", RpcTarget.All, damage);
+                Debug.Log(3);
+            }
+        }
+        //Instantiate(BulletPrefab,firing.position,firing.rotation);
+        PhotonNetwork.Instantiate(ExploPrefab.name,ray.origin,firing.rotation);
+    }
+    
 }

@@ -51,30 +51,45 @@ public class Playermouv : MonoBehaviourPunCallbacks
             
             if (speedX < 0) // Mouvement Gauche
             {
-                if (is_seeing_right) is_reversed = true;//animator.SetBool("is_reversed", true); // Regarde a droite
-                else is_reversed = false; // animator.SetBool("is_reversed", false);
+                if (is_seeing_right)
+                {
+                    is_reversed = true;
+                    //animator.SetBool("is_reversed", true);
+                } // Regarde a droite
+                else
+                {
+                    is_reversed = false;
+                    //animator.SetBool("is_reversed", false);
+                }
             }
             else if (speedX > 0) // Mouvement Droite 
             {
-                if (is_seeing_right) is_reversed = false; // animator.SetBool("is_reversed", false);
-                else is_reversed = true;// animator.SetBool("is_reversed", true);
+                if (is_seeing_right) {
+                    is_reversed = false;
+                    //animator.SetBool("is_reversed", false);
+                    }
+                else {
+                    is_reversed = true;
+                    //animator.SetBool("is_reversed", true);
+                    }
             }
         }
-        checkanimation(is_walking,is_reversed);   
+        //checkanimation(is_walking,is_reversed);   
         
         
         if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         
-        rb2D.velocity = new Vector2(speedX, speedY).normalized* (is_sprinting ? (float)(movementSpeed * 2) : movementSpeed);
 
+        if (!is_seeing_right)rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal")*-1, Input.GetAxisRaw("Vertical")).normalized * movementSpeed * 0.01f);
+        else rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized*movementSpeed*0.01f);
     }
     
     private void checkanimation(bool w,bool r){
-
-        if (w==true) 
+        Debug.Log("w" + w + "r" + r);
+        if (w) 
         {
-            if (is_reversed)changeanimation("reversed_walk");
+            if (r)changeanimation("reversed_walk");
             else changeanimation("Walk");
         }
         else changeanimation("Idle");

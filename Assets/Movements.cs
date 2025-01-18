@@ -7,29 +7,19 @@ public class Movements : MonoBehaviourPunCallbacks
 {
 	
 	[SerializeField] private GameObject BulletPrefab;
-	[SerializeField] private GameObject ExploPrefab;
-	[SerializeField] private Transform firing;
 	private float fireRate = 0.5f;
-	
+	private bool is_sprinting;
 
     [Range(1,100)]
     [SerializeField] public float movementSpeed;
     //public float movementSpeed = 5.0f;
     float speedX, speedY;
-    private bool is_seeing_right;
     Rigidbody2D rb2D;
     public Camera camera;
-    public Animator animator;
-    private string currentanimation;
-    private bool is_walking = false;
-    private bool is_reversed = false;
-    private bool is_sprinting = false;
-    private SpriteRenderer sr;
     
     // Start is called before the first frame update
     void Start()
     {
-	    sr = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
     }
 
@@ -47,10 +37,7 @@ public class Movements : MonoBehaviourPunCallbacks
         //is_seeing_right = mousePos[0]/1000*18/3.840 >= gameObject.transform.position[0] + 9;
 	    
 
-        if (Input.GetMouseButtonDown(0)){
-	        Shoot();
-	        //fireRate = 0.5f;
-        }
+        
 
 
 
@@ -59,16 +46,20 @@ public class Movements : MonoBehaviourPunCallbacks
 
 
 
-        rb2D.velocity = new Vector2(speedX, speedY).normalized*(is_sprinting ? (float)(movementSpeed * 2) : movementSpeed);
+        //rb2D.velocity = new Vector2(speedX, speedY).normalized*(is_sprinting ? (float)(movementSpeed * 2) : movementSpeed);
+    }
+
+    void FixedUpdate()
+    {
+	    
+	    //rb2D.AddForce(mouvement(movementSpeed).normalized*4, ForceMode2D.Force);
+	    //rb2D.transform.position = new Vector2(rb2D.transform.position.x + (float)0.05*(Input.GetAxisRaw("Horizontal")),(rb2D.transform.position.y + (float)0.05*Input.GetAxisRaw("Vertical")));
+	    //rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal")*0.05f, Input.GetAxisRaw("Vertical")*0.05f));
+		
+	    //rb2D.transform.position = Vector2.SmoothDamp(transform.position,bite.transform.position,ref velocity,0.3f);
     }
     
 
-
-    private void Shoot()
-    {
-	    Instantiate(BulletPrefab,firing.position,firing.rotation);
-	    Instantiate(ExploPrefab,firing.position,firing.rotation);
-    }
     
 }
 
