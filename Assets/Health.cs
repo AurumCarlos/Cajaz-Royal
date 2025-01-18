@@ -1,26 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class Health : MonoBehaviour
 {
+    [Header("UI")]
+    [SerializeField] TextMeshProUGUI healthText;
 
-    public float HealthP = 0; 
-    public float Maxhealth = 100; 
-    public Image HealthBar;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int health;
+
+    private void Start()
     {
-        Maxhealth  = HealthP;
+        //healthText.text = health.ToString();
+    }
+    [PunRPC]
+    public void damage(int damage)
+    {
+        health -= damage;
+        if (health <= 0) Destroy(gameObject);
     }
 
     // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-
-        if (HealthBar == null) return;
-        HealthBar.fillAmount = Mathf.Clamp(HealthP /Maxhealth,0,1);
+        healthText.text = health.ToString(); 
     }
 }

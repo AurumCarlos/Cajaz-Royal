@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class bullet : MonoBehaviour
+using Photon.Pun;
+public class bullet : MonoBehaviourPunCallbacks
 {
 
 [Range(0,100)]
 [SerializeField] private float speed = -10f;
-
 [Range(0,10)]
 [SerializeField] private float lifeTime = 3f;
+
 public Health PlayerHealth;
 public float Damage;
 private Rigidbody2D rb;
@@ -31,12 +31,9 @@ private Rigidbody2D rb;
     }
         private void OnCollisionEnter2D (Collision2D other){
         if (other.gameObject.CompareTag("Player")){
-            if (PlayerHealth == null){ 
-                print("numm"); return;
-            }
-            PlayerHealth.HealthP -= Damage;
+            //PlayerHealth.HealthP -= Damage;
             Destroy(gameObject);
-            //Destroy(other.gameObject);
+            Destroy(other.gameObject);
             
         }
     }
