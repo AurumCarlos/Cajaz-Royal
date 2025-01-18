@@ -81,8 +81,8 @@ public class Playermouv : MonoBehaviourPunCallbacks
         else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         
 
-        if (!is_seeing_right)rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal")*-1, Input.GetAxisRaw("Vertical")).normalized * movementSpeed * 0.01f);
-        else rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized*movementSpeed*0.01f);
+        if (!is_seeing_right)rb2D.transform.Translate(movementSpeed * (!is_sprinting? 0.01f : 0.02f) * new Vector2(Input.GetAxisRaw("Horizontal")*-1, Input.GetAxisRaw("Vertical")).normalized);
+        else rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * (movementSpeed * (!is_sprinting? 0.01f : 0.02f)));
     }
     
     private void checkanimation(bool w,bool r){

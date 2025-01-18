@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6019449248643539174}
-  - component: {fileID: 5327893633737135092}
   - component: {fileID: 998279583879008157}
   - component: {fileID: 960881579352618306}
   - component: {fileID: 5568778952052327683}
@@ -41,21 +40,6 @@ Transform:
   - {fileID: 4353971968712783462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5327893633737135092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356685056636751748}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca1cef7c986fa34d96b3d17dd9bf39c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 6120589989386761699, guid: f00fed1e063435a4b83ac82c6186778d, type: 3}
-  movementSpeed: 2
-  camera: {fileID: 5960360370135834679}
 --- !u!50 &998279583879008157
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1fe2321294e634d8616c9b533224a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 5327893633737135092}
   Playermouv: {fileID: 2330178219649362840}
   camera: {fileID: 8382892144913160937}
   gun: {fileID: 3951990741102458555}
@@ -234,7 +217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 100, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9131940375598803813
@@ -328,7 +311,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -18.026398, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -452,10 +435,26 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 6812851441172992327}
+    - target: {fileID: 988461773140435439, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: playercontGameObject
+      value: 
+      objectReference: {fileID: 3356685056636751748}
     - target: {fileID: 2701865383001193936, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: Camera
       value: 
       objectReference: {fileID: 5960360370135834679}
+    - target: {fileID: 2701865383001193936, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701865383001193936, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: Firerate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701865383001193936, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: BbulletPrefab
+      value: 
+      objectReference: {fileID: 6120589989386761699, guid: f00fed1e063435a4b83ac82c6186778d, type: 3}
     - target: {fileID: 3742713793041654003, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: camera
       value: 

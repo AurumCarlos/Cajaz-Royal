@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private GameObject playercontGameObject;
+    public bool islocalplayer;
     [Header("UI")]
     [SerializeField] TextMeshProUGUI healthText;
 
@@ -22,7 +24,14 @@ public class Health : MonoBehaviour
     public void damage(int damage)
     {
         health -= damage;
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            if (islocalplayer)
+            {
+                 RoomManager.Instance.Spwan();
+            }
+            Destroy(playercontGameObject);
+        }
     }
 
     // Update is called once per frame
