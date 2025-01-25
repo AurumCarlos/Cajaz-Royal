@@ -439,6 +439,14 @@ PrefabInstance:
       propertyPath: playercontGameObject
       value: 
       objectReference: {fileID: 3356685056636751748}
+    - target: {fileID: 1676708121004796258, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676708121004796258, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2701865383001193936, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: Camera
       value: 
