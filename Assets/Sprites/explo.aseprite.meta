@@ -123,16 +123,16 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: explo
     originalName: 
-    pivot: {x: 0.4253731, y: -0.4054054}
+    pivot: {x: 0.57142854, y: -0.54545456}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 134
-      height: 111
-    spriteID: d41fc4d559bd2484dafe90e80f7c8420
+      width: 56
+      height: 88
+    spriteID: ca33ea77c198876488b9f5ab3440b614
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -154,11 +154,11 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 55
-        y: 45
-        width: 134
-        height: 111
-      spriteId: d41fc4d559bd2484dafe90e80f7c8420
+        x: 80
+        y: 48
+        width: 56
+        height: 88
+      spriteId: ca33ea77c198876488b9f5ab3440b614
     linkedCells: []
     parentIndex: -1
   platformSettings:
