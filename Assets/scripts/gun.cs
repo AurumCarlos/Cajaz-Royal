@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
+
 
 public class gun : MonoBehaviourPunCallbacks
 {
@@ -9,9 +11,27 @@ public class gun : MonoBehaviourPunCallbacks
     
     private Vector2 mousePos;
     Rigidbody2D rb;
+    [Header("Munition")]
+    private int Munition;
+    public int CapaciteeChargeur;
     [SerializeField] private GameObject ExploPrefab;
     [SerializeField] private GameObject BbulletPrefab;
+    
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI MunitionsUI;
+    
+    
+    [Header("Animation")]
+    [SerializeField] private Animation animation;
+    [SerializeField] private AnimationClip ReloadAnimation;
+    [SerializeField] private AnimationClip ReculAnimation;
+    
+    
+    
+    
+    [Header("Fire")]
     [SerializeField] private Transform firing;
+    [SerializeField] private Transform firingbul;
     [SerializeField] private Camera Camera;
     [SerializeField] private float Firerate;
     [SerializeField] private int damage;
@@ -19,6 +39,9 @@ public class gun : MonoBehaviourPunCallbacks
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Munition = CapaciteeChargeur;
+        MunitionsUI.text = Munition.ToString() + " / " + CapaciteeChargeur.ToString();
+
     }
 
     // Update is called once per frame
@@ -32,17 +55,32 @@ public class gun : MonoBehaviourPunCallbacks
         if (Fire > 0) Fire -= Time.deltaTime;
         
         
-        if (Input.GetMouseButton(0) && Fire<=0){
+        if (Input.GetMouseButton(0) && Fire<=0 && Munition > 0 && !animation.isPlaying){
             Shoot();
             Fire = 1/Firerate;
-                
+            Munition -= 1;
+            MunitionsUI.text = Munition.ToString() + " / " + CapaciteeChargeur.ToString();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && !animation.isPlaying && Munition != CapaciteeChargeur)
+        {
+            Reload();
         }
         
         
     }
+
+    private void Reload()
+    {
+        animation.Play(ReloadAnimation.name);
+        Munition = CapaciteeChargeur;
+        
+        MunitionsUI.text = Munition.ToString() + " / " + CapaciteeChargeur.ToString();
+    }
     
     private void Shoot()
     {
+
         Ray ray = new (firing.transform.position, firing.transform.up);
 
         RaycastHit2D hit;
@@ -56,8 +94,10 @@ public class gun : MonoBehaviourPunCallbacks
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC("damage", RpcTarget.All, damage);
             }
         }
-        PhotonNetwork.Instantiate(BbulletPrefab.name,firing.position,firing.rotation);
+        PhotonNetwork.Instantiate(BbulletPrefab.name,firingbul.position,firingbul.rotation);
         PhotonNetwork.Instantiate(ExploPrefab.name,ray.origin,firing.rotation);
+        
+        //animation.Play(ReculAnimation.name);
     }
     
 }
