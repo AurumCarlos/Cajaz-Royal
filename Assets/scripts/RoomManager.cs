@@ -11,18 +11,39 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public static RoomManager Instance;
     public GameObject player;
     [Space]
-    public Transform SpawnPoint;
+    [SerializeField] private Transform SpawnPoint;
     [SerializeField] private GameObject camera;
-    // Start is called before the first frame update
-    
+    [SerializeField] private GameObject UIname;
+    [SerializeField] private GameObject UIconnecting;
+    private string Nick;
     private void Awake()
     {
         Instance = this;
     }
+    
+    
+
+
+    public void changenick(string nick)
+    {
+        Nick = nick;
+    }
+
+    public void joinbuton()
+    {
+
+        PhotonNetwork.ConnectUsingSettings();
+
+        UIname.SetActive(false);
+        UIconnecting.SetActive(true);
+
+        
+        //Spwan();
+    }
     void Start()
     {
         Debug.Log("Connection...");
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
     }
 
     public override void OnConnectedToMaster()
@@ -55,9 +76,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         GameObject _player = PhotonNetwork.Instantiate(player.name, SpawnPoint.position, Quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalplayer();
-
+        _player.GetComponent<PhotonView>().RPC("setnick", RpcTarget.AllBuffered, Nick);
 
     }
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
