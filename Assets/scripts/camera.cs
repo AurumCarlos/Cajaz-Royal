@@ -8,6 +8,8 @@ public class camera : MonoBehaviourPunCallbacks
     private Vector2 velocity = Vector2.zero;
     [SerializeField] private GameObject bite;
     Rigidbody2D rb2D;
+    private bool is_sprinting = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,7 @@ public class camera : MonoBehaviourPunCallbacks
         Vector3 desiredPosition = bite.transform.position + new Vector3(0, 0, -10);
         Vector3 smoothFollow = Vector3.Lerp(transform.position, desiredPosition, 0.1f);
         transform.position = smoothFollow;
-        //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * 0.06f , Input.GetAxisRaw("Vertical") * 0.06f));
+        //transform.Translate(2f *  (!is_sprinting? 0.01f : 0.02f) * new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized);
 
     }
 }

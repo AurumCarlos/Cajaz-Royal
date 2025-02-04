@@ -27,7 +27,7 @@ public class Playermouv : MonoBehaviourPunCallbacks
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         speedX = Input.GetAxisRaw("Horizontal");
         speedY = Input.GetAxisRaw("Vertical");
@@ -41,12 +41,12 @@ public class Playermouv : MonoBehaviourPunCallbacks
         is_seeing_right = mousePos.x > gameObject.transform.position[0];
 		
         if (speedX == 0 && speedY == 0) {
-            //animator.SetBool("is_walking", false);
+            animator.SetBool("is_walking", false);
             is_walking = false;
         }
         else 
         {
-            //animator.SetBool("is_walking", true);
+            animator.SetBool("is_walking", true);
             is_walking = true;
             
             if (speedX < 0) // Mouvement Gauche
@@ -54,24 +54,24 @@ public class Playermouv : MonoBehaviourPunCallbacks
                 if (is_seeing_right)
                 {
                     is_reversed = true;
-                    //animator.SetBool("is_reversed", true);
+                    animator.SetBool("is_reversed", true);
                 } // Regarde a droite
                 else
                 {
                     is_reversed = false;
-                    //animator.SetBool("is_reversed", false);
+                    animator.SetBool("is_reversed", false);
                 }
             }
             else if (speedX > 0) // Mouvement Droite 
             {
                 if (is_seeing_right) {
                     is_reversed = false;
-                    //animator.SetBool("is_reversed", false);
-                    }
+                    animator.SetBool("is_reversed", false);
+                }
                 else {
                     is_reversed = true;
-                    //animator.SetBool("is_reversed", true);
-                    }
+                    animator.SetBool("is_reversed", true);
+                }
             }
         }
         //checkanimation(is_walking,is_reversed);   
@@ -81,8 +81,8 @@ public class Playermouv : MonoBehaviourPunCallbacks
         else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         
 
-        if (!is_seeing_right)rb2D.transform.Translate(movementSpeed * (!is_sprinting? 0.01f : 0.02f) * new Vector2(Input.GetAxisRaw("Horizontal")*-1, Input.GetAxisRaw("Vertical")).normalized);
-        else rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * (movementSpeed * (!is_sprinting? 0.01f : 0.02f)));
+        if (!is_seeing_right)rb2D.transform.Translate(movementSpeed *  (!is_sprinting? 0.01f : 0.02f) * new Vector2(Input.GetAxisRaw("Horizontal")*-1, Input.GetAxisRaw("Vertical")).normalized);
+        else rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * ( (movementSpeed * (!is_sprinting? 0.01f : 0.02f))));
     }
     
     private void checkanimation(bool w,bool r){
