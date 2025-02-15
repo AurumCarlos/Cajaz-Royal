@@ -1279,7 +1279,7 @@ PrefabInstance:
       objectReference: {fileID: 5960360370135834679}
     - target: {fileID: 3742713793041654003, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: movementSpeed
-      value: 24.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4040739405806090275, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: childToEquip
@@ -1291,11 +1291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5422008478971740440, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: m_Size.y
-      value: 0.942954
+      value: 0.75393534
       objectReference: {fileID: 0}
     - target: {fileID: 5422008478971740440, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: m_Offset.y
-      value: 0.46845713
+      value: 0.3739478
       objectReference: {fileID: 0}
     - target: {fileID: 6504726167589896587, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: m_SynchronizeParameters.Array.size
@@ -1316,6 +1316,18 @@ PrefabInstance:
     - target: {fileID: 6504726167589896587, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[1].Type
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977079932458730504, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977079932458730504, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6977079932458730504, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6977079932458730504, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1514,6 +1526,10 @@ PrefabInstance:
     - target: {fileID: 5627188637488947839, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627188637488947839, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
+      propertyPath: orthographic size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7563441053761640609, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
       propertyPath: m_Name
