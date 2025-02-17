@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = System.Random;
 
-public class WalkerGenerator : MonoBehaviour
+public class WalkerGenerator : MonoBehaviourPunCallbacks
 {
     public enum Grid
     {
@@ -17,46 +19,45 @@ public class WalkerGenerator : MonoBehaviour
         EMPTY
     }
 
-    [SerializeField] private int seed;
+    [SerializeField] private int Seed;
     private Random random;
     public Grid[,] gridHandler;
     public List<WalkerObject> Walkers;
     public Tilemap tileMap;
     public Tilemap tileMapcoll;
-    public Tile Floor;
-    public Tile Floor2;
-    public Tile Wall;
-    public Tile Street;
+    [SerializeField] private List<Tile> Tiles;
     public int MapWidth = 30;
     public int MapHeight = 30;
 
     public int MaximumWalkers = 10;
-    public int TileCount = default;
+    private int TileCount;
+    private int RoadCount;
     public float FillPercentage = 0.4f;
 
     void Start()
     {
-        if (seed == 0) seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
-        random = new Random(seed);
-        InitializeGrid();
+        if (Seed == 0) Seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
+        random = new Random(Seed);
+        InitializeGrid(Seed);
+        
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
-            TileCount = 0;
-            seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%100000);
-            random = new Random(seed);
-            InitializeGrid();
+            Seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
+            photonView.RPC("InitializeGrid", RpcTarget.AllBuffered, Seed);
         }
         
     }
-
-    void InitializeGrid()
+    [PunRPC]
+    void InitializeGrid(int seed)
     {
-        Debug.Log("reset");
+        random = new Random(seed);
 
+        TileCount = 0;
+        RoadCount = 0;
         gridHandler = new Grid[MapWidth, MapHeight];
 
         for (int x = 0; x < gridHandler.GetLength(0); x++)
@@ -73,15 +74,23 @@ public class WalkerGenerator : MonoBehaviour
 
         Vector3Int TileCenter = new Vector3Int(gridHandler.GetLength(0) / 2, gridHandler.GetLength(1) / 2, 0);
 
-        WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x, TileCenter.y), GetDirection(), 0.5f,0);
+        WalkerObject curWalker = new WalkerObject(new Vector2(TileCenter.x,TileCenter.y), GetDirection(), 0.6f,0);
         gridHandler[TileCenter.x, TileCenter.y] = Grid.FLOOR;
-        tileMap.SetTile(TileCenter, Floor);
+        tileMap.SetTile(TileCenter, Tiles[0]);
         Walkers.Add(curWalker);
 
         TileCount++;
 
-        //StartCoroutine(CreateFloors());
-        CreateFloors();
+        StartCoroutine(CreateFloors());
+        Clean();
+        Walkers = new List<WalkerObject>();
+        gridHandler[TileCenter.x, TileCenter.y] = Grid.STREET;
+        tileMap.SetTile(TileCenter, Tiles[2]);
+        curWalker.ChanceToChange = 0.03f;
+        curWalker.Type = 2;
+        Walkers.Add(curWalker);
+        CreateRoads();
+        CreateWalls();
     }
 
     Vector2 GetDirection()
@@ -102,7 +111,7 @@ public class WalkerGenerator : MonoBehaviour
         }
     }
 
-    public void CreateFloors()
+    public IEnumerator CreateFloors()
     {
         while ((float)TileCount / (float)gridHandler.Length < FillPercentage)
         {
@@ -110,19 +119,12 @@ public class WalkerGenerator : MonoBehaviour
             {
                 Vector3Int curPos = new Vector3Int((int)curWalker.Position.x, (int)curWalker.Position.y, 0);
 
-                if (gridHandler[curPos.x, curPos.y] != Grid.FLOOR && gridHandler[curPos.x, curPos.y] != Grid.STREET)
+                if (gridHandler[curPos.x, curPos.y] != Grid.FLOOR)
                 {
+                    if(random.Next(3) == 0) tileMap.SetTile(curPos, Tiles[0]);
+                    else tileMap.SetTile(curPos, Tiles[4]);
                     TileCount++;
-                    if (curWalker.Type == 0)
-                    {
-                        tileMap.SetTile(curPos, Floor);
-                        gridHandler[curPos.x, curPos.y] = Grid.FLOOR;
-                    }
-                    else
-                    {
-                        tileMap.SetTile(curPos, Street);
-                        gridHandler[curPos.x, curPos.y] = Grid.STREET;
-                    }
+                    gridHandler[curPos.x, curPos.y] = Grid.FLOOR;
                 }
             }
 
@@ -131,18 +133,13 @@ public class WalkerGenerator : MonoBehaviour
             ChanceToRedirect();
             ChanceToCreate();
             UpdatePosition();
-
-            //if (hasCreatedFloor)
-            //{
-            //    yield return new WaitForSeconds(WaitTime);
-            //}
+            
         }
-        Debug.Log("reset");
 
-        //StartCoroutine(CreateWalls());
-        Clean();
-        //Road();
-        CreateWalls();
+        if (false)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     void ChanceToRemove()
@@ -177,15 +174,15 @@ public class WalkerGenerator : MonoBehaviour
         int updatedCount = Walkers.Count;
         for (int i = 0; i < updatedCount; i++)
         {
-            if (random.Next(0,100) < Walkers[i].ChanceToChange * 100 && Walkers.Count < MaximumWalkers)
+            if (random.Next(0,100) * Walkers.Count / MaximumWalkers < Walkers[i].ChanceToChange * 100 && Walkers.Count < MaximumWalkers)
             {
                 Vector2 newDirection = GetDirection();
                 Vector2 newPosition = Walkers[i].Position;
-                WalkerObject newWalker = new WalkerObject(newPosition, newDirection, 0.5f,0);
-                if (random.Next(0, 100) == 0)
+                WalkerObject newWalker = new WalkerObject(newPosition, newDirection, 0.6f,0);
+                if (Walkers[i].Type == 2)
                 {
-                    newWalker.Type = 1;
-                    newWalker.ChanceToChange = 0.5f;
+                    newWalker.Type = 2;
+                    newWalker.ChanceToChange = 0.02f;
                 } 
                 Walkers.Add(newWalker);
             }
@@ -193,9 +190,11 @@ public class WalkerGenerator : MonoBehaviour
     }
 
     void UpdatePosition()
-    {
+    {          
+        //Debug.Log("t");
         for (int i = 0; i < Walkers.Count; i++)
         {
+
             WalkerObject FoundWalker = Walkers[i];
             FoundWalker.Position += FoundWalker.Direction;
             FoundWalker.Position.x = Mathf.Clamp(FoundWalker.Position.x, 2, gridHandler.GetLength(0) - 3);
@@ -205,30 +204,30 @@ public class WalkerGenerator : MonoBehaviour
     }
     public void  Clean()
     {
-        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        for (int x = 1; x < gridHandler.GetLength(0) - 1; x++)
         {
-            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            for (int y = 1; y < gridHandler.GetLength(1) - 1; y++)
             {
                 if (gridHandler[x, y] == Grid.FLOOR)
                 {
                     if (gridHandler[x + 1, y] == Grid.EMPTY)
                     {
-                        tileMap.SetTile(new Vector3Int(x + 1, y, 0), Floor2);
+                        tileMap.SetTile(new Vector3Int(x + 1, y, 0), Tiles[0]);
                         gridHandler[x + 1, y] = Grid.FLOOR2;
                     }
                     if (gridHandler[x - 1, y] == Grid.EMPTY)
                     {
-                        tileMap.SetTile(new Vector3Int(x - 1, y, 0), Floor2);
+                        tileMap.SetTile(new Vector3Int(x - 1, y, 0), Tiles[0]);
                         gridHandler[x - 1, y] = Grid.FLOOR2;
                     }
                     if (gridHandler[x, y + 1] == Grid.EMPTY)
                     {
-                        tileMap.SetTile(new Vector3Int(x, y + 1, 0), Floor2);
+                        tileMap.SetTile(new Vector3Int(x, y + 1, 0), Tiles[0]);
                         gridHandler[x, y + 1] = Grid.FLOOR2;
                     }
                     if (gridHandler[x, y - 1] == Grid.EMPTY)
                     {
-                        tileMap.SetTile(new Vector3Int(x, y - 1, 0), Floor2);
+                        tileMap.SetTile(new Vector3Int(x, y - 1, 0), Tiles[0]);
                         gridHandler[x, y - 1] = Grid.FLOOR2;
                     }
                     
@@ -237,33 +236,36 @@ public class WalkerGenerator : MonoBehaviour
         }
     }
 
-    public void Road()
+    public void CreateRoads()
     {
-        for (int x = 0; x < gridHandler.GetLength(0) - 1; x++)
+        while ((float)10 * RoadCount / (float)gridHandler.Length < FillPercentage && Walkers.Count > 0)
         {
-            for (int y = 0; y < gridHandler.GetLength(1) - 1; y++)
+            for (int i = 0; i < Walkers.Count; i++)
             {
-                if (gridHandler[x, y] == Grid.STREET)
+                WalkerObject curWalker = Walkers[i];
+                Vector3Int curPos = new Vector3Int((int)curWalker.Position.x, (int)curWalker.Position.y, 0);
+                if (gridHandler[curPos.x, curPos.y] == Grid.EMPTY) Walkers.RemoveAt(i);
+                else
                 {
-                    tileMap.SetTile(new Vector3Int(x + 1, y, 0), Street);
-                    gridHandler[x + 1, y] = Grid.STREET2;
-                    tileMap.SetTile(new Vector3Int(x - 1, y, 0), Street);
-                    gridHandler[x - 1, y] = Grid.STREET2;
-                    tileMap.SetTile(new Vector3Int(x, y + 1, 0), Street);
-                    gridHandler[x, y + 1] = Grid.STREET2;
-                    tileMap.SetTile(new Vector3Int(x, y - 1, 0), Street);
-                    gridHandler[x, y - 1] = Grid.STREET2;
+                    if (gridHandler[curPos.x, curPos.y] != Grid.STREET)
+                    {
+                        RoadCount++;
+                        tileMap.SetTile(curPos, Tiles[2]);
+                        gridHandler[curPos.x, curPos.y] = Grid.STREET;
+                    }
                     
-                    tileMap.SetTile(new Vector3Int(x + 1, y + 1, 0), Street);
-                    gridHandler[x + 1, y + 1] = Grid.STREET2;
-                    tileMap.SetTile(new Vector3Int(x - 1, y + 1, 0), Street);
-                    gridHandler[x - 1, y + 1] = Grid.STREET2;
-                    tileMap.SetTile(new Vector3Int(x + 1, y - 1, 0), Street);
-                    gridHandler[x + 1, y - 1] = Grid.STREET2;
-                    tileMap.SetTile(new Vector3Int(x - 1, y - 1, 0), Street);
-                    gridHandler[x - 1, y - 1] = Grid.STREET2;
                 }
+                
             }
+
+            
+            
+            //Walker Methods
+            ChanceToRemove();
+            ChanceToRedirect();
+            ChanceToCreate();
+            UpdatePosition();
+            
         }
     }
 
@@ -277,22 +279,22 @@ public class WalkerGenerator : MonoBehaviour
                 {
                     if (gridHandler[x + 1, y] == Grid.EMPTY)
                     {
-                        tileMapcoll.SetTile(new Vector3Int(x + 1, y, 0), Wall);
+                        tileMapcoll.SetTile(new Vector3Int(x + 1, y, 0), Tiles[1]);
                         gridHandler[x + 1, y] = Grid.WALL;
                     }
                     if (gridHandler[x - 1, y] == Grid.EMPTY)
                     {
-                        tileMapcoll.SetTile(new Vector3Int(x - 1, y, 0), Wall);
+                        tileMapcoll.SetTile(new Vector3Int(x - 1, y, 0), Tiles[1]);
                         gridHandler[x - 1, y] = Grid.WALL;
                     }
                     if (gridHandler[x, y + 1] == Grid.EMPTY)
                     {
-                        tileMapcoll.SetTile(new Vector3Int(x, y + 1, 0), Wall);
+                        tileMapcoll.SetTile(new Vector3Int(x, y + 1, 0), Tiles[1]);
                         gridHandler[x, y + 1] = Grid.WALL;
                     }
                     if (gridHandler[x, y - 1] == Grid.EMPTY)
                     {
-                        tileMapcoll.SetTile(new Vector3Int(x, y - 1, 0), Wall);
+                        tileMapcoll.SetTile(new Vector3Int(x, y - 1, 0), Tiles[1]);
                         gridHandler[x, y - 1] = Grid.WALL;
                     }
                     
@@ -300,5 +302,7 @@ public class WalkerGenerator : MonoBehaviour
             }
         }
     }
+
+
 
 }

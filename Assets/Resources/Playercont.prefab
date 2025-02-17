@@ -403,6 +403,7 @@ MonoBehaviour:
   observableSearch: 0
   ObservedComponents:
   - {fileID: 5568778952052327683}
+  - {fileID: 5568778952052327683}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -654,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9155735260282400850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1273,13 +1274,17 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3702789090197367895, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 1037763512660944830}
     - target: {fileID: 3742713793041654003, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 5960360370135834679}
     - target: {fileID: 3742713793041654003, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: movementSpeed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4040739405806090275, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: childToEquip
@@ -1373,7 +1378,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6504726167589896587, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
     m_RemovedGameObjects:
     - {fileID: 675080047093554727, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
     - {fileID: 1869796178919440811, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
@@ -1396,6 +1402,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8002660005406575691}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7871847623453453421, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1037763512660944830}
     - targetCorrespondingSourceObject: {fileID: 6000239832460087433, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 854380959361572746}
@@ -1475,6 +1484,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7871847623453453421, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
   m_PrefabInstance: {fileID: 1416029018372606827}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1037763512660944830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122275615654586118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: is_walking
+  - Type: 4
+    SynchronizeType: 0
+    Name: is_reversed
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1001 &2062858004946453064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1529,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5627188637488947839, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7563441053761640609, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
       propertyPath: m_Name

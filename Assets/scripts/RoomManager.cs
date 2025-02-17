@@ -15,6 +15,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject UIname;
     [SerializeField] private GameObject UIconnecting;
+    [SerializeField] private GameObject Map;
     private string Nick;
     private void Awake()
     {
@@ -77,7 +78,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         GameObject _player = PhotonNetwork.Instantiate(player.name, SpawnPoint.position, Quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalplayer();
         _player.GetComponent<PhotonView>().RPC("setnick", RpcTarget.AllBuffered, Nick);
-
+        int Seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
+        Map.GetComponent<PhotonView>().RPC("InitializeGrid", RpcTarget.AllBuffered, Seed);
     }
     
     
