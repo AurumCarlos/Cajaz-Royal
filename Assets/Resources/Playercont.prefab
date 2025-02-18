@@ -298,7 +298,6 @@ GameObject:
   - component: {fileID: 5568778952052327683}
   - component: {fileID: 6775054848410302178}
   - component: {fileID: 3307604796265698772}
-  - component: {fileID: 4666722599860714855}
   m_Layer: 0
   m_Name: Playercont
   m_TagString: Player
@@ -424,51 +423,6 @@ MonoBehaviour:
   gun: {fileID: 3951990741102458555}
   health: {fileID: 2166519892674095748}
   Nickname: {fileID: 6231109326416528982}
---- !u!61 &4666722599860714855
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356685056636751748}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.45}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &4621786079498078120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1238,7 @@ PrefabInstance:
       objectReference: {fileID: 5960360370135834679}
     - target: {fileID: 3742713793041654003, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: movementSpeed
-      value: 4
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4040739405806090275, guid: fd0afd5608583a64882a7ce5f95648f7, type: 3}
       propertyPath: childToEquip
@@ -1562,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5627188637488947839, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
       propertyPath: orthographic size
-      value: 3
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7563441053761640609, guid: 9373bdc4576a48348bd9a41a5d4275c6, type: 3}
       propertyPath: m_Name
