@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.Linq;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class SettingsMenu : MonoBehaviour
 
     public void Start()
     {
-        resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions
+            .Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct()
+            .ToArray();
         resolutionDropdown.ClearOptions();
 
         List<string> options = new List<string>();
@@ -32,6 +35,8 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        
+        Screen.fullScreen = true;
     }
 
     public void SetVolume(float volume)
