@@ -16,6 +16,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject UIname;
     [SerializeField] private GameObject UIconnecting;
     [SerializeField] private GameObject Map;
+    private WalkerGenerator m;
     private string Nick;
     private void Awake()
     {
@@ -80,6 +81,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         _player.GetComponent<PhotonView>().RPC("setnick", RpcTarget.AllBuffered, Nick);
         int Seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
         Map.GetComponent<PhotonView>().RPC("InitializeGrid", RpcTarget.AllBuffered, Seed);
+        
     }
     
     
