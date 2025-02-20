@@ -31,7 +31,6 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public void setnick(string nick)
     {
         Nick = nick;
-        
         Nickname.text = Nick;
     }
 }
