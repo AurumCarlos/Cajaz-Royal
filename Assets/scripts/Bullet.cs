@@ -23,7 +23,7 @@ public class bullet : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.up *speed;
+        rb.linearVelocity = transform.up *speed;
     }
     private void OnCollisionEnter2D (Collision2D other)
     {

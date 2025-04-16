@@ -5,9 +5,17 @@ public class MainMenu : MonoBehaviour
     public string levelToLoad;
     public GameObject settingsWindow;
     
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleSettingsWindow();
+        }
+    }
+    
    public void StartGame()
    {
-       SceneManager.LoadScene(levelToLoad);
+       SceneManager.LoadSceneAsync(levelToLoad);
    }
    public void SettingsButton()
    {
@@ -22,5 +30,9 @@ public class MainMenu : MonoBehaviour
    public void QuitGame()
    {
          Application.Quit();
+   }
+   private void ToggleSettingsWindow()
+   {
+       settingsWindow.SetActive(!settingsWindow.activeSelf);
    }
 }
