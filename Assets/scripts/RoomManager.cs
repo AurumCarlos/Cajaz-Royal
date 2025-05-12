@@ -80,7 +80,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         _player.GetComponent<PlayerSetup>().IsLocalplayer();
         _player.GetComponent<PhotonView>().RPC("setnick", RpcTarget.AllBuffered, Nick);
         int Seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
-        Map.GetComponent<PhotonView>().RPC("InitializeGrid", RpcTarget.AllBuffered, Seed);
+        //Map.GetComponent<PhotonView>().RPC("InitializeGrid", RpcTarget.AllBuffered, Seed);
         
     }
     

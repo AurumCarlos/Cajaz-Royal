@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Photon.Pun;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
@@ -21,24 +22,27 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         Empty
     }
 
-    [SerializeField] private int seed;
+    private int seed = 0;
     private Random _random;
     private Grid[,] _gridHandler;
     private Grid[,] _gridHandlercoll;
     private bool[][] _forest;
     private bool[][] _fire;
+    private bool[][] _city;
+    private bool[][] Roads;
 
     private List<WalkerObject> _walkers;
     [SerializeField] private Tilemap tileMap;
     [SerializeField] private Tilemap tileMapcoll;
     [SerializeField] private List<Tile> tiles;
-    private int mapWidth = 100;
-    private int mapHeight = 100;
+    private int mapWidth = 300;
+    private int mapHeight = 300;
     private int maximumWalkers = 20;
     private int _tileCount;
     private float fillPercentage = 0.2f;
-
     private Vector2Int p;
+
+    [SerializeField] private int RoadDensity;
 
     public WalkerGenerator(List<WalkerObject> walkers)
     {
@@ -51,26 +55,27 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         mapHeight = 300;
         maximumWalkers = 20;
         fillPercentage = 0.2f;
-        if (seed == 0) seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
         InitializeGrid(seed);
-        displayperlin();
-        placetree();
-        
+        seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            seed = 0;
-            //photonView.RPC("InitializeGrid", RpcTarget.AllBuffered, seed);
-            Start();
+            photonView.RPC("InitializeGrid", RpcTarget.AllBuffered, (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000));
+            //Start();
         }
         
     }
     [PunRPC]
     void InitializeGrid(int randomseed)
     {
+        Roads = new bool[mapHeight / 3][];
+        for (int i = 0; i < mapHeight / 3; i++)
+        {
+            Roads[i] = new bool[mapWidth / 3];
+        }
         _random = new Random(randomseed);
 
         _tileCount = 0;
@@ -80,7 +85,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         {
             for (int y = 0; y < _gridHandler.GetLength(1); y++)
             {
-                tileMap.SetTile(new Vector3Int(x, y, 0), null);
+                tileMap.SetTile(new Vector3Int(x, y, 0), tiles[1]);
                 tileMapcoll.SetTile(new Vector3Int(x, y, 0), null);
                 _gridHandler[x, y] = Grid.Empty;
                 _gridHandlercoll[x, y] = Grid.Empty;
@@ -91,7 +96,6 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
         Vector3Int tileCenter = new Vector3Int(_gridHandler.GetLength(0) / 2, _gridHandler.GetLength(1) / 2, 0);
         WalkerObject curWalker = new WalkerObject(new Vector2(tileCenter.x,tileCenter.y), GetDirection(), 0.6f,0);
-        Debug.unityLogger.Log(tileCenter);
         _gridHandler[tileCenter.x, tileCenter.y] = Grid.Floor;
         tileMap.SetTile(tileCenter, tiles[0]);
         _walkers.Add(curWalker);
@@ -102,12 +106,26 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         Clean();
         _walkers = new List<WalkerObject>();
         _gridHandler[tileCenter.x, tileCenter.y] = Grid.Street;
-        tileMap.SetTile(tileCenter, tiles[2]);
         curWalker.ChanceToChange = 0.03f;
         curWalker.Type = 2;
         curWalker.Size = new Vector2(_random.Next(10, 30), _random.Next(10, 30));
         _walkers.Add(curWalker);
-        CreateRoads();
+        displayperlin();
+        placetree();
+        //CreateRoads();
+        Tree t = new Tree(mapHeight / 3, mapWidth / 3,  mapHeight / 3,  mapWidth / 3);
+        t.couper(true, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight,mapWidth);
+        for (int i = 0; i < 100; i++)
+        {
+            for (int j = 0; j < 100; j++)
+            {
+                if (Roads[i][j])
+                {
+                    tileMap.SetTile(new Vector3Int(mapHeight / 3 + i,mapWidth / 3 + j, 0), tiles[2]);
+                    _gridHandler[i,j] = Grid.Street;
+                }
+            }
+        }
         CreateWalls();
     }
 
@@ -199,7 +217,6 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
     void UpdatePosition()
     {          
-        //Debug.Log("t");
         for (int i = 0; i < _walkers.Count; i++)
         {
 
@@ -244,10 +261,6 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         }
     }
 
-    public void CreateRoads()
-    {
-        for (int x = 60; x < mapHeight; x+=60) placeroad(x);
-    }
 
     public void  CreateWalls()
     {
@@ -282,106 +295,34 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
             }
         }
     }
-
-    public int yildiz;
-
-    private void placeroad(int s)
-    {
-        p = new Vector2Int(0, s);
-        int y = mapWidth;
-        for (int i = 0; i < yildiz; i++)
-        {
-            Vector2Int temp = new Vector2Int(_random.Next(10,30), _random.Next(10,30));
-            placesquare(temp,p);
-            p.x += temp.x;
-        }
-        p = new Vector2Int(0,s- 1);
-        for (int i = 0; i < yildiz ;i++)
-        {
-            Vector2Int temp = new Vector2Int(_random.Next(10,30), _random.Next(10,30));
-            placesquare(temp,new Vector2Int(p.x,p.y-temp.y));
-            p.x += temp.x;
-        }
-    }
-    private void placesquare(Vector2 Size, Vector2Int start)
-    {
-        Console.WriteLine("c");
-        Vector2Int temp = p;
-        p = start;
-        p = new Vector2Int(p.x + 1, p.y);
-        for (int i = p.x; i < p.x + Size.x; i++)
-        {
-            for (int j = p.y; j < p.y + Size.y; j++)
-            {
-                if (i < 3 || j < 3 || j > mapWidth - 1  || i > mapHeight - 1 )
-                {
-                    p = temp;
-                    return;
-                }
-                if (_gridHandler[i, j] == Grid.Empty)
-                {
-                    p = temp;
-                    return;
-                }
-                
-            }
-        }
-        
-        for (int j = 0; j < Size.x; j++)
-        {
-            placeif(true || _gridHandler[p.x, p.y] == Grid.Floor || _gridHandler[p.x, p.y] == Grid.Floor2, p.x, p.y,3);
-            p.x += 1;
-        }
-
-        for (int j = 0; j < Size.y; j++)
-        {
-            placeif(_gridHandler[p.x, p.y] == Grid.Floor|| _gridHandler[p.x, p.y] == Grid.Floor2, p.x, p.y,2);
-            p.y += 1;
-        }
-
-        for (int j = 0; j < Size.x; j++)
-        {
-            placeif(_gridHandler[p.x, p.y] == Grid.Floor|| _gridHandler[p.x, p.y] == Grid.Floor2, p.x, p.y,3);
-            p.x -= 1;
-        }
-
-        for (int j = 0; j < Size.y; j++)
-        {
-            placeif(_gridHandler[p.x, p.y] == Grid.Floor|| _gridHandler[p.x, p.y] == Grid.Floor2, p.x, p.y,2);
-            p.y -= 1;
-        }
-        p = temp;
-    }
-
-    private void placeif(bool canPlace, int x, int y, int tile)
-    {
-        if (canPlace)
-        {
-            tileMap.SetTile(new Vector3Int(x, y, 0), tiles[tile]);
-            _gridHandler[x, y] = Grid.Street;
-        }
-    }
+    
 
     private void placetree()
     {
-        for (int y = 0; y < mapHeight; y+=4)
+        for (int y = mapHeight; y > 0; y-=4)
         {
-            for (int x = 0; x < mapWidth; x+=_random.Next(3,7))
+            for (int x = 0; x < mapWidth; x += _random.Next(3, 7))
             {
-                int t = y + _random.Next(-1, 2);
-                if (t < 0 || t > mapHeight - 1) t = y;
-                else if (!_fire[x][t] && (_forest[x][t] || _random.Next(0, 10) == 0) &&
-                    (_gridHandler[x, t] == Grid.Floor2 || _gridHandler[x, t] == Grid.Floor && _random.Next(0, 10) < 10))
+                if (!(y > mapHeight / 3 && y < 2 * mapHeight / 3 && x >  mapWidth / 3 && x < 2 * mapWidth / 3))
                 {
-                    tileMapcoll.SetTile(new Vector3Int(x, t + 1*_random.Next(-1, 2), 0), tiles[5]);
-                    _gridHandlercoll[x, t] = Grid.Object;
-                }
-                t = y + _random.Next(-1, 2);
-                if (t < 0 || t > mapHeight - 1) t = y;
-                else if (_fire[x][t] && (_gridHandler[x, t] == Grid.Floor2 || _gridHandler[x, t] == Grid.Floor)&& _random.Next(0, 10) < 5)
-                {
-                    tileMapcoll.SetTile(new Vector3Int(x, t + 0*_random.Next(-1, 2), 0), tiles[6]);
-                    _gridHandlercoll[x, t] = Grid.Object;
+                    int t = y + _random.Next(-1, 2);
+                    if (t < 0 || t > mapHeight - 1) t = y;
+                    else if (!_fire[x][t] && (_forest[x][t] || _random.Next(0, 10) == 0) &&
+                             (_gridHandler[x, t] == Grid.Floor2 ||
+                              _gridHandler[x, t] == Grid.Floor && _random.Next(0, 15) < 10))
+                    {
+                        tileMapcoll.SetTile(new Vector3Int(x, t + 1 * _random.Next(-1, 2), 0), tiles[5]);
+                        _gridHandlercoll[x, t] = Grid.Object;
+                    }
+
+                    t = y + _random.Next(-1, 2);
+                    if (t < 0 || t > mapHeight - 1) t = y;
+                    else if (_fire[x][t] && (_gridHandler[x, t] == Grid.Floor2 || _gridHandler[x, t] == Grid.Floor) &&
+                             _random.Next(0, 27) < 5)
+                    {
+                        tileMapcoll.SetTile(new Vector3Int(x, t +  _random.Next(-1, 2), 0), tiles[6]);
+                        _gridHandlercoll[x, t] = Grid.Object;
+                    }
                 }
             }
         }
@@ -412,6 +353,12 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                 float sampleY = y / scale7;
                 
                 _forest[x][y] = Mathf.PerlinNoise(sampleX + of, sampleY +  of1) < 0.45;
+                
+                
+                //float temp = Mathf.PerlinNoise(sampleX + of, sampleY + of1);
+                //temp *=  math.pow(math.clamp(100 / (math.sqrt(math.pow(x - 150, 2) + math.pow(y - 150, 2))),0,1),2);
+                //tileMap.SetTile(new Vector3Int(x + mapWidth, y, 0), tiles[ temp > 1.5? 4 : temp>1? 2 : temp > 0.5 ? 0 : 1]);
+                
                 _fire[x][y] = Mathf.PerlinNoise(sampleX + of2, sampleY +  of21) < 0.3;
                 //tileMap.SetTile(new Vector3Int(x + mapWidth, y, 0), tiles[_forest[x][y]? _fire[x][y]? 2 : 1 : 0]);
             }
