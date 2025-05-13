@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Facetocam : MonoBehaviour
 {
-
-
     void Update()
     {
         transform.LookAt(Camera.main.transform) ;

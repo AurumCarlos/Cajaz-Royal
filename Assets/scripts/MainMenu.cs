@@ -26,7 +26,18 @@ public class MainMenu : MonoBehaviour
    {
        settingsWindow.SetActive(false);
    }
-      
+
+   public void Close()
+   {
+       if (settingsWindow != null)
+       {
+           settingsWindow.SetActive(false);
+       }
+       else
+       {
+           Debug.LogWarning("Aucun menu n'est assigné à CloseMenu !");
+       }
+   }
    public void QuitGame()
    {
          Application.Quit();

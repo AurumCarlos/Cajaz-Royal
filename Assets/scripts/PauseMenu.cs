@@ -18,15 +18,18 @@ public class PauseMenu : MonoBehaviour
         isPaused = !isPaused;
 
         pauseMenuUI.SetActive(isPaused);
-
-        Time.timeScale = isPaused ? 0f : 1f; 
+        
     }
-
+    
+    public void CloseSettingsWindow()
+    {
+        pauseMenuUI.SetActive(false);
+    }
+    
     public void ResumeGame()
     {
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
     }
 
     public void QuitToMainMenu()

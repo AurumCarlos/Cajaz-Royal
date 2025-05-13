@@ -29,6 +29,8 @@ public class Playermouv : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        
         speedX = Input.GetAxisRaw("Horizontal");
         speedY = Input.GetAxisRaw("Vertical");
         
@@ -40,6 +42,7 @@ public class Playermouv : MonoBehaviourPunCallbacks
         
         is_seeing_right = mousePos.x > gameObject.transform.position[0];
 		
+        
         if (speedX == 0 && speedY == 0) {
             animator.SetBool("is_walking", false);
             is_walking = false;

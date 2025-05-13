@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -14,16 +17,20 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform SpawnPoint;
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject UIname;
+    [SerializeField] private TMP_InputField UIroom;
     [SerializeField] private GameObject UIconnecting;
     [SerializeField] private GameObject Map;
     private WalkerGenerator m;
     private string Nick;
+    private string Room = "test";
+    private GameObject _player;
+    
     private void Awake()
     {
         Instance = this;
     }
-    
-    
+
+
 
 
     public void changenick(string nick)
@@ -34,11 +41,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void joinbuton()
     {
 
+        Room = UIroom.text;
+        if (string.IsNullOrEmpty(Room)) Room = "test";
         PhotonNetwork.ConnectUsingSettings();
 
         UIname.SetActive(false);
         UIconnecting.SetActive(true);
-
+        Debug.Log(Room);
         
         //Spwan();
     }
@@ -60,7 +69,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         base.OnJoinedLobby();
-        PhotonNetwork.JoinOrCreateRoom("test", null, null);
+        PhotonNetwork.JoinOrCreateRoom(Room, null, null);
         Debug.Log("Joined lobby");
     }
 
@@ -76,25 +85,33 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void Spwan()
     {
-        GameObject _player = PhotonNetwork.Instantiate(player.name, SpawnPoint.position, Quaternion.identity);
+        (int a, int b) = WalkerGenerator.FindSpawn();
+    
+        if (a == -1 && b == -1)
+        {
+            Debug.Log("No spawn found");
+            return;
+        }
+        Debug.Log((a,b));
+        
+        _player = PhotonNetwork.Instantiate(player.name, new Vector3(a,b,0), Quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalplayer();
         _player.GetComponent<PhotonView>().RPC("setnick", RpcTarget.AllBuffered, Nick);
         int Seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
         //Map.GetComponent<PhotonView>().RPC("InitializeGrid", RpcTarget.AllBuffered, Seed);
         
     }
+    [PunRPC]
+    public void Reload()
+    {
+        if (_player != null)
+        {
+            Destroy(_player);
+        }
+        Debug.Log("Reload game");
+        
+        Spwan();
+    }
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-

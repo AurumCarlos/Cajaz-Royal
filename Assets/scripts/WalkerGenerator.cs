@@ -24,7 +24,8 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
     private int seed = 0;
     private Random _random;
-    private Grid[,] _gridHandler;
+    private static Random _random1 = new Random(0);
+    private static Grid[,] _gridHandler;
     private Grid[,] _gridHandlercoll;
     private bool[][] _forest;
     private bool[][] _fire;
@@ -39,7 +40,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
     private int mapHeight = 300;
     private int maximumWalkers = 20;
     private int _tileCount;
-    private float fillPercentage = 0.2f;
+    public float fillPercentage = 0.4f;
     private Vector2Int p;
 
     [SerializeField] private int RoadDensity;
@@ -66,7 +67,6 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
             photonView.RPC("InitializeGrid", RpcTarget.AllBuffered, (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000));
             //Start();
         }
-        
     }
     [PunRPC]
     void InitializeGrid(int randomseed)
@@ -363,5 +363,23 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                 //tileMap.SetTile(new Vector3Int(x + mapWidth, y, 0), tiles[_forest[x][y]? _fire[x][y]? 2 : 1 : 0]);
             }
         }
+    }
+
+    public static (int, int) FindSpawn()
+    {
+        _random1 = new Random((int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
+        int a;
+        int b;
+        for (int i = 0; i < 1000; i++)
+        {
+            a = _random1.Next(0,300);
+            b = _random1.Next(0,300);
+
+            if (_gridHandler[a, b] == Grid.Floor && (a < 100 || a > 200 || b < 100 || b > 200))
+            {
+                return (a, b);
+            }
+        }
+        return (-1,-1);
     }
 }
