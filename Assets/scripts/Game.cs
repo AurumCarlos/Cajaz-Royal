@@ -11,11 +11,18 @@ using UnityEngine.UI;
 
 
 public class Game : MonoBehaviourPunCallbacks
-{   
-    
+{
+    private bool IsEnd = false;
     private int nb = 0;
     
     [SerializeField]RoomManager roomManager;
+    
+    private PhotonView photonView;
+
+    void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+    }
     private void Update()
     { 
         GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
@@ -30,23 +37,33 @@ public class Game : MonoBehaviourPunCallbacks
                 nb += 1;
             }
         }
-        Debug.Log((nb,ennemis.Length));
+        if (Input.GetKeyDown(KeyCode.Space)) IsEnd = true;
 
-        if (nb >= 1)
+        if (IsEnd && photonView.IsMine)
         {
-            SceneManager.LoadScene("Main Menu");
+            photonView.RPC("EndMenu", RpcTarget.All);
+            IsEnd = false;
         }
         
         
         
         return;
         
-
+        
         
         
         if ( Input.GetAxisRaw("Horizontal") != 0) roomManager.GetComponent<PhotonView>().RPC("Reload", RpcTarget.AllBuffered);
         
     }
-    
-    
+
+    [PunRPC]
+    private void EndMenu()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Game");
+        
+    }
+
+
 }
