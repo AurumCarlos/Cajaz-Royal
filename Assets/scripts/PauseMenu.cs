@@ -16,13 +16,15 @@ public class PauseMenu : MonoBehaviour
     void TogglePause()
     {
         isPaused = !isPaused;
+        ToggleHud(!isPaused);
 
         pauseMenuUI.SetActive(isPaused);
-        
     }
     
     public void CloseSettingsWindow()
     {
+        isPaused = !isPaused;
+        ToggleHud(!isPaused);
         pauseMenuUI.SetActive(false);
     }
     
@@ -36,5 +38,21 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu"); // Remplace si le nom est différent
+    }
+    
+    
+    private void ToggleHud(bool b)
+    {
+        GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (var player in ennemis)
+        {
+            Transform t = player.transform.Find("Canvas");
+            if (t)
+            {
+                t.gameObject.SetActive(b);
+            }
+
+        }
     }
 }

@@ -15,6 +15,8 @@ public class Game : MonoBehaviourPunCallbacks
     private bool IsEnd = false;
     private int nb = 0;
     
+    [SerializeField] GameObject EndGameUI;
+    
     [SerializeField]RoomManager roomManager;
     
     private PhotonView photonView;
@@ -25,44 +27,55 @@ public class Game : MonoBehaviourPunCallbacks
     }
     private void Update()
     { 
-        GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
+        //GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
         
         
         nb = 0;
-        foreach (var VARIABLE in ennemis)
-        {
+        //foreach (var VARIABLE in ennemis)
+        //{
 
-            if (VARIABLE.GetComponentInChildren<Health>().IsAlive())
-            {
-                nb += 1;
-            }
-        }
+         //   if (VARIABLE.GetComponentInChildren<Health>().IsAlive())
+            //{
+           //     nb += 1;
+           // }
+       // }
         if (Input.GetKeyDown(KeyCode.Space)) IsEnd = true;
-
-        if (IsEnd && photonView.IsMine)
+        if (IsEnd)
         {
+            ToggleHud(false);
             photonView.RPC("EndMenu", RpcTarget.All);
-            IsEnd = false;
+            //IsEnd = false;
         }
-        
-        
-        
-        return;
+            
         
         
         
         
-        if ( Input.GetAxisRaw("Horizontal") != 0) roomManager.GetComponent<PhotonView>().RPC("Reload", RpcTarget.AllBuffered);
+        //if ( Input.GetAxisRaw("Horizontal") != 0) roomManager.GetComponent<PhotonView>().RPC("Reload", RpcTarget.AllBuffered);
         
+    }
+
+    
+    private void ToggleHud(bool b)
+    {
+        GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (var player in ennemis)
+        {
+            Transform t = player.transform.Find("Canvas");
+            if (t)
+            {
+                t.gameObject.SetActive(b);
+            }
+
+        }
     }
 
     [PunRPC]
     private void EndMenu()
     {
-        PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("MainMenu");
-        SceneManager.LoadScene("Game");
-        
+        //EndGameUI.GetComponent<MenuEndGame>().ShowEndGame();
+        EndGameUI.SetActive(true);
     }
 
 

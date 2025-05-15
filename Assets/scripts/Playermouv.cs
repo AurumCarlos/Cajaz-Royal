@@ -108,4 +108,7 @@ public class Playermouv : MonoBehaviourPunCallbacks
             animator.Play(animation);
         }
     }
+    
+    
+    
 }
