@@ -45,7 +45,9 @@ public class Tree : MonoBehaviourPunCallbacks
                     grid[Pos.Item1 + i, Pos.Item2 + j] == WalkerGenerator.Grid.Floor2)
                 {
                     //tilemap.SetTile(new Vector3Int(i + Pos.Item1, Pos.Item2 + j, 0), tile);
+                    Roads[i + Pos.Item1 - 100 + 1][j + Pos.Item2 - 100] = true;
                     Roads[i + Pos.Item1 - 100][j + Pos.Item2 - 100] = true;
+                    Roads[i + Pos.Item1 - 100 - 1][j + Pos.Item2 - 100] = true;
                 }
             }
             Left.couper(false, loop - 1, tilemap, rand, tile, grid, Roads, mapheight, mapwidth);
@@ -64,7 +66,9 @@ public class Tree : MonoBehaviourPunCallbacks
                     grid[Pos.Item1 + j, Pos.Item2 + i] == WalkerGenerator.Grid.Floor2)
                 {
                     //tilemap.SetTile(new Vector3Int(Pos.Item1 + j, Pos.Item2 + i, 0), tile);
+                    Roads[Pos.Item1 + j-100][Pos.Item2 + i-100 + 1] = true;
                     Roads[Pos.Item1 + j-100][Pos.Item2 + i-100] = true;
+                    Roads[Pos.Item1 + j-100][Pos.Item2 + i-100 - 1] = true;
                 }
             }
 

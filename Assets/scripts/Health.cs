@@ -16,16 +16,22 @@ public class Health : MonoBehaviourPun
 
     private bool isalive = true;
     [SerializeField] private int health;
+    [SerializeField] private Transform pos;
+
+    private float time;
+
+    
     
 
-    private void Start()
-    {
-        //healthText.text = health.ToString();
-    }
     
     public int Gethealth() => health;
     public bool IsAlive() => isalive;
-    
+
+
+    private void Start()
+    {
+        
+    }
 
     [PunRPC]
     public void damage(int damage)
@@ -37,20 +43,24 @@ public class Health : MonoBehaviourPun
             {
                 photonView.RPC("RPC_Die", RpcTarget.All);
             }
-            //playercontGameObject.GetComponentInParent<Transform>().position = new Vector2(0,0);
-            //playercontGameObject.GetComponent<Transform>().position = new Vector2(0,0);
-            //Destroy(playercontGameObject);
         }
     }
 
     
     // Update is called once per frame
-    
+
     private void Update()
     {
-        healthText.text = health.ToString(); 
+        time -= Time.deltaTime;
+        healthText.text = health.ToString();
+
+        if (DamageCircle.IsOutsideCircle_Static(pos.position) && time <= 0)
+        {
+            damage(1);
+            time = 1;
+        }
     }
-    
+
     [PunRPC]
     void RPC_Die()
     {

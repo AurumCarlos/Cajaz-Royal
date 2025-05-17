@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private TMP_InputField UIroom;
     [SerializeField] private GameObject UIconnecting;
     [SerializeField] private GameObject Map;
+    [SerializeField] private GameObject Game;
     private WalkerGenerator m;
     private string Nick;
     private string Room = "test";
@@ -80,7 +81,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         Debug.Log("Joined room");
         camera.SetActive(false);
         
+        Game.SetActive(true);
         Spwan();
+        
     }
 
     public void Spwan()

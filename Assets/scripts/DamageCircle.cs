@@ -1,15 +1,4 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
-
-    Thank you for downloading this package
-    I hope you find it useful in your projects
-    If you have any questions let me know
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
-
+﻿using Photon.Pun;
 using UnityEngine;
 
 public class DamageCircle : MonoBehaviour {
@@ -26,6 +15,7 @@ public class DamageCircle : MonoBehaviour {
 
     private float circleShrinkSpeed;
     private float shrinkTimer;
+    private float updateTimer;
 
     private Vector3 circleSize;
     private Vector3 circlePosition;
@@ -36,33 +26,51 @@ public class DamageCircle : MonoBehaviour {
     private void Awake() {
         instance = this;
 
-        circleShrinkSpeed = 20f;
+        circleShrinkSpeed = 2f;
 
         circleTransform = transform.Find("circle");
         topTransform = transform.Find("top");
         bottomTransform = transform.Find("bottom");
         leftTransform = transform.Find("left");
         rightTransform = transform.Find("right");
+        
 
-        SetCircleSize(new Vector3(0, 0), new Vector3(200, 200));
+        SetCircleSize(new Vector3(150, 150), new Vector3(400, 400));
+        
+        
+        
+        targetCircleSize = new Vector3(100,100);
 
-        SetTargetCircle(new Vector3(0, 0), new Vector3(160, 160), 5f);
+        //SetTargetCircle(new Vector3(50, 50), new Vector3(100, 100), 5f);
     }
 
-    private void Update() {
-        shrinkTimer -= Time.deltaTime;
+    private void Update() 
+    {
 
-        if (shrinkTimer < 0) {
+        if (PhotonNetwork.IsConnected && updateTimer <= 0)
+        {
+            GetComponent<PhotonView>().RPC("setCirclePosition",RpcTarget.Others,circleSize,circlePosition);
+            updateTimer = 1f;
+        }
+
+        
+        shrinkTimer -= Time.deltaTime;
+        updateTimer -= Time.deltaTime;
+
+        if (shrinkTimer < 0)
+        {
             Vector3 sizeChangeVector = (targetCircleSize - circleSize).normalized;
             Vector3 newCircleSize = circleSize + sizeChangeVector * Time.deltaTime * circleShrinkSpeed;
 
             Vector3 circleMoveDir = (targetCirclePosition - circlePosition).normalized;
-            Vector3 newCirclePosition = circlePosition + circleMoveDir * Time.deltaTime * circleShrinkSpeed;
+            Vector3 newCirclePosition = circlePosition;
+            //Vector3 newCirclePosition = circlePosition + circleMoveDir * Time.deltaTime * circleShrinkSpeed;
 
             SetCircleSize(newCirclePosition, newCircleSize);
 
             float distanceTestAmount = .1f;
-            if (Vector3.Distance(newCircleSize, targetCircleSize) < distanceTestAmount && Vector3.Distance(newCirclePosition, targetCirclePosition) < distanceTestAmount) {
+            if (Vector3.Distance(newCircleSize, targetCircleSize) < distanceTestAmount && Vector3.Distance(newCirclePosition, targetCirclePosition) < distanceTestAmount) 
+            {
                 GenerateTargetCircle();
             }
         }
@@ -72,7 +80,6 @@ public class DamageCircle : MonoBehaviour {
         float shrinkSizeAmount = Random.Range(3f, 12f);
         Vector3 generatedTargetCircleSize = circleSize - new Vector3(shrinkSizeAmount, shrinkSizeAmount) * 2f;
 
-        // Set a minimum size
         if (generatedTargetCircleSize.x < 20f) generatedTargetCircleSize = Vector3.one * 20f;
 
         Vector3 generatedTargetCirclePosition = circlePosition + 
@@ -120,5 +127,16 @@ public class DamageCircle : MonoBehaviour {
 
     public static bool IsOutsideCircle_Static(Vector3 position) {
         return instance.IsOutsideCircle(position);
+    }
+
+    [PunRPC]
+    public (Vector3, Vector3) getCirclePosition()
+    {
+        return (circleSize, circlePosition);
+    }
+    [PunRPC]
+    public void setCirclePosition(Vector3 size, Vector3 position)
+    {
+        SetCircleSize(position, size);
     }
 }

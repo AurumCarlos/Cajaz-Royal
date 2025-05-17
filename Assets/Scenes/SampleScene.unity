@@ -529,7 +529,7 @@ Transform:
   m_GameObject: {fileID: 291848399}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14264481, y: 0.5476689, z: 0.023381274}
+  m_LocalPosition: {x: 0.041, y: 0.573, z: 0.023381274}
   m_LocalScale: {x: 0.9652, y: 0.971, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -617,6 +617,7 @@ MonoBehaviour:
   UIroom: {fileID: 366876590}
   UIconnecting: {fileID: 1142893852}
   Map: {fileID: 1992261438}
+  Game: {fileID: 1178169789}
 --- !u!4 &340387523
 Transform:
   m_ObjectHideFlags: 0
@@ -2393,6 +2394,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 164.09}
   m_SizeDelta: {x: 10000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1144565412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -2709810702378357454, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868555893813194193, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_Name
+      value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.014801
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000095412135
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.117002666
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381407796099228527, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
 --- !u!1001 &1168797156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2490,7 +2552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1178169790
 Transform:
   m_ObjectHideFlags: 0
@@ -2519,6 +2581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndGameUI: {fileID: 1819768410}
+  Zone: {fileID: 4868555893813194193, guid: de3db5a129554bf4284eada34fbccc4a, type: 3}
   roomManager: {fileID: 340387522}
 --- !u!114 &1178169792
 MonoBehaviour:
@@ -3764,12 +3827,12 @@ MonoBehaviour:
   tiles:
   - {fileID: 11400000, guid: 6240a83cb14f38146b52ced3aa6ba254, type: 2}
   - {fileID: 11400000, guid: 0999b26add8a5744c8dfe353ca99f56b, type: 2}
-  - {fileID: 11400000, guid: 0a3bc8b91c160fa4bac9ec65f54cdfcd, type: 2}
+  - {fileID: 11400000, guid: b8e2d4a2b4bd5f24bbcf3f69917b68bf, type: 2}
   - {fileID: 11400000, guid: 87065dfdf312c5e4aace956e89d4425a, type: 2}
   - {fileID: 11400000, guid: 5b382b04d91931d41a916fef66ef6ba0, type: 2}
   - {fileID: 11400000, guid: 9f3f36c14b7fe3c46b937d8f08613775, type: 2}
   - {fileID: 11400000, guid: f4123dd17da624c40ae249dd8601de40, type: 2}
-  fillPercentage: 0.2
+  fillPercentage: 0.4
   RoadDensity: 3
 --- !u!114 &1992261441
 MonoBehaviour:
@@ -4206,3 +4269,4 @@ SceneRoots:
   - {fileID: 340387523}
   - {fileID: 1955165535}
   - {fileID: 1178169790}
+  - {fileID: 1144565412}

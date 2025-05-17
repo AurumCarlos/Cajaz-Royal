@@ -17,6 +17,9 @@ public class Game : MonoBehaviourPunCallbacks
     
     [SerializeField] GameObject EndGameUI;
     
+    
+    [SerializeField] GameObject Zone;
+    
     [SerializeField]RoomManager roomManager;
     
     private PhotonView photonView;
@@ -24,6 +27,8 @@ public class Game : MonoBehaviourPunCallbacks
     void Awake()
     {
         photonView = GetComponent<PhotonView>();
+        //if (PhotonNetwork.IsMasterClient) PhotonNetwork.Instantiate(Zone.name, new Vector3(150,150),new Quaternion(),0);
+        //if (GameObject.FindGameObjectWithTag("circle") == null) PhotonNetwork.Instantiate(Zone.name, new Vector3(150,150),new Quaternion(),0);
     }
     private void Update()
     { 

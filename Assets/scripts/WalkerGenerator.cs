@@ -112,9 +112,8 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         _walkers.Add(curWalker);
         displayperlin();
         placetree();
-        //CreateRoads();
         Tree t = new Tree(mapHeight / 3, mapWidth / 3,  mapHeight / 3,  mapWidth / 3);
-        t.couper(true, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight,mapWidth);
+        t.couper(false, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight,mapWidth);
         for (int i = 0; i < 100; i++)
         {
             for (int j = 0; j < 100; j++)
@@ -122,7 +121,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                 if (Roads[i][j])
                 {
                     tileMap.SetTile(new Vector3Int(mapHeight / 3 + i,mapWidth / 3 + j, 0), tiles[2]);
-                    _gridHandler[i,j] = Grid.Street;
+                    _gridHandler[mapHeight / 3 + i,mapWidth / 3 + j] = Grid.Street;
                 }
             }
         }
@@ -264,6 +263,16 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
     public void  CreateWalls()
     {
+        for (int x = 0; x < _gridHandler.GetLength(0); x++)
+        {
+            for (int y = 0; y < _gridHandler.GetLength(1); y++)
+            {
+                if (_gridHandler[x, y] == Grid.Empty) tileMapcoll.SetTile(new Vector3Int(x , y, 0), tiles[1]);
+            }
+        }
+        
+        
+        return;
         for (int x = 1; x < _gridHandler.GetLength(0) - 1; x++)
         {
             for (int y = 1; y < _gridHandler.GetLength(1) - 1; y++)
