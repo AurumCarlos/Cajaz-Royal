@@ -101,7 +101,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         _walkers.Add(curWalker);
 
         _tileCount++;
-
+        displayperlin();
         CreateFloors();
         Clean();
         _walkers = new List<WalkerObject>();
@@ -110,20 +110,32 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         curWalker.Type = 2;
         curWalker.Size = new Vector2(_random.Next(10, 30), _random.Next(10, 30));
         _walkers.Add(curWalker);
-        displayperlin();
+        
         placetree();
         Tree t = new Tree(mapHeight / 3, mapWidth / 3,  mapHeight / 3,  mapWidth / 3);
-        t.couper(false, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight,mapWidth);
+        t.couper(true, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight,mapWidth);
         for (int i = 0; i < 100; i++)
         {
             for (int j = 0; j < 100; j++)
             {
-                if (Roads[i][j])
+                if (Roads[i][j] && _random.Next(4) != 0)
                 {
-                    tileMap.SetTile(new Vector3Int(mapHeight / 3 + i,mapWidth / 3 + j, 0), tiles[2]);
-                    _gridHandler[mapHeight / 3 + i,mapWidth / 3 + j] = Grid.Street;
+                    tileMap.SetTile(new Vector3Int(mapHeight / 3 + j, 2 * mapWidth / 3 - i, 0), tiles[2]);
+                    //_gridHandler[mapHeight / 3 + i,mapWidth / 3 + j] = Grid.Street;
                 }
             }
+        }
+        
+        CityBuider.Initialize(Roads);
+        List<((int, int),(int,int))> BatList = CityBuider.BindBatPlace();
+        
+        Debug.Log(BatList.Count);
+        foreach (var bat in BatList)
+        {
+            (int,int) pos = bat.Item1;
+            (int,int) size = bat.Item2;
+            tileMap.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2,2 * mapWidth / 3 - pos.Item1, 0), null);
+            //_gridHandler[mapHeight / 3 + pos.Item2,mapWidth / 3 + pos.Item1] = Grid.Street;
         }
         CreateWalls();
     }
@@ -156,7 +168,8 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
                 if (_gridHandler[curPos.x, curPos.y] != Grid.Floor)
                 {
-                    if(_random.Next(3) == 0) tileMap.SetTile(curPos, tiles[0]);
+                    if (_fire[curPos.x][curPos.y]) tileMap.SetTile(curPos, tiles[7]);
+                    else if(_random.Next(3) == 0) tileMap.SetTile(curPos, tiles[0]);
                     else tileMap.SetTile(curPos, tiles[4]);
                     _tileCount++;
                     _gridHandler[curPos.x, curPos.y] = Grid.Floor;
@@ -327,9 +340,10 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                     t = y + _random.Next(-1, 2);
                     if (t < 0 || t > mapHeight - 1) t = y;
                     else if (_fire[x][t] && (_gridHandler[x, t] == Grid.Floor2 || _gridHandler[x, t] == Grid.Floor) &&
-                             _random.Next(0, 27) < 5)
+                             _random.Next(0, 25) < 10)
                     {
-                        tileMapcoll.SetTile(new Vector3Int(x, t +  _random.Next(-1, 2), 0), tiles[6]);
+                        if (_random.Next(6) == 0) tileMapcoll.SetTile(new Vector3Int(x, t +  _random.Next(-1, 2), 0), tiles[3]);
+                        else  tileMapcoll.SetTile(new Vector3Int(x, t +  _random.Next(-1, 2), 0), tiles[6]);
                         _gridHandlercoll[x, t] = Grid.Object;
                     }
                 }
