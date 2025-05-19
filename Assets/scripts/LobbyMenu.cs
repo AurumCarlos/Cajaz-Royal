@@ -9,7 +9,7 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
     [SerializeField] private TextMeshProUGUI textMesh;
     [SerializeField] private GameObject Game;
     [SerializeField] private GameObject Circle;
-    [SerializeField] private GameObject filtre;
+    //[SerializeField] private GameObject filtre;
     [SerializeField] private RoomManager roomManager;
     
     [SerializeField] private GameObject camera;
@@ -36,7 +36,7 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
         Game.SetActive(true);
         Circle.SetActive(true);
         camera.SetActive(false);
-        filtre.SetActive(true);
+        //filtre.SetActive(true);
         roomManager.Spwan();
         
         LobbyMenuUI.SetActive(false);   

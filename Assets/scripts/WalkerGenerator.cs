@@ -42,7 +42,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
     private int mapHeight = 300;
     private int maximumWalkers = 20;
     private int _tileCount;
-    public float fillPercentage = 0.4f;
+    [SerializeField] float fillPercentage;
     private Vector2Int p;
 
     [SerializeField] private int RoadDensity;
@@ -57,19 +57,23 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         mapWidth = 300;
         mapHeight = 300;
         maximumWalkers = 20;
-        fillPercentage = 0.2f;
+        //fillPercentage = 0.2f;
+        seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000);
         InitializeGrid(seed);
-        seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000);
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            photonView.RPC("InitializeGrid", RpcTarget.AllBuffered, (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond%10000000));
+            if (PhotonNetwork.IsConnected)
+                photonView.RPC("InitializeGrid", RpcTarget.AllBuffered,
+                    (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
+            else InitializeGrid((int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
             //Start();
         }
     }
+
     [PunRPC]
     void InitializeGrid(int randomseed)
     {
@@ -78,6 +82,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         {
             Roads[i] = new bool[mapWidth / 3];
         }
+
         _random = new Random(randomseed);
 
         _tileCount = 0;
@@ -98,7 +103,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         _walkers = new List<WalkerObject>();
 
         Vector3Int tileCenter = new Vector3Int(_gridHandler.GetLength(0) / 2, _gridHandler.GetLength(1) / 2, 0);
-        WalkerObject curWalker = new WalkerObject(new Vector2(tileCenter.x,tileCenter.y), GetDirection(), 0.6f,0);
+        WalkerObject curWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), GetDirection(), 0.6f, 0);
         _gridHandler[tileCenter.x, tileCenter.y] = Grid.Floor;
         tileMap.SetTile(tileCenter, tiles[0]);
         _walkers.Add(curWalker);
@@ -113,37 +118,47 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         curWalker.Type = 2;
         curWalker.Size = new Vector2(_random.Next(10, 30), _random.Next(10, 30));
         _walkers.Add(curWalker);
-        
+
         placetree();
-        Tree t = new Tree(mapHeight / 3, mapWidth / 3,  mapHeight / 3,  mapWidth / 3);
-        t.couper(true, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight,mapWidth);
+        Tree t = new Tree(mapHeight / 3, mapWidth / 3, mapHeight / 3, mapWidth / 3);
+        t.couper(true, RoadDensity, tileMap, _random, tiles[2], _gridHandler, Roads, mapHeight, mapWidth);
         for (int i = 0; i < 100; i++)
         {
             for (int j = 0; j < 100; j++)
             {
-                if (Roads[i][j] && _random.Next(4) != 0)
+                if (Roads[i][j] && _random.Next(60000000) != 0)
                 {
                     tileMap.SetTile(new Vector3Int(mapHeight / 3 + j, 2 * mapWidth / 3 - i, 0), tiles[2]);
-                    _gridHandler[mapHeight / 3 + i,mapWidth / 3 + j] = Grid.Street;
+                    _gridHandler[mapHeight / 3 + i, mapWidth / 3 + j] = Grid.Street;
                 }
             }
         }
-        
+
         CityBuider.Initialize(Roads);
-        List<((int, int),(int,int))> BatList = CityBuider.BindBatPlace();
-        
+        List<((int, int), (int, int))> BatList = CityBuider.BindBatPlace();
+
         Debug.Log(BatList.Count);
         foreach (var bat in BatList)
         {
-            (int,int) pos = bat.Item1;
-            (int,int) size = bat.Item2;
-            tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2,2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
-            _gridHandler[mapHeight / 3 + pos.Item2,mapWidth / 3 + pos.Item1] = Grid.Bat;
+            (int, int) pos = bat.Item1;
+            (int, int) size = bat.Item2;
+            tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+            _gridHandler[mapHeight / 3 + pos.Item2, mapWidth / 3 + pos.Item1] = Grid.Bat;
         }
+
         CreateWalls();
+        if (!PhotonNetwork.IsConnected)
+        {
+            GameObject[] r =  GameObject.FindGameObjectsWithTag("Player");
+            if (r.Length > 0)
+            {
+                (int, int) spawn = FindSpawn(); 
+                r[0].transform.position = new Vector3(spawn.Item1, spawn.Item2, 0);
+            }
+        }
     }
 
-    Vector2 GetDirection()
+Vector2 GetDirection()
     {
         int choice = _random.Next(4);
         switch (choice)
@@ -283,7 +298,11 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         {
             for (int y = 0; y < _gridHandler.GetLength(1); y++)
             {
-                if (_gridHandler[x, y] == Grid.Empty) tileMapcoll.SetTile(new Vector3Int(x , y, 0), tiles[1]);
+                if (_gridHandler[x, y] == Grid.Empty)
+                {
+                    tileMapcoll.SetTile(new Vector3Int(x , y, 0), tiles[1]);
+                    _gridHandlercoll[x, y] = Grid.Wall;
+                }
             }
         }
         

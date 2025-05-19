@@ -24,7 +24,7 @@ public class Game : MonoBehaviourPunCallbacks
     
     private PhotonView photonView;
 
-    private float time = 0;
+    private float time = 5;
 
     void Awake()
     {
@@ -41,9 +41,8 @@ public class Game : MonoBehaviourPunCallbacks
 
             foreach (var VARIABLE in ennemis)
             {
-                if (!VARIABLE.GetComponent<GameObject>().) nb += 1;
+                if (VARIABLE.GetComponentInChildren<Health>().IsAlive()) nb += 1;
             }
-            Debug.Log((ennemis.Length,nb));
             
             if (nb <= 1) 
             {

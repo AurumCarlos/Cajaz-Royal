@@ -11,9 +11,8 @@ public static class CityBuider
     {
         roadMap = roads;
         BatSize.Clear();
-        BatSize.Add((14,7)); 
-        BatSize.Add((8,5)); 
-        BatSize.Add((4,3)); 
+        BatSize.Add((8,9)); 
+
     }
 
     public static List<((int, int), (int, int))> BindBatPlace()

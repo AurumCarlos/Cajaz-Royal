@@ -13,9 +13,14 @@ public class MainMenu : MonoBehaviour
         }
     }
     
-   public void StartGame()
+   public void StartMulti()
    {
        SceneManager.LoadSceneAsync(levelToLoad);
+   }   
+   
+   public void StartSolo()
+   {
+       SceneManager.LoadSceneAsync("Solo");
    }
    public void SettingsButton()
    {
