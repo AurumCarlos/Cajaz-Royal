@@ -968,7 +968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3951990741102458555, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4389782303055541324, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
       propertyPath: sceneViewId
@@ -1030,6 +1030,8 @@ PrefabInstance:
     - {fileID: 6775054848410302178, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
     - {fileID: 5568778952052327683, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
     - {fileID: 960881579352618306, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
+    - {fileID: 4389782303055541324, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
+    - {fileID: 8841093938360813700, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3794383094166107793, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}
     - {fileID: 8375124654700844004, guid: 0a1ff71701125244b9f87471421cfa3b, type: 3}

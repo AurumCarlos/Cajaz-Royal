@@ -75,16 +75,5 @@ public class Tree : MonoBehaviourPunCallbacks
             Left.couper(true, loop - 1, tilemap, rand, tile, grid, Roads, mapheight, mapwidth);
             Right.couper(true, loop - 1, tilemap, rand, tile, grid, Roads, mapheight, mapwidth);
         }
-
-
     }
-    
-
-
-
-    
-    
-
-
-
 }

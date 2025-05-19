@@ -111,9 +111,9 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         _tileCount++;
         displayperlin();
         CreateFloors();
-        Clean();
+        //Clean();
+
         _walkers = new List<WalkerObject>();
-        _gridHandler[tileCenter.x, tileCenter.y] = Grid.Street;
         curWalker.ChanceToChange = 0.03f;
         curWalker.Type = 2;
         curWalker.Size = new Vector2(_random.Next(10, 30), _random.Next(10, 30));
@@ -126,7 +126,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         {
             for (int j = 0; j < 100; j++)
             {
-                if (Roads[i][j] && _random.Next(60000000) != 0)
+                if (Roads[i][j] && _random.Next(6) != 0)
                 {
                     tileMap.SetTile(new Vector3Int(mapHeight / 3 + j, 2 * mapWidth / 3 - i, 0), tiles[2]);
                     _gridHandler[mapHeight / 3 + i, mapWidth / 3 + j] = Grid.Street;
@@ -137,16 +137,41 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         CityBuider.Initialize(Roads);
         List<((int, int), (int, int))> BatList = CityBuider.BindBatPlace();
 
-        Debug.Log(BatList.Count);
         foreach (var bat in BatList)
         {
             (int, int) pos = bat.Item1;
             (int, int) size = bat.Item2;
-            tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
-            _gridHandler[mapHeight / 3 + pos.Item2, mapWidth / 3 + pos.Item1] = Grid.Bat;
+
+            int n = 0;
+            for (int i = pos.Item1; i < pos.Item1 + size.Item1; i++)
+            {
+                for (int j = pos.Item2; j < pos.Item2 + size.Item2; j++)
+                {
+                    if (_gridHandler[100 + j,200 - i + size.Item2 - 1] == Grid.Empty)
+                    {
+                        n += 1;
+                    }
+                }
+            }
+            if (n < size.Item1 * size.Item2 * 0.2)
+            {
+                for (int i = pos.Item1 ; i< pos.Item1 +  size.Item2; i++)
+                {
+                    for (int j = pos.Item2; j < pos.Item2 + size.Item1; j++)
+                    {
+                        _gridHandler[100 + j,200 - i + size.Item2 - 1] = Grid.Floor;
+                        tileMapcoll.SetTile(new Vector3Int(100 + j,200 - i + size.Item2 - 1, 0), null);
+                        tileMap.SetTile(new Vector3Int(100 + j,200 - i + size.Item2 - 1, 0), tiles[0]);
+                        
+                        //_gridHandler[i, j] = Grid.Empty;
+                    }
+                }
+                
+                tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                _gridHandler[mapHeight / 3 + pos.Item2, mapWidth / 3 + pos.Item1] = Grid.Bat;
+            }
         }
 
-        CreateWalls();
         if (!PhotonNetwork.IsConnected)
         {
             GameObject[] r =  GameObject.FindGameObjectsWithTag("Player");
@@ -156,6 +181,10 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                 r[0].transform.position = new Vector3(spawn.Item1, spawn.Item2, 0);
             }
         }
+        
+        Clean();
+        CreateWalls();
+
     }
 
 Vector2 GetDirection()
