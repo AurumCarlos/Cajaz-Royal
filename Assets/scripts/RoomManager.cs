@@ -17,10 +17,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform SpawnPoint;
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject UIname;
+    [SerializeField] private GameObject UIRoomname;
     [SerializeField] private TMP_InputField UIroom;
     [SerializeField] private GameObject UIconnecting;
     [SerializeField] private GameObject Map;
     [SerializeField] private GameObject Game;
+    
+    [SerializeField] private GameObject LobbyMenuUI;
+
     private WalkerGenerator m;
     private string Nick;
     private string Room = "test";
@@ -47,6 +51,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
 
         UIname.SetActive(false);
+        UIRoomname.SetActive(false);
         UIconnecting.SetActive(true);
         Debug.Log(Room);
         
@@ -77,13 +82,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        
+        UIconnecting.SetActive(false);
         Debug.Log("Joined room");
-        camera.SetActive(false);
+        //camera.SetActive(false);
         
-        Game.SetActive(true);
-        Spwan();
+        LobbyMenuUI.SetActive(true);
         
+        //Game.SetActive(true);
+        //Spwan();
     }
 
     public void Spwan()

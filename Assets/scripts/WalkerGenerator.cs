@@ -18,6 +18,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         Floor2,
         Wall,
         Street,
+        Bat,
         Object,
         Empty
     }
@@ -34,6 +35,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
     private List<WalkerObject> _walkers;
     [SerializeField] private Tilemap tileMap;
+    [SerializeField] private Tilemap tileMapBat;
     [SerializeField] private Tilemap tileMapcoll;
     [SerializeField] private List<Tile> tiles;
     private int mapWidth = 300;
@@ -87,6 +89,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
             {
                 tileMap.SetTile(new Vector3Int(x, y, 0), tiles[1]);
                 tileMapcoll.SetTile(new Vector3Int(x, y, 0), null);
+                tileMapBat.SetTile(new Vector3Int(x, y, 0), null);
                 _gridHandler[x, y] = Grid.Empty;
                 _gridHandlercoll[x, y] = Grid.Empty;
             }
@@ -121,7 +124,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                 if (Roads[i][j] && _random.Next(4) != 0)
                 {
                     tileMap.SetTile(new Vector3Int(mapHeight / 3 + j, 2 * mapWidth / 3 - i, 0), tiles[2]);
-                    //_gridHandler[mapHeight / 3 + i,mapWidth / 3 + j] = Grid.Street;
+                    _gridHandler[mapHeight / 3 + i,mapWidth / 3 + j] = Grid.Street;
                 }
             }
         }
@@ -134,8 +137,8 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         {
             (int,int) pos = bat.Item1;
             (int,int) size = bat.Item2;
-            tileMap.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2,2 * mapWidth / 3 - pos.Item1, 0), null);
-            //_gridHandler[mapHeight / 3 + pos.Item2,mapWidth / 3 + pos.Item1] = Grid.Street;
+            tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2,2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+            _gridHandler[mapHeight / 3 + pos.Item2,mapWidth / 3 + pos.Item1] = Grid.Bat;
         }
         CreateWalls();
     }

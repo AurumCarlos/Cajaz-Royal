@@ -24,43 +24,34 @@ public class Game : MonoBehaviourPunCallbacks
     
     private PhotonView photonView;
 
+    private float time = 0;
+
     void Awake()
     {
         photonView = GetComponent<PhotonView>();
-        //if (PhotonNetwork.IsMasterClient) PhotonNetwork.Instantiate(Zone.name, new Vector3(150,150),new Quaternion(),0);
-        //if (GameObject.FindGameObjectWithTag("circle") == null) PhotonNetwork.Instantiate(Zone.name, new Vector3(150,150),new Quaternion(),0);
     }
     private void Update()
     { 
-        //GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
-        
-        
-        nb = 0;
-        //foreach (var VARIABLE in ennemis)
-        //{
-
-         //   if (VARIABLE.GetComponentInChildren<Health>().IsAlive())
-            //{
-           //     nb += 1;
-           // }
-       // }
-        if (Input.GetKeyDown(KeyCode.Space)) IsEnd = true;
-        if (IsEnd)
+        time -= Time.deltaTime;
+        if (time <= 0)
         {
-            ToggleHud(false);
-            photonView.RPC("EndMenu", RpcTarget.All);
-            //IsEnd = false;
-        }
-            
-        
-        
-        
-        
-        //if ( Input.GetAxisRaw("Horizontal") != 0) roomManager.GetComponent<PhotonView>().RPC("Reload", RpcTarget.AllBuffered);
-        
-    }
+            GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
 
-    
+            int nb = 0;
+
+            foreach (var VARIABLE in ennemis)
+            {
+                if (!VARIABLE.GetComponent<GameObject>().) nb += 1;
+            }
+            Debug.Log((ennemis.Length,nb));
+            
+            if (nb <= 1) 
+            {
+                ToggleHud(false);
+                photonView.RPC("EndMenu", RpcTarget.All);
+            }
+        }
+    }
     private void ToggleHud(bool b)
     {
         GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Player");
@@ -79,7 +70,6 @@ public class Game : MonoBehaviourPunCallbacks
     [PunRPC]
     private void EndMenu()
     {
-        //EndGameUI.GetComponent<MenuEndGame>().ShowEndGame();
         EndGameUI.SetActive(true);
     }
 
