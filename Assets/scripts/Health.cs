@@ -54,11 +54,16 @@ public class Health : MonoBehaviourPun
         time -= Time.deltaTime;
         healthText.text = health.ToString();
 
-        if (DamageCircle.IsOutsideCircle_Static(pos.position) && time <= 0)
+        try
         {
-            damage(1);
-            time = 1;
+            if (DamageCircle.IsOutsideCircle_Static(pos.position) && time <= 0)
+            {
+                damage(1);
+                time = 1;
+            }
         }
+        catch (Exception) {}
+        
     }
 
     [PunRPC]
@@ -66,7 +71,7 @@ public class Health : MonoBehaviourPun
     {
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SortingGroup>().sortingOrder = -10;
-        GetComponentInChildren<gun>().enabled = false;
+        GetComponentInChildren<Gun>().enabled = false;
         isalive = false;
         // désactiver contrôles, animations, etc.
     }

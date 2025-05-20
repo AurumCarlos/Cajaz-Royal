@@ -51,7 +51,7 @@ public class HealthSolo : MonoBehaviourPun
     {
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SortingGroup>().sortingOrder = -10;
-        GetComponentInChildren<gun>().enabled = false;
+        GetComponentInChildren<Gun>().enabled = false;
         isalive = false;
         // désactiver contrôles, animations, etc.
     }
