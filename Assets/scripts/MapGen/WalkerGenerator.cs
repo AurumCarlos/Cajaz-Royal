@@ -38,6 +38,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
     [SerializeField] private Tilemap tileMapBat;
     [SerializeField] private Tilemap tileMapcoll;
     [SerializeField] private List<Tile> tiles;
+    [SerializeField] private List<GameObject> Bats;
     private int mapWidth = 300;
     private int mapHeight = 300;
     private int maximumWalkers = 20;
@@ -166,8 +167,13 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                         //_gridHandler[i, j] = Grid.Empty;
                     }
                 }
-                
-                if (size == (8,9))tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+
+                if (true || size == (8, 9))
+                {
+                    GameObject temp = GameObject.Instantiate(Bats[0],tileMapBat.transform);
+                    temp.transform.position = new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0);
+                    //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                }
                 else
                 {
                     Debug.Log((mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1));

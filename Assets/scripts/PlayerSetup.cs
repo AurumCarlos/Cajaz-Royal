@@ -27,6 +27,9 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         health.islocalplayer = true;
         Nickname.enabled = true;
         inventory.enabled = true;
+        
+        Transform canvas = transform.Find("Canvas");
+        canvas.gameObject.SetActive(true);
     }
 
     [PunRPC]

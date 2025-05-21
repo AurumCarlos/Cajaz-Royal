@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public static class CityBuider
 {
     private static List<(int, int)> BatSize = new List<(int, int)>();
     private static bool[][] roadMap;
+    private static Random random = new Random( DateTime.Now.Millisecond );
     
     public static void Initialize(bool[][] roads)
     {
         roadMap = roads;
         BatSize.Clear();
-        BatSize.Add((8,9));
-        BatSize.Add((9,7));
+        BatSize.Add((13,7));
+        //BatSize.Add((8,9));
+        //BatSize.Add((9,7));
     }
 
     public static List<((int, int), (int, int))> BindBatPlace()
@@ -30,7 +34,7 @@ public static class CityBuider
                     if (CanPlaceBuildingAt(row, col, size.Item1, size.Item2))
                     {
                         possiblePlacements.Add(((row, col), size));
-                        col += size.Item1 - 1;
+                        col += size.Item1 - 1 + random.Next(3);
                         break;
                     }
                 }
