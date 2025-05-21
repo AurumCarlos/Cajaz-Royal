@@ -167,7 +167,12 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                     }
                 }
                 
-                tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                if (size == (8,9))tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                else
+                {
+                    Debug.Log((mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1));
+                    //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[9]);
+                }
                 _gridHandler[mapHeight / 3 + pos.Item2, mapWidth / 3 + pos.Item1] = Grid.Bat;
             }
         }
@@ -454,6 +459,8 @@ Vector2 GetDirection()
                 return (a, b);
             }
         }
-        return (-1,-1);
+
+        return (150, 150);
+        //return (-1,-1);
     }
 }
