@@ -1,0 +1,666 @@
+[
+    {
+        "id": 1,
+        "name": "Glock 17",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 15,
+            "range" : 10,
+            "fireRate" : 0.5,
+            "ammo" : 17
+        }
+    },
+    {
+        "id": 2,
+        "name": "Desert Eagle",
+        "type": "Arme",
+        "parameters": {
+            "damage": 40,
+            "range": 15,
+            "fireRate": 1.0,
+            "ammo": 7
+        }
+    },
+    {
+        "id": 3,
+        "name": "Beretta M9",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 18,
+            "range": 11,
+            "fireRate": 0.4,
+            "ammo": 15
+        }
+        
+    },
+    {
+        "id": 4,
+        "name": "SIG Sauer P226",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 20,
+            "range": 12,
+            "fireRate": 0.45,
+            "ammo": 15
+        }
+    },
+    {
+        "id": 5,
+        "name": "Makarov PM",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 14,
+            "range": 9,
+            "fireRate": 0.55,
+            "ammo": 8
+        }
+    },
+    {
+        "id": 6,
+        "name": "Tokarev TT-33",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 16,
+            "range": 10,
+            "fireRate": 0.5,
+            "ammo": 8
+        }
+    },
+    {
+        "id": 7,
+        "name": "Colt M1911",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 22,
+            "range": 11,
+            "fireRate": 0.6,
+            "ammo": 7
+        }
+    },
+    {
+        "id": 8,
+        "name": "CZ 75",
+        "type": "Arme",
+
+        "parameters": {
+            "damage": 17,
+            "range": 10,
+            "fireRate": 0.35,
+            "ammo": 16
+        }
+    },
+    {
+        "id": 9,
+        "name": "Heckler & Koch MP5",
+        "type": "Arme",
+        "parameters": {
+            "damage": 13,
+            "range": 14,
+            "fireRate": 0.09,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 10,
+        "name": "Uzi",
+        "type": "Arme",
+        "parameters": {
+            "damage": 11,
+            "range": 12,
+            "fireRate": 0.07,
+            "ammo": 32
+        }
+    },
+    {
+        "id": 11,
+        "name": "FN P90",
+        "type": "Arme",
+        "parameters": {
+            "damage": 12,
+            "range": 13,
+            "fireRate": 0.06,
+            "ammo": 50
+        }
+    },
+    {
+        "id": 12,
+        "name": "MAC-10",
+        "type": "Arme",
+        "parameters": {
+            "damage": 10,
+            "range": 10,
+            "fireRate": 0.05,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 13,
+        "name": "Grenade à fragmentation",
+        "type": "Arme",
+        "parameters": {
+            "damage": 80,
+            "range": 4,
+            "fireRate": 0.0,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 14,
+        "name": "Grenade fumigène",
+        "type": "Arme",
+        "parameters": {
+            "damage": 0,
+            "range": 4,
+            "fireRate": 0.0,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 15,
+        "name": "Grenade flashbang",
+        "type": "Arme",
+        "parameters": {
+            "damage": 0,
+            "range": 4,
+            "fireRate": 0.0,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 16,
+        "name": "Cocktail Molotov",
+        "type": "Arme",
+        "parameters": {
+            "damage": 50,
+            "range": 3,
+            "fireRate": 0.0,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 17,
+        "name": "Grenade assourdissante",
+        "type": "Arme",
+        "parameters": {
+            "damage": 0,
+            "range": 4,
+            "fireRate": 0.0,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 18,
+        "name": "M4A1",
+        "type": "Arme",
+        "parameters": {
+            "damage": 28,
+            "range": 20,
+            "fireRate": 0.1,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 19,
+        "name": "AR-15",
+        "type": "Arme",
+        "parameters": {
+            "damage": 27,
+            "range": 18,
+            "fireRate": 0.1,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 20,
+        "name": "G36C",
+        "type": "Arme",
+        "parameters": {
+            "damage": 24,
+            "range": 16,
+            "fireRate": 0.09,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 21,
+        "name": "M16",
+        "type": "Arme",
+        "parameters": {
+            "damage": 26,
+            "range": 18,
+            "fireRate": 0.1,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 22,
+        "name": "FAMAS",
+        "type": "Arme",
+        "parameters": {
+            "damage": 25,
+            "range": 17,
+            "fireRate": 0.09,
+            "ammo": 25
+        }
+    },
+    {
+        "id": 23,
+        "name": "UMP45",
+        "type": "Arme",
+        "parameters": {
+            "damage": 20,
+            "range": 13,
+            "fireRate": 0.11,
+            "ammo": 25
+        }
+    },
+    {
+        "id": 24,
+        "name": "MP40",
+        "type": "Arme",
+        "parameters": {
+            "damage": 18,
+            "range": 12,
+            "fireRate": 0.13,
+            "ammo": 32
+        }
+    },
+    {
+        "id": 25,
+        "name": "FN SCAR-L",
+        "type": "Arme",
+        "parameters": {
+            "damage": 30,
+            "range": 18,
+            "fireRate": 0.11,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 26,
+        "name": "M4A1-S",
+        "type": "Arme",
+        "parameters": {
+            "damage": 27,
+            "range": 20,
+            "fireRate": 0.1,
+            "ammo": 25
+        }
+    },
+    {
+        "id": 27,
+        "name": "AKS-74U",
+        "type": "Arme",
+        "parameters": {
+            "damage": 24,
+            "range": 15,
+            "fireRate": 0.11,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 28,
+        "name": "AK-47",
+        "type": "Arme",
+        "parameters": {
+            "damage": 32,
+            "range": 19,
+            "fireRate": 0.12,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 29,
+        "name": "SKS",
+        "type": "Arme",
+        "parameters": {
+            "damage": 38,
+            "range": 22,
+            "fireRate": 0.35,
+            "ammo": 10
+        }
+    },
+    {
+        "id": 30,
+        "name": "AK-74",
+        "type": "Arme",
+        "parameters": {
+            "damage": 29,
+            "range": 18,
+            "fireRate": 0.12,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 31,
+        "name": "AK-12",
+        "type": "Arme",
+        "parameters": {
+            "damage": 31,
+            "range": 19,
+            "fireRate": 0.11,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 32,
+        "name": "Galil ACE",
+        "type": "Arme",
+        "parameters": {
+            "damage": 28,
+            "range": 18,
+            "fireRate": 0.1,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 33,
+        "name": "FN FAL",
+        "type": "Arme",
+        "parameters": {
+            "damage": 35,
+            "range": 23,
+            "fireRate": 0.25,
+            "ammo": 20
+        }
+    },
+    {
+        "id": 34,
+        "name": "SG 552",
+        "type": "Arme",
+        "parameters": {
+            "damage": 27,
+            "range": 18,
+            "fireRate": 0.09,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 35,
+        "name": "Steyr AUG",
+        "type": "Arme",
+        "parameters": {
+            "damage": 26,
+            "range": 20,
+            "fireRate": 0.09,
+            "ammo": 30
+        }
+    },
+    {
+        "id": 36,
+        "name": "Remington 870",
+        "type": "Arme",
+        "parameters": {
+            "damage": 70,
+            "range": 6,
+            "fireRate": 1.1,
+            "ammo": 6
+        }
+    },
+    {
+        "id": 37,
+        "name": "Sawed-Off",
+        "type": "Arme",
+        "parameters": {
+            "damage": 80,
+            "range": 4,
+            "fireRate": 1.3,
+            "ammo": 2
+        }
+    },
+    {
+        "id": 38,
+        "name": "Panzerfaust",
+        "type": "Arme",
+        "parameters": {
+            "damage": 130,
+            "range": 28,
+            "fireRate": 2.8,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 39,
+        "name": "RPG-7",
+        "type": "Arme",
+        "parameters": {
+            "damage": 120,
+            "range": 30,
+            "fireRate": 2.5,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 40,
+        "name": "AT4",
+        "type": "Arme",
+        "parameters": {
+            "damage": 140,
+            "range": 32,
+            "fireRate": 3.0,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 41,
+        "name": "Carl Gustav",
+        "type": "Arme",
+        "parameters": {
+            "damage": 135,
+            "range": 34,
+            "fireRate": 2.7,
+            "ammo": 1
+        }
+    },
+    {
+        "id": 42,
+        "name": "Item 42",
+        "type": "Arme"
+    },
+    {
+        "id": 43,
+        "name": "Item 43",
+        "type": "Arme"
+    },
+    {
+        "id": 44,
+        "name": "Item 44",
+        "type": "Arme"
+    },
+    {
+        "id": 45,
+        "name": "Item 45",
+        "type": "Arme"
+    },
+    {
+        "id": 46,
+        "name": "Item 46",
+        "type": "Arme"
+    },
+    {
+        "id": 47,
+        "name": "Item 47",
+        "type": "Arme"
+    },
+    {
+        "id": 48,
+        "name": "Item 48",
+        "type": "Arme"
+    },
+    {
+        "id": 49,
+        "name": "Item 49",
+        "type": "Arme"
+    },
+    {
+        "id": 50,
+        "name": "Item 50",
+        "type": "Arme"
+    },
+    {
+        "id": 51,
+        "name": "Item 51",
+        "type": "Bas"
+    },
+    {
+        "id": 52,
+        "name": "Item 52",
+        "type": "Bas"
+    },
+    {
+        "id": 53,
+        "name": "Item 53",
+        "type": "Bas"
+    },
+    {
+        "id": 54,
+        "name": "Item 54",
+        "type": "Bas"
+    },
+    {
+        "id": 57,
+        "name": "Item 57",
+        "type": "Armure"
+    },
+    {
+        "id": 58,
+        "name": "Item 58",
+        "type": "Armure"
+    },
+    {
+        "id": 59,
+        "name": "Item 59",
+        "type": "Armure"
+    },
+    {
+        "id": 60,
+        "name": "Item 60",
+        "type": "Armure"
+    },
+    {
+        "id": 61,
+        "name": "Item 61",
+        "type": "Armure"
+    },
+    {
+        "id": 62,
+        "name": "Item 62",
+        "type": "Armure"
+    },
+    {
+        "id": 63,
+        "name": "Item 63",
+        "type": "Armure"
+    },
+    {
+        "id": 64,
+        "name": "Item 64",
+        "type": "Armure"
+    },
+    {
+        "id": 65,
+        "name": "Item 65",
+        "type": "Armure"
+    },
+    {
+        "id": 66,
+        "name": "Item 66",
+        "type": "Armure"
+    },
+    {
+        "id": 67,
+        "name": "Item 67",
+        "type": "Armure"
+    },
+    {
+        "id": 68,
+        "name": "Item 68",
+        "type": "Casque"
+    },
+    {
+        "id": 69,
+        "name": "Item 69",
+        "type": "Casque"
+    },
+    {
+        "id": 70,
+        "name": "Item 70",
+        "type": "Casque"
+    },
+    {
+        "id": 71,
+        "name": "Item 71",
+        "type": "Casque"
+    },
+    {
+        "id": 72,
+        "name": "Item 72",
+        "type": "Casque"
+    },
+    {
+        "id": 73,
+        "name": "Item 73",
+        "type": "Casque"
+    },
+    {
+        "id": 74,
+        "name": "Item 74",
+        "type": "Casque"
+    },
+    {
+        "id": 75,
+        "name": "Item 75",
+        "type": "Casque"
+    },
+    {
+        "id": 76,
+        "name": "Item 76",
+        "type": "Casque"
+    },
+    {
+        "id": 77,
+        "name": "Item 77",
+        "type": "Casque"
+    },
+    {
+        "id": 78,
+        "name": "Item 78",
+        "type": "Casque"
+    },
+    {
+        "id": 79,
+        "name": "Item 79",
+        "type": "Casque"
+    },
+    {
+        "id": 80,
+        "name": "Item 80",
+        "type": "Casque"
+    },
+    {
+        "id": 81,
+        "name": "Item 81",
+        "type": "Casque"
+    },
+    {
+        "id": 82,
+        "name": "Item 82",
+        "type": "Casque"
+    },
+    {
+        "id": 83,
+        "name": "Item 83",
+        "type": "Casque"
+    },
+    {
+        "id": 84,
+        "name": "Item 84",
+        "type": "Casque"
+    }
+]

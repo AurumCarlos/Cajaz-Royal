@@ -9,9 +9,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     //[SerializeField] private Movements movement;
     [SerializeField] private Playermouv Playermouv;
     [SerializeField] private GameObject camera;
-    [SerializeField] private Gun gun;
+    [SerializeField] private gun gun;
     [SerializeField] private Health health;
-    [SerializeField] private InventoryHandler inventory;
 
     private string Nick;
     [SerializeField] private TextMeshPro Nickname;
@@ -26,10 +25,6 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         camera.SetActive(true);
         health.islocalplayer = true;
         Nickname.enabled = true;
-        inventory.enabled = true;
-        
-        Transform canvas = transform.Find("Canvas");
-        canvas.gameObject.SetActive(true);
     }
 
     [PunRPC]
