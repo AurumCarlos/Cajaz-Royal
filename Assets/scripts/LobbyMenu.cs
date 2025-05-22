@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class LobbyMenu : MonoBehaviourPunCallbacks
 {
@@ -13,6 +15,9 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
     [SerializeField] private RoomManager roomManager;
     
     [SerializeField] private GameObject camera;
+    [SerializeField] private PlayableDirector cine;
+    [SerializeField] private GameObject cineCam;
+
 
     private float T = 0;
     
@@ -40,8 +45,13 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
         roomManager.Spwan();
         
         LobbyMenuUI.SetActive(false);   
+        cineCam.SetActive(true);
+        cine.Play();
+        DesactivateCineCam desac = cineCam.GetComponent<DesactivateCineCam>();
+        desac.DesactivateCam();
     }
-
+    
+        
     public void QuitToMainMenu()
     {
         Time.timeScale = 1f;

@@ -8,15 +8,16 @@ public static class CityBuider
 {
     private static List<(int, int)> BatSize = new List<(int, int)>();
     private static bool[][] roadMap;
-    private static Random random = new Random( DateTime.Now.Millisecond );
+    private static Random random = new Random(0);
     
     public static void Initialize(bool[][] roads)
     {
         roadMap = roads;
         BatSize.Clear();
-        BatSize.Add((13,7));
-        //BatSize.Add((8,9));
-        //BatSize.Add((9,7));
+        BatSize.Add((19,7));
+        BatSize.Add((14,7));
+        BatSize.Add((8,6));
+        BatSize.Add((6,5));
     }
 
     public static List<((int, int), (int, int))> BindBatPlace()
@@ -29,6 +30,21 @@ public static class CityBuider
         {
             for (int col = 0; col < roadMap[0].Length; col++)
             {
+                int y = random.Next(BatSize.Count);
+                if (y == 0 && random.Next(300) == 0) y = 1;
+                else 
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        (int,int) size = BatSize[(i + y) % BatSize.Count];
+                        if (CanPlaceBuildingAt(row, col, size.Item1, size.Item2))
+                        {
+                            possiblePlacements.Add(((row, col), size));
+                            col += size.Item1 - 1 + random.Next(3);
+                            break;
+                        }
+                    }
+                }
                 foreach (var size in BatSize)
                 {
                     if (CanPlaceBuildingAt(row, col, size.Item1, size.Item2))

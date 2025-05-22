@@ -59,12 +59,19 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         mapHeight = 300;
         maximumWalkers = 20;
         //fillPercentage = 0.2f;
-        seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000);
-        InitializeGrid(seed);
+        //seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000);
+        //seed = 0;
+        //InitializeGrid(seed);
+    }
+
+    public void launch(int coucou)
+    {
+        InitializeGrid(coucou);
     }
 
     private void Update()
     {
+        return;
         if (Input.GetMouseButtonDown(1))
         {
             if (PhotonNetwork.IsConnected)
@@ -135,6 +142,8 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
             }
         }
 
+        Clean();
+
         CityBuider.Initialize(Roads);
         List<((int, int), (int, int))> BatList = CityBuider.BindBatPlace();
 
@@ -168,15 +177,33 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                     }
                 }
 
-                if (true || size == (8, 9))
+                if (size == (14, 7))
                 {
                     GameObject temp = GameObject.Instantiate(Bats[0],tileMapBat.transform);
                     temp.transform.position = new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0);
                     //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
                 }
+                else if (size == (8, 6))
+                {
+                    GameObject temp = GameObject.Instantiate(Bats[1],tileMapBat.transform);
+                    temp.transform.position = new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0);
+                    //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                }
+                else if (size == (19, 7))
+                {
+                    GameObject temp = GameObject.Instantiate(Bats[2],tileMapBat.transform);
+                    temp.transform.position = new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0);
+                    //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                }
+                else if (size == (6, 5))
+                {
+                    GameObject temp = GameObject.Instantiate(Bats[3],tileMapBat.transform);
+                    temp.transform.position = new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0);
+                    //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
+                }
                 else
                 {
-                    Debug.Log((mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1));
+                    Debug.Log((mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1,size.Item1,size.Item2));
                     //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[9]);
                 }
                 _gridHandler[mapHeight / 3 + pos.Item2, mapWidth / 3 + pos.Item1] = Grid.Bat;
@@ -193,7 +220,6 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
             }
         }
         
-        Clean();
         CreateWalls();
 
     }
@@ -452,6 +478,7 @@ Vector2 GetDirection()
 
     public static (int, int) FindSpawn()
     {
+        return (150, 150);
         _random1 = new Random((int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
         int a;
         int b;

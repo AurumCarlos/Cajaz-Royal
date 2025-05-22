@@ -13,10 +13,11 @@ using UnityEngine.UI;
 public class Game : MonoBehaviourPunCallbacks
 {
     private bool IsEnd = false;
+    private bool IsStart = false;
     private int nb = 0;
     
     [SerializeField] GameObject EndGameUI;
-    
+    [SerializeField] WalkerGenerator walkerGenerator;
     
     [SerializeField] GameObject Zone;
     
@@ -29,6 +30,11 @@ public class Game : MonoBehaviourPunCallbacks
     void Awake()
     {
         photonView = GetComponent<PhotonView>();
+        if (!IsStart)
+        {
+            photonView.RPC("StartGame", RpcTarget.All);
+            IsStart = true;
+        }
     }
     private void Update()
     { 
@@ -70,6 +76,14 @@ public class Game : MonoBehaviourPunCallbacks
     private void EndMenu()
     {
         EndGameUI.SetActive(true);
+    }
+
+    [PunRPC]
+    private void StartGame()
+    {
+        if (IsStart) return;
+        IsStart = true;
+        walkerGenerator.launch(DateTime.Now.Millisecond);
     }
 
 
