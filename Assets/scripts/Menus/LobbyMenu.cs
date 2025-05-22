@@ -13,6 +13,9 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject Circle;
     //[SerializeField] private GameObject filtre;
     [SerializeField] private RoomManager roomManager;
+
+
+    [SerializeField] private WalkerGenerator W;
     
     [SerializeField] private GameObject camera;
     [SerializeField] private PlayableDirector cine;
@@ -31,17 +34,18 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
     public void ResumeGameCall()
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount < 2) return;
-        photonView.RPC("ResumeGame", RpcTarget.AllBuffered);
+        photonView.RPC("ResumeGame", RpcTarget.AllBuffered, (int)(DateTime.Now.Millisecond));
     }
 
     
     [PunRPC]
-    public void ResumeGame()
+    public void ResumeGame(int s)
     {
         Game.SetActive(true);
         Circle.SetActive(true);
         camera.SetActive(false);
         //filtre.SetActive(true);
+        W.launch(s);
         roomManager.Spwan();
         
         LobbyMenuUI.SetActive(false);   
@@ -54,6 +58,7 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
         
     public void QuitToMainMenu()
     {
+        PhotonNetwork.Disconnect();
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu"); // Remplace si le nom est différent
     }

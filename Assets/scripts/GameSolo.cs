@@ -17,13 +17,17 @@ public class GameSolo : MonoBehaviourPunCallbacks
     private float time = 5;
     [SerializeField] private GameObject Playercont;
     [SerializeField] private GameObject Player;
+    [SerializeField] private WalkerGenerator W;
 
-    void Awake()
+    void Start()
     {
+    
+        Debug.Log(DateTime.Now.Millisecond);
         
+        W.launch((int)(DateTime.Now.Millisecond));
     }
     private void Update()
-    { 
+    {
         time -= Time.deltaTime;
         if (time <= 0)
         {
@@ -54,7 +58,6 @@ public class GameSolo : MonoBehaviourPunCallbacks
             {
                 t.gameObject.SetActive(b);
             }
-
         }
     }
     

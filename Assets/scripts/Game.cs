@@ -19,10 +19,10 @@ public class Game : MonoBehaviourPunCallbacks
     [SerializeField] GameObject EndGameUI;
     [SerializeField] WalkerGenerator walkerGenerator;
     
+    private int seed;
     [SerializeField] GameObject Zone;
     
     [SerializeField]RoomManager roomManager;
-    
     private PhotonView photonView;
 
     private float time = 5;
@@ -30,14 +30,21 @@ public class Game : MonoBehaviourPunCallbacks
     void Awake()
     {
         photonView = GetComponent<PhotonView>();
+        
+    }
+
+    void Start()
+    {
         if (!IsStart)
         {
             photonView.RPC("StartGame", RpcTarget.All);
-            IsStart = true;
         }
     }
+
+
     private void Update()
-    { 
+    {
+
         time -= Time.deltaTime;
         if (time <= 0)
         {
@@ -80,11 +87,13 @@ public class Game : MonoBehaviourPunCallbacks
 
     [PunRPC]
     private void StartGame()
-    {
-        if (IsStart) return;
+    {   
         IsStart = true;
-        walkerGenerator.launch(DateTime.Now.Millisecond);
+        //walkerGenerator.launch(DateTime.Now.Millisecond);
     }
+
+
+
 
 
 }

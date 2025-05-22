@@ -1707,6 +1707,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474438314}
   m_CullTransparentMesh: 1
+--- !u!1 &1526443901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6655015914507576519, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+  m_PrefabInstance: {fileID: 2069219410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1568383959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,9 +2855,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4193759954794118796, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2088057731}
+    - target: {fileID: 4193759954794118796, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSettingsWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785986231477569341, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785986231477569341, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6655015914507576519, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
       propertyPath: m_Name
       value: SettingsWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655015914507576519, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097197934720875983, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097197934720875983, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097197934720875983, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2893,7 +2930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: SampleScene
-  settingsWindow: {fileID: 6655015914507576519, guid: a2f29877b0843224aa7cbab8de4420d3, type: 3}
+  settingsWindow: {fileID: 1526443901}
 --- !u!114 &2088057732
 MonoBehaviour:
   m_ObjectHideFlags: 0

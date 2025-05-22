@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
    {
        SceneManager.LoadSceneAsync("Solo");
    }
+   
    public void SettingsButton()
    {
          settingsWindow.SetActive(true);

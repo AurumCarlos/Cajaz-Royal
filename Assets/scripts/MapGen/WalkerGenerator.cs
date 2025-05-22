@@ -61,26 +61,18 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
         //fillPercentage = 0.2f;
         //seed = (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000);
         //seed = 0;
-        //InitializeGrid(seed);
+        //InitializeGrid(0);
     }
 
-    public void launch(int coucou)
+    public void launch(int s)
     {
-        InitializeGrid(coucou);
+        mapWidth = 300;
+        mapHeight = 300;
+        maximumWalkers = 20;
+        InitializeGrid(s);
     }
 
-    private void Update()
-    {
-        return;
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (PhotonNetwork.IsConnected)
-                photonView.RPC("InitializeGrid", RpcTarget.AllBuffered,
-                    (int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
-            else InitializeGrid((int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
-            //Start();
-        }
-    }
+
 
     [PunRPC]
     void InitializeGrid(int randomseed)
@@ -112,7 +104,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
 
         Vector3Int tileCenter = new Vector3Int(_gridHandler.GetLength(0) / 2, _gridHandler.GetLength(1) / 2, 0);
         WalkerObject curWalker = new WalkerObject(new Vector2(tileCenter.x, tileCenter.y), GetDirection(), 0.6f, 0);
-        _gridHandler[tileCenter.x, tileCenter.y] = Grid.Floor;
+        //_gridHandler[tileCenter.x, tileCenter.y] = Grid.Floor;
         tileMap.SetTile(tileCenter, tiles[0]);
         _walkers.Add(curWalker);
 
@@ -478,10 +470,10 @@ Vector2 GetDirection()
 
     public static (int, int) FindSpawn()
     {
-        return (150, 150);
         _random1 = new Random((int)(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond % 10000000));
         int a;
         int b;
+        if (_gridHandler == null) return (150, 150);
         for (int i = 0; i < 1000; i++)
         {
             a = _random1.Next(0,300);

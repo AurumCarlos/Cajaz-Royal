@@ -35,7 +35,7 @@ public class Batiment7 : MonoBehaviour
         if (Ext != null)
         {
             Health t = other.gameObject.GetComponent<Health>();
-            if (t != null && (true || t.islocalplayer))
+            if (t != null && (t.islocalplayer))
             {
                 Ext.SetActive(true);
             }
