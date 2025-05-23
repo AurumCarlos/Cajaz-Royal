@@ -56,8 +56,8 @@ public class Game : MonoBehaviourPunCallbacks
             {
                 if (VARIABLE.GetComponentInChildren<Health>().IsAlive()) nb += 1;
             }
-            
-            if (nb <= 1) 
+
+            if (nb <= 2) 
             {
                 ToggleHud(false);
                 photonView.RPC("EndMenu", RpcTarget.All);

@@ -34,9 +34,17 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
     public void ResumeGameCall()
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount < 2) return;
-        photonView.RPC("ResumeGame", RpcTarget.AllBuffered, (int)(DateTime.Now.Millisecond));
+        
+        photonView.RPC("ResumeGame", RpcTarget.Others, (int)(DateTime.Now.Millisecond));
+        
+        StartCoroutine(ResumeGameLocal((int)(DateTime.Now.Millisecond)));
     }
 
+    private IEnumerator ResumeGameLocal(int s)
+    {
+        yield return new WaitForSeconds(0.5f);
+        ResumeGame(s);
+    }
     
     [PunRPC]
     public void ResumeGame(int s)

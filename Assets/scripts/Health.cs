@@ -4,40 +4,77 @@ using System.Collections.Generic;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-
-public class Health : MonoBehaviour
+public class Health : MonoBehaviourPun
 {
     [SerializeField] private GameObject playercontGameObject;
     public bool islocalplayer;
     [Header("UI")]
     [SerializeField] TextMeshProUGUI healthText;
 
+    private bool isalive = true;
     [SerializeField] private int health;
+    [SerializeField] private Transform pos;
+
+    private float time;
+
+    
+    
+
+    
+    public int Gethealth() => health;
+    public bool IsAlive() => isalive;
+
 
     private void Start()
     {
-        //healthText.text = health.ToString();
+        
     }
+
     [PunRPC]
     public void damage(int damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && isalive)
         {
-            if (islocalplayer)
+            if (photonView.IsMine)
             {
-                 RoomManager.Instance.Spwan();
+                photonView.RPC("RPC_Die", RpcTarget.All);
             }
-            Destroy(playercontGameObject);
         }
     }
 
-    // Update is called once per frame
     
+    // Update is called once per frame
+
     private void Update()
     {
-        healthText.text = health.ToString(); 
+        time -= Time.deltaTime;
+        healthText.text = health.ToString();
+
+        try
+        {
+            if (DamageCircle.IsOutsideCircle_Static(pos.position) && time <= 0)
+            {
+                damage(1);
+                time = 1;
+            }
+        }
+        catch (Exception) {}
+        
     }
+
+    [PunRPC]
+    void RPC_Die()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SortingGroup>().sortingOrder = -10;
+        GetComponentInChildren<Gun>().enabled = false;
+        isalive = false;
+        // désactiver contrôles, animations, etc.
+    }
+    
+    
 }

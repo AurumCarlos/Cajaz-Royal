@@ -39,7 +39,7 @@ public class GameSolo : MonoBehaviourPunCallbacks
             {
                 if (player.GetComponentInChildren<Health>().IsAlive()) nb += 1;
             }
-            
+            //Debug.Log(nb);
             if (nb <= 0) 
             {
                 ToggleHud(false);

@@ -9,7 +9,7 @@ public class FontColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        colorchangingFont.color = Color.black;
+        //colorchangingFont.color = Color.black;
     }
 
     // Update is called once per frame

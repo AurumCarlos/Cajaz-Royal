@@ -43,6 +43,14 @@ MonoBehaviour:
   - IsLocalplayerRPC
   - setnick
   - InitializeGrid
+  - ReloadGame
+  - Reload
+  - RPC_Die
+  - EndMenu
+  - getCirclePosition
+  - setCirclePosition
+  - ResumeGame
+  - StartGame
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

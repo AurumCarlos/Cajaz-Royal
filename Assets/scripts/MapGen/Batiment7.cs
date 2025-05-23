@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -13,6 +14,7 @@ public class Batiment7 : MonoBehaviour
         Ext.SetActive(true);
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -23,7 +25,7 @@ public class Batiment7 : MonoBehaviour
         if (Ext != null)
         {
             Health t = other.gameObject.GetComponent<Health>();
-            if (t != null && (t.islocalplayer))
+            if (!PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
             {
                 Ext.SetActive(false);
             }
@@ -32,10 +34,11 @@ public class Batiment7 : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        
         if (Ext != null)
         {
             Health t = other.gameObject.GetComponent<Health>();
-            if (t != null && (t.islocalplayer))
+            if (!PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
             {
                 Ext.SetActive(true);
             }
