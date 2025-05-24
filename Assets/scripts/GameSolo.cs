@@ -25,6 +25,7 @@ public class GameSolo : MonoBehaviourPunCallbacks
         Debug.Log(DateTime.Now.Millisecond);
         
         W.launch((int)(DateTime.Now.Millisecond));
+        AstarPath.active.Scan();
     }
     private void Update()
     {

@@ -16,6 +16,7 @@ public class AIAgent : MonoBehaviour
     public Health Health; 
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    private float timer = 0f;
     
 
 
@@ -61,6 +62,13 @@ public class AIAgent : MonoBehaviour
 
     private void Update()
     {
+        if (timer <= 0)
+        {
+            FindClosestTarget();
+            timer = 1;
+        }
+        timer -= Time.deltaTime;
+
         Path.updateRotation = false;
         Path.maxSpeed = MoveSpeed;
         currentState.Update();
@@ -86,5 +94,20 @@ public class AIAgent : MonoBehaviour
         // {
         //     Path.destination = Target.position;
         // }
+    }
+
+    private void FindClosestTarget()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Player");
+        if (targets.Length > 0)
+        {
+            GameObject closest = targets[0];
+            for (int i = 1; i < targets.Length; i++)
+            {
+                if (Vector2.Distance(transform.position, targets[i].transform.position) <
+                    Vector2.Distance(transform.position, closest.transform.position)) closest = targets[i];
+            }
+            Target = closest.transform;
+        }
     }
 }

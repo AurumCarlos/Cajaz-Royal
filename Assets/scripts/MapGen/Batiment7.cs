@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -25,7 +26,8 @@ public class Batiment7 : MonoBehaviour
         if (Ext != null)
         {
             Health t = other.gameObject.GetComponent<Health>();
-            if (!PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
+            Playermouv p = other.gameObject.GetComponent<Playermouv>();
+            if (p!= null && !PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
             {
                 Ext.SetActive(false);
             }
