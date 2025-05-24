@@ -25,11 +25,22 @@ public class Batiment7 : MonoBehaviour
     {
         if (Ext != null)
         {
-            Health t = other.gameObject.GetComponent<Health>();
-            Playermouv p = other.gameObject.GetComponent<Playermouv>();
-            if (p!= null && !PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
+            if (PhotonNetwork.IsConnected)
             {
-                Ext.SetActive(false);
+                Health t = other.gameObject.GetComponent<Health>();
+                if (!PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
+                {
+                    Ext.SetActive(false);
+                }
+            }
+            else
+            {
+                HealthSolo t = other.gameObject.GetComponent<HealthSolo>();
+                Playermouv p = other.gameObject.GetComponent<Playermouv>();
+                if (p != null && !PhotonNetwork.IsConnected || t != null)
+                {
+                    Ext.SetActive(false);
+                }
             }
         }
     }
@@ -39,11 +50,24 @@ public class Batiment7 : MonoBehaviour
         
         if (Ext != null)
         {
-            Health t = other.gameObject.GetComponent<Health>();
-            if (!PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
+            if (PhotonNetwork.IsConnected)
             {
-                Ext.SetActive(true);
+                Health t = other.gameObject.GetComponent<Health>();
+                if (!PhotonNetwork.IsConnected || t != null && (t.islocalplayer))
+                {
+                    Ext.SetActive(true);
+                }
             }
-        }
+            else
+            {
+                HealthSolo t = other.gameObject.GetComponent<HealthSolo>();
+                Playermouv p = other.gameObject.GetComponent<Playermouv>();
+                Debug.Log((t,p));
+                if (p != null && t != null)
+                {
+                    Ext.SetActive(true);
+                }
+            }
+        }   
     }
 }

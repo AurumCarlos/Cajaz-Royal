@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChaseState : State
 {
     private static readonly int IsChasing = Animator.StringToHash("is_chasing");
-    private float Range = 10.0f;
+    private float Range = 10.0f; 
     private float attackRange = 2.0f;
 
     public ChaseState(AIAgent ai) : base(ai){}

@@ -38,7 +38,7 @@ public class GameSolo : MonoBehaviourPunCallbacks
 
             foreach (var player in ennemis)
             {
-                if (player.GetComponentInChildren<Health>().IsAlive()) nb += 1;
+                if (player.GetComponentInChildren<HealthSolo>().IsAlive()) nb += 1;
             }
             //Debug.Log(nb);
             if (nb <= 0) 

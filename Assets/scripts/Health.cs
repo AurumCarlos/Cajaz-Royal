@@ -47,7 +47,6 @@ public class Health : MonoBehaviourPun
     }
 
     
-    // Update is called once per frame
 
     private void Update()
     {
@@ -73,7 +72,6 @@ public class Health : MonoBehaviourPun
         GetComponent<SortingGroup>().sortingOrder = -10;
         GetComponentInChildren<Gun>().enabled = false;
         isalive = false;
-        // désactiver contrôles, animations, etc.
     }
     
     

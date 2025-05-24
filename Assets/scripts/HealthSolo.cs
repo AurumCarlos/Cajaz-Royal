@@ -32,18 +32,17 @@ public class HealthSolo : MonoBehaviourPun
     public void damage(int damage)
     {
         health -= damage;
-        if (health <= 0 && isalive)
+        if (health <= 0 )
         {
             Die();
         }
     }
 
     
-    // Update is called once per frame
 
     private void Update()
     {
-
+        //Debug.Log(health);
     }
 
 
@@ -53,7 +52,6 @@ public class HealthSolo : MonoBehaviourPun
         GetComponent<SortingGroup>().sortingOrder = -10;
         GetComponentInChildren<Gun>().enabled = false;
         isalive = false;
-        // désactiver contrôles, animations, etc.
     }
     
     

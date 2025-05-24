@@ -44,8 +44,8 @@ public class AIAgent : MonoBehaviour
     }
     public Vector2 GetRandomTarget()
     {
-        float randomX = Random.Range(-5f, 5f);  // Limits movement range
-        float randomY = Random.Range(-5f, 5f);
+        float randomX = Random.Range(-10f, 10f);  // Limits movement range
+        float randomY = Random.Range(-10f, 10f);
         return StartPos + new Vector2(randomX, randomY);
     }
 
