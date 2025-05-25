@@ -3,9 +3,9 @@ using TMPro;
 
 public class CreditsScript : MonoBehaviour
 {
-    public float scrollSpeed = 50f;   
-    public float resetY = 1000f;      
-    public float startY = -500f;      
+    [SerializeField] private float scrollSpeed = 50f;   
+    [SerializeField] private float resetY = 1000f;      
+    [SerializeField] private float startY = -500f;      
 
     private RectTransform rectTransform;
 

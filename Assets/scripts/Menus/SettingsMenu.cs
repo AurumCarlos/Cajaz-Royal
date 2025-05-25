@@ -6,9 +6,9 @@ using System.Linq;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    [SerializeField] private AudioMixer audioMixer;
 
-    public Dropdown resolutionDropdown;
+    [SerializeField] private Dropdown resolutionDropdown;
     
     Resolution[] resolutions;
 

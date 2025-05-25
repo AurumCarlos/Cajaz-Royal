@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class StarScroll : MonoBehaviour
 {
-    public RawImage starImage;
-    public Vector2 scrollSpeed = new Vector2(0, 0.02f); 
+    [SerializeField] private RawImage starImage;
+    [SerializeField] private Vector2 scrollSpeed = new Vector2(0, 0.02f); 
 
     private Vector2 uvOffset = Vector2.zero;
 

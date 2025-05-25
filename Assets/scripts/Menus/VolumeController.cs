@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class VolumeController : MonoBehaviour
 {
-    public Slider volumeSlider;
-    public AudioSource menuMusic;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioSource menuMusic;
 
     void Start()
     {

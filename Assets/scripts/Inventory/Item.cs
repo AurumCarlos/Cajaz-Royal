@@ -13,11 +13,11 @@ public enum ItemType
 
 public class Item 
 {
-    public Sprite sprite;
-    public int amount;
+    public Sprite sprite{ get; set; }
+    public int amount{ get; set; }
 
-    public string name;
-    public ItemType itemType;
+    public string name{ get; set; }
+    public ItemType itemType{ get; set; }
 
     public Dictionary<string, float> attributes;
 

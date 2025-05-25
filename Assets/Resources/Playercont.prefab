@@ -5507,12 +5507,12 @@ MonoBehaviour:
   uiInventory: {fileID: 1900468989161672767}
   handGameObject: {fileID: 5741153509626379896}
   customInventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7563481622800443538, guid: 95163487fa170d54791279c258e5eb49, type: 3}
+  - {fileID: -7727487069324290028, guid: 95163487fa170d54791279c258e5eb49, type: 3}
+  - {fileID: 614859341906440386, guid: 95163487fa170d54791279c258e5eb49, type: 3}
+  - {fileID: 9051849155464761152, guid: b24bf40a59e0dee49a6d855dc6e2253a, type: 3}
+  - {fileID: -3219555235019523041, guid: b24bf40a59e0dee49a6d855dc6e2253a, type: 3}
+  - {fileID: 3092017626873146282, guid: b24bf40a59e0dee49a6d855dc6e2253a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -5625,7 +5625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4353971968712783462
 RectTransform:
   m_ObjectHideFlags: 0

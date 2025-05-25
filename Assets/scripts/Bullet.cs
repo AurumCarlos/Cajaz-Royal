@@ -8,8 +8,8 @@ public class bullet : MonoBehaviourPunCallbacks
     [Range(0,100)]  [SerializeField] private float speed = -10f;
     [Range(0,10)] [SerializeField] private float lifeTime = 3f;
 
-    public Health PlayerHealth;
-    public float Damage;
+    [SerializeField] private Health PlayerHealth;
+    [SerializeField] private float Damage;
     private Rigidbody2D rb;
 
 

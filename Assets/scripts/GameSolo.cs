@@ -27,6 +27,10 @@ public class GameSolo : MonoBehaviourPunCallbacks
         W.launch((int)(DateTime.Now.Millisecond));
         AstarPath.active.Scan();
     }
+
+
+
+
     private void Update()
     {
         time -= Time.deltaTime;

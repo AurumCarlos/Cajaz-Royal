@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 { 
-    public string levelToLoad;
-    public GameObject settingsWindow;
+    [SerializeField]private GameObject settingsWindow;
+    [SerializeField]private GameObject ControlsWindow;
     
     private void Update()
     {
@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     
    public void StartMulti()
    {
-       SceneManager.LoadSceneAsync(levelToLoad);
+       SceneManager.LoadSceneAsync("SampleScene");
    }   
    
    public void StartSolo()
@@ -51,5 +51,15 @@ public class MainMenu : MonoBehaviour
    private void ToggleSettingsWindow()
    {
        settingsWindow.SetActive(!settingsWindow.activeSelf);
+   }
+
+   public void Con()
+   {
+       ControlsWindow.SetActive(true);
+   }
+
+   public void Coff()
+   {
+       ControlsWindow.SetActive(false);
    }
 }

@@ -13,7 +13,7 @@ public class Playermouv : MonoBehaviourPunCallbacks
     float speedX, speedY;
     private bool is_seeing_right;
     [SerializeField] private Rigidbody2D rb2D;
-    public Animator animator;
+    [SerializeField] private Animator animator;
     private string currentanimation;
     private bool is_walking = false;
     private bool is_reversed = false;

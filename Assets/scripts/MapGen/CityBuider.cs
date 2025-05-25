@@ -40,7 +40,7 @@ public static class CityBuider
                         if (CanPlaceBuildingAt(row, col, size.Item1, size.Item2))
                         {
                             possiblePlacements.Add(((row, col), size));
-                            col += size.Item1 - 1 + random.Next(3);
+                            col += size.Item1 - 0 + 0 * random.Next(3);
                             break;
                         }
                     }
