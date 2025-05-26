@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using Random = System.Random;
 
 public class AttackState : State
 {
@@ -10,8 +11,9 @@ public class AttackState : State
     
 
     private float attackCooldown = 1.5f;
+    private float timer;
     private float attackRange = 2.0f;
-    private float lastAttackTime = -Mathf.Infinity;
+    //private float lastAttackTime = -Mathf.Infinity;
 
     private bool hasAttacked = false;
 
@@ -21,7 +23,7 @@ public class AttackState : State
     {
         Enemy.Path.canMove = false;
         ResetAttackBools();
-        hasAttacked = false;
+        timer = 0;
     }
 
     public override void Update()
@@ -33,35 +35,39 @@ public class AttackState : State
             ExitToChase();
             return;
         }
-        
-        if (!hasAttacked && Time.time >= lastAttackTime + attackCooldown)
+
+        var random = new Random();
+        int r = random.Next(0, 2);
+        if (timer<=0)
         {
-            hasAttacked = true;
-            lastAttackTime = Time.time;
-
-            // Randomly choose attack
-            bool isScratch = Random.value > 0.5f;
-            ResetAttackBools();
-
-            if (isScratch)
+            if (r==0)
             {
                 Enemy.animator.SetBool(ScratchBool, true);
                 DealDamage(5);
+
             }
             else
             {
                 Enemy.animator.SetBool(BiteBool, true);
                 DealDamage(10);
+
             }
+            timer = attackCooldown;
         }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
+            
     }
 
     private void DealDamage(int amount)
     {
-        var health = Enemy.Target.GetComponent<Health>();
+        var health = Enemy.Target.GetComponent<HealthSolo>();
         if (health != null)
         {
-            health.damage(amount);
+            //health.Damage(amount);
+            Enemy.Target.transform.gameObject.GetComponent<HealthSolo>().Damage(10);
         }
     }
     private void ResetAttackBools()
@@ -77,9 +83,5 @@ public class AttackState : State
         Enemy.SwitchState(Enemy.chaseState);
     }
 
-    public void FinishAttackAnimation()
-    {
-        hasAttacked = false;
-        ResetAttackBools();
-    }
+  
 }

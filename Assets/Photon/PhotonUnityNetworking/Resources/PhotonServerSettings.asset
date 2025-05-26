@@ -52,6 +52,16 @@ MonoBehaviour:
   - ResumeGame
   - StartGame
   - setCircleSize
+  - ChangeCasqueRPC
+  - ChangeWeaponRPC
+  - Damage
+  - DestroyToAll
+  - Equip
+  - SetWorldItem
+  - SpawnWorldItem
+  - Unequip
+  - SpawnWorldItemtr
+  - DeactivateToAll
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

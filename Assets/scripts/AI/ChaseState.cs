@@ -11,8 +11,16 @@ public class ChaseState : State
     public ChaseState(AIAgent ai) : base(ai){}
     public override void Enter()
     {
+        if (!Enemy.israt)
+        {
+            attackRange = 8.0f;
+        }
         Enemy.Path.destination = Enemy.Target.transform.position;
-        Enemy.animator.SetBool(IsChasing, true);
+        if (Enemy.israt)
+        {
+            Enemy.animator.SetBool(IsChasing, true);
+
+        }
     }
     public override void Update()
     {
@@ -20,13 +28,19 @@ public class ChaseState : State
             Enemy.Target.position);
         if (targetDistance>Range)
         {
-            Enemy.animator.SetBool(IsChasing, false);
+            if (Enemy.israt)
+            {
+                Enemy.animator.SetBool(IsChasing, false);
+            }
             Enemy.SwitchState(Enemy.patrolState);
             return;
         }
         if (targetDistance<attackRange)
         {
-            Enemy.animator.SetBool(IsChasing, false);
+            if (Enemy.israt)
+            {
+                Enemy.animator.SetBool(IsChasing, false);
+            }
             Enemy.SwitchState(Enemy.attackState);
             return;
         }

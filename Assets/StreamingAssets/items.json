@@ -8,7 +8,8 @@
             "damage": 15,
             "range" : 10,
             "fireRate" : 0.5,
-            "ammo" : 17
+            "ammo" : 17,
+            "ammoType" : 87
         }
     },
     {
@@ -19,7 +20,8 @@
             "damage": 40,
             "range": 15,
             "fireRate": 1.0,
-            "ammo": 7
+            "ammo": 7,
+            "ammoType" : 87
         }
     },
     {
@@ -31,7 +33,8 @@
             "damage": 18,
             "range": 11,
             "fireRate": 0.4,
-            "ammo": 15
+            "ammo": 15,
+            "ammoType" : 87
         }
         
     },
@@ -44,7 +47,8 @@
             "damage": 20,
             "range": 12,
             "fireRate": 0.45,
-            "ammo": 15
+            "ammo": 15,
+            "ammoType" : 87
         }
     },
     {
@@ -56,7 +60,8 @@
             "damage": 14,
             "range": 9,
             "fireRate": 0.55,
-            "ammo": 8
+            "ammo": 8,
+            "ammoType" : 87
         }
     },
     {
@@ -68,7 +73,8 @@
             "damage": 16,
             "range": 10,
             "fireRate": 0.5,
-            "ammo": 8
+            "ammo": 8,
+            "ammoType" : 87
         }
     },
     {
@@ -80,7 +86,8 @@
             "damage": 22,
             "range": 11,
             "fireRate": 0.6,
-            "ammo": 7
+            "ammo": 7,
+            "ammoType" : 87
         }
     },
     {
@@ -92,7 +99,8 @@
             "damage": 17,
             "range": 10,
             "fireRate": 0.35,
-            "ammo": 16
+            "ammo": 16,
+            "ammoType" : 87
         }
     },
     {
@@ -103,7 +111,8 @@
             "damage": 13,
             "range": 14,
             "fireRate": 0.09,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -114,7 +123,8 @@
             "damage": 11,
             "range": 12,
             "fireRate": 0.07,
-            "ammo": 32
+            "ammo": 32,
+            "ammoType" : 87
         }
     },
     {
@@ -125,7 +135,8 @@
             "damage": 12,
             "range": 13,
             "fireRate": 0.06,
-            "ammo": 50
+            "ammo": 50,
+            "ammoType" : 86
         }
     },
     {
@@ -136,7 +147,8 @@
             "damage": 10,
             "range": 10,
             "fireRate": 0.05,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 87
         }
     },
     {
@@ -202,7 +214,8 @@
             "damage": 28,
             "range": 20,
             "fireRate": 0.1,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -213,7 +226,8 @@
             "damage": 27,
             "range": 18,
             "fireRate": 0.1,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -224,7 +238,8 @@
             "damage": 24,
             "range": 16,
             "fireRate": 0.09,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -235,7 +250,8 @@
             "damage": 26,
             "range": 18,
             "fireRate": 0.1,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -246,7 +262,8 @@
             "damage": 25,
             "range": 17,
             "fireRate": 0.09,
-            "ammo": 25
+            "ammo": 25,
+            "ammoType" : 86
         }
     },
     {
@@ -257,7 +274,8 @@
             "damage": 20,
             "range": 13,
             "fireRate": 0.11,
-            "ammo": 25
+            "ammo": 25,
+            "ammoType" : 86
         }
     },
     {
@@ -268,7 +286,8 @@
             "damage": 18,
             "range": 12,
             "fireRate": 0.13,
-            "ammo": 32
+            "ammo": 32,
+            "ammoType" : 86
         }
     },
     {
@@ -279,7 +298,8 @@
             "damage": 30,
             "range": 18,
             "fireRate": 0.11,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -290,7 +310,8 @@
             "damage": 27,
             "range": 20,
             "fireRate": 0.1,
-            "ammo": 25
+            "ammo": 25,
+            "ammoType" : 86
         }
     },
     {
@@ -301,7 +322,8 @@
             "damage": 24,
             "range": 15,
             "fireRate": 0.11,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -312,7 +334,8 @@
             "damage": 32,
             "range": 19,
             "fireRate": 0.12,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -323,7 +346,8 @@
             "damage": 38,
             "range": 22,
             "fireRate": 0.35,
-            "ammo": 10
+            "ammo": 10,
+            "ammoType" : 86
         }
     },
     {
@@ -334,7 +358,8 @@
             "damage": 29,
             "range": 18,
             "fireRate": 0.12,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -345,7 +370,8 @@
             "damage": 31,
             "range": 19,
             "fireRate": 0.11,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -356,7 +382,8 @@
             "damage": 28,
             "range": 18,
             "fireRate": 0.1,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -367,7 +394,8 @@
             "damage": 35,
             "range": 23,
             "fireRate": 0.25,
-            "ammo": 20
+            "ammo": 20,
+            "ammoType" : 86
         }
     },
     {
@@ -378,7 +406,8 @@
             "damage": 27,
             "range": 18,
             "fireRate": 0.09,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -389,7 +418,8 @@
             "damage": 26,
             "range": 20,
             "fireRate": 0.09,
-            "ammo": 30
+            "ammo": 30,
+            "ammoType" : 86
         }
     },
     {
@@ -400,7 +430,8 @@
             "damage": 70,
             "range": 6,
             "fireRate": 1.1,
-            "ammo": 6
+            "ammo": 6,
+            "ammoType" : 85
         }
     },
     {
@@ -411,7 +442,8 @@
             "damage": 80,
             "range": 4,
             "fireRate": 1.3,
-            "ammo": 2
+            "ammo": 2,
+            "ammoType" : 85
         }
     },
     {
@@ -460,207 +492,468 @@
     },
     {
         "id": 42,
-        "name": "Item 42",
-        "type": "Arme"
+        "name": "AWP",
+        "type": "Arme",
+        "parameters": {
+            "damage": 100,
+            "range": 50,
+            "fireRate": 1.5,
+            "ammo": 5,
+            "ammoType" : 86
+        }
     },
     {
         "id": 43,
-        "name": "Item 43",
-        "type": "Arme"
+        "name": "Barrett M82",
+        "type": "Arme",
+        "parameters": {
+            "damage": 120,
+            "range": 60,
+            "fireRate": 1.8,
+            "ammo": 10,
+            "ammoType" : 86
+        }
     },
     {
         "id": 44,
-        "name": "Item 44",
-        "type": "Arme"
+        "name": "Mosin-Nagant",
+        "type": "Arme",
+        "parameters": {
+            "damage": 90,
+            "range": 45,
+            "fireRate": 2.0,
+            "ammo": 5,
+            "ammoType" : 86
+        }
     },
     {
         "id": 45,
-        "name": "Item 45",
-        "type": "Arme"
+        "name": "CheyTac M200 Intervention",
+        "type": "Arme",
+        "parameters": {
+            "damage": 110,
+            "range": 85,
+            "fireRate": 1.4,
+            "ammo": 7,
+            "ammoType" : 86
+        }
     },
     {
         "id": 46,
-        "name": "Item 46",
-        "type": "Arme"
+        "name": "Dragunov SVD",
+        "type": "Arme",
+        "parameters": {
+            "damage": 80,
+            "range": 40,
+            "fireRate": 0.7,
+            "ammo": 10,
+            "ammoType" : 86
+        }
     },
     {
         "id": 47,
-        "name": "Item 47",
-        "type": "Arme"
+        "name": "M249 SAW",
+        "type": "Arme",
+        "parameters": {
+            "damage": 32,
+            "range": 28,
+            "fireRate": 0.08,
+            "ammo": 100,
+            "ammoType" : 86
+        }
     },
     {
         "id": 48,
         "name": "Item 48",
-        "type": "Arme"
+        "type": "Arme",
+        "parameters": {
+            "damage": 32,
+            "range": 28,
+            "fireRate": 0.08,
+            "ammo": 100,
+            "ammoType" : 86
+        }
     },
     {
         "id": 49,
         "name": "Item 49",
-        "type": "Arme"
+        "type": "Arme",
+        "parameters": {
+            "damage": 32,
+            "range": 28,
+            "fireRate": 0.08,
+            "ammo": 100,
+            "ammoType" : 86
+        }
     },
     {
         "id": 50,
         "name": "Item 50",
-        "type": "Arme"
+        "type": "Arme",
+        "parameters": {
+            "damage": 32,
+            "range": 28,
+            "fireRate": 0.08,
+            "ammo": 100,
+            "ammoType" : 86
+        }
     },
     {
         "id": 51,
-        "name": "Item 51",
-        "type": "Bas"
+        "name": "Pantalon Lourd",
+        "type": "Bas",
+
+        "parameters" : {
+            "defenseModifier": 0.3,
+            "speedModifier": 0.75
+        }
     },
     {
         "id": 52,
-        "name": "Item 52",
-        "type": "Bas"
+        "name": "Pantalon tactique",
+        "type": "Bas",
+
+        "parameters" : {
+            "defenseModifier": 0.1,
+            "speedModifier": 0.9
+        }
     },
     {
         "id": 53,
-        "name": "Item 53",
-        "type": "Bas"
+        "name": "Pantalon de combat",
+        "type": "Bas",
+
+        "parameters" : {
+            "defenseModifier": 0.3,
+            "speedModifier": 0.8
+        }
     },
     {
         "id": 54,
-        "name": "Item 54",
-        "type": "Bas"
+        "name": "Pantalon treillismilitaire",
+        "type": "Bas",
+
+        "parameters" : {
+            "defense": 0.2,
+            "speed": 0.9
+        }
     },
     {
         "id": 57,
-        "name": "Item 57",
-        "type": "Armure"
+        "name": "Gilet de combat",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 1,
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 58,
-        "name": "Item 58",
-        "type": "Armure"
+        "name": "Porte-Plaques T1",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 2,
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 59,
-        "name": "Item 59",
-        "type": "Armure"
+        "name": "Porte-Plaques T2",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 1,
+            "defenseModifier": 0.3
+        }
     },
     {
         "id": 60,
-        "name": "Item 60",
-        "type": "Armure"
+        "name": "Gilet Chest Rig",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 0,
+            "defenseModifier": 0.1
+        }
     },
     {
         "id": 61,
-        "name": "Item 61",
-        "type": "Armure"
+        "name": "Gilet Porte-Plaques T1",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 2,
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 62,
-        "name": "Item 62",
-        "type": "Armure"
+        "name": "Gilet Porte-Plaques T2",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 3,
+            "defenseModifier": 0.3
+        }
     },
     {
         "id": 63,
-        "name": "Item 63",
-        "type": "Armure"
+        "name": "Gilet Tactique",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 2,
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 64,
-        "name": "Item 64",
-        "type": "Armure"
+        "name": "Gilet Modulaire T1",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 1,
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 65,
-        "name": "Item 65",
-        "type": "Armure"
+        "name": "Gilet Discret",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 1,
+            "defenseModifier": 0.1
+        }
     },
     {
         "id": 66,
-        "name": "Item 66",
-        "type": "Armure"
+        "name": "Gilet Modulaire T2",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 2,
+            "defenseModifier": 0.3
+        }
     },
     {
         "id": 67,
-        "name": "Item 67",
-        "type": "Armure"
+        "name": "Gilet Modulaire T3",
+        "type": "Armure",
+
+        "parameters" : {
+            "plateCapacity": 3,
+            "defenseModifier": 0.4
+        }
     },
     {
         "id": 68,
-        "name": "Item 68",
-        "type": "Casque"
+        "name": "Casque rouillé 1",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.15
+        }
     },
     {
         "id": 69,
-        "name": "Item 69",
-        "type": "Casque"
+        "name": "Casque de Combat",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.25
+        }
     },
     {
         "id": 70,
-        "name": "Item 70",
-        "type": "Casque"
+        "name": "Casque de Moto",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.1
+        }
     },
     {
         "id": 71,
-        "name": "Item 71",
-        "type": "Casque"
+        "name": "Casque Militaire vert",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 72,
-        "name": "Item 72",
-        "type": "Casque"
+        "name": "Bonnet sal",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0
+        }
     },
     {
         "id": 73,
-        "name": "Item 73",
-        "type": "Casque"
+        "name": "Casquette",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0
+        }
     },
     {
         "id": 74,
-        "name": "Item 74",
-        "type": "Casque"
+        "name": "Bonnet gris",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 1
+        }
     },
     {
         "id": 75,
-        "name": "Item 75",
-        "type": "Casque"
+        "name": "Cheapeau de Brousse",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0
+        }
     },
     {
         "id": 76,
-        "name": "Item 76",
-        "type": "Casque"
+        "name": "Casque Commando",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.3
+        }
     },
     {
         "id": 77,
-        "name": "Item 77",
-        "type": "Casque"
+        "name": "Casque de Soudure",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.1
+        }
     },
     {
         "id": 78,
-        "name": "Item 78",
-        "type": "Casque"
+        "name": "Casque Commando gris",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.3
+        }
     },
     {
         "id": 79,
-        "name": "Item 79",
-        "type": "Casque"
+        "name": "Casque SWAT",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.3
+        }
     },
     {
         "id": 80,
-        "name": "Item 80",
-        "type": "Casque"
+        "name": "Casque Militaire",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 81,
-        "name": "Item 81",
-        "type": "Casque"
+        "name": "Casque de Police",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.2
+        }
     },
     {
         "id": 82,
-        "name": "Item 82",
-        "type": "Casque"
+        "name": "Casque rouillé 2",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.15
+        }
     },
     {
         "id": 83,
-        "name": "Item 83",
-        "type": "Casque"
+        "name": "Casque de Chantier",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.1
+        }
     },
     {
         "id": 84,
-        "name": "Item 84",
-        "type": "Casque"
+        "name": "Casque rouillé 3",
+        "type": "Casque",
+
+        "parameters" : {
+            "defenseModifier": 0.15
+        }
+    },
+    {
+        "id": 85,
+        "name": "Munitions Fusil à Pompe",
+        "type": "Munitions",
+
+        "parameters" : { }
+    },
+    {
+        "id": 86,
+        "name": "Munitions Basiques",
+        "type": "Munitions",
+
+        "parameters" : {    }
+    },
+    {
+        "id": 87,
+        "name": "Munitions Pistolet",
+        "type": "Munitions",
+
+        "parameters" : { }
+    },
+    {
+        "id": 88,
+        "name": "Petit Medkit",
+        "type": "Soins",
+
+        "parameters" : { 
+            "heal": 20
+        }
+    },
+    {
+        "id": 89,
+        "name": "Medkit Moyen",
+        "type": "Soins",
+
+        "parameters" : { 
+            "heal": 40
+        }
+    },
+    {
+        "id": 90,
+        "name": "Grand Medkit",
+        "type": "Soins",
+
+        "parameters" : { 
+            "heal": 80
+        }
+    },
+    {
+        "id": 91,
+        "name": "Plaque de protection",
+        "type": "Plate",
+
+        "parameters" : { }
     }
 ]

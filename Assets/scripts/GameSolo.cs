@@ -18,21 +18,33 @@ public class GameSolo : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject Playercont;
     [SerializeField] private GameObject Player;
     [SerializeField] private WalkerGenerator W;
-
+    private int scan = 15;
     void Start()
     {
     
         Debug.Log(DateTime.Now.Millisecond);
         
         W.launch((int)(DateTime.Now.Millisecond));
-        AstarPath.active.Scan();
+
+
     }
+
+
 
 
 
 
     private void Update()
     {
+        if (scan >= 0)
+        {
+            if (scan == 0)
+            {
+                AstarPath.active.Scan();
+            }
+            scan -= 1;
+        }
+        
         time -= Time.deltaTime;
         if (time <= 0)
         {
@@ -42,7 +54,9 @@ public class GameSolo : MonoBehaviourPunCallbacks
 
             foreach (var player in ennemis)
             {
-                if (player.GetComponentInChildren<HealthSolo>().IsAlive()) nb += 1;
+                //Debug.Log(player.GetComponentInChildren<HealthSolo>());
+                //Debug.Log(player.GetComponentInChildren<HealthSolo>().IsAlive);
+                if (player.GetComponentInChildren<HealthSolo>() && player.GetComponentInChildren<HealthSolo>().IsAlive) nb += 1;
             }
             //Debug.Log(nb);
             if (nb <= 0) 

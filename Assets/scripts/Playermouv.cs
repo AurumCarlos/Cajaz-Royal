@@ -13,44 +13,39 @@ public class Playermouv : MonoBehaviourPunCallbacks
     float speedX, speedY;
     private bool is_seeing_right;
     [SerializeField] private Rigidbody2D rb2D;
-    [SerializeField] private Animator animator;
+    public Animator animator;
     private string currentanimation;
     private bool is_walking = false;
     private bool is_reversed = false;
     private bool is_sprinting = false;
     
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+    private InventoryHandler _inventoryHandler;
 
+    private void Awake()
+    {
+        _inventoryHandler = transform.GetComponent<InventoryHandler>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        
-        
         speedX = Input.GetAxisRaw("Horizontal");
         speedY = Input.GetAxisRaw("Vertical");
         
         is_sprinting = Input.GetButton("Sprint");
         
-        //Debug.Log(gameObject.transform.position);
         
         Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-        
         is_seeing_right = mousePos.x > gameObject.transform.position[0];
 		
         
         if (speedX == 0 && speedY == 0) {
-            animator.SetBool("is_walking", false);
             is_walking = false;
+            animator.SetBool("is_walking", is_walking);
         }
         else 
         {
-            animator.SetBool("is_walking", true);
             is_walking = true;
+            animator.SetBool("is_walking", is_walking);
             
             if (speedX < 0) // Mouvement Gauche
             {
@@ -77,8 +72,6 @@ public class Playermouv : MonoBehaviourPunCallbacks
                 }
             }
         }
-        //checkanimation(is_walking,is_reversed);   
-        
         
         if (is_seeing_right) gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         else gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -88,27 +81,26 @@ public class Playermouv : MonoBehaviourPunCallbacks
         else rb2D.transform.Translate(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * ( (movementSpeed * (!is_sprinting? 0.01f : 0.02f))));
     }
     
-    private void checkanimation(bool w,bool r){
-        Debug.Log("w" + w + "r" + r);
-        if (w) 
-        {
-            if (r)changeanimation("reversed_walk");
-            else changeanimation("Walk");
-        }
-        else changeanimation("Idle");
-    }
-	
-
-
-    private void changeanimation (string animation) 
+    [PunRPC]
+    private void DestroyToAll(int viewID)
     {
-        if (currentanimation != animation)
-        {
-            currentanimation = animation;
-            animator.Play(animation);
-        }
+        PhotonView pv = PhotonView.Find(viewID);
+        if (pv != null)
+            Destroy(pv.gameObject);
     }
     
-    
-    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        WorldItem worldItem = other.GetComponent<WorldItem>();
+        if (worldItem!= null)
+        {
+            if (_inventoryHandler.Inventory != null && _inventoryHandler.Inventory.AddItem(worldItem.Item))
+            {
+                int viewID = worldItem.GetComponent<PhotonView>().ViewID;
+                Debug.Log(viewID);
+                photonView.RPC("DestroyToAll", RpcTarget.AllBuffered, viewID);
+                _inventoryHandler.UpdateInventory();
+            }
+        }
+    }
 }

@@ -27,7 +27,7 @@ public class DamageCircle : MonoBehaviourPunCallbacks {
     private void Awake() {
         instance = this;
 
-        circleShrinkSpeed = 2f;
+        circleShrinkSpeed = 4f;
 
         circleTransform = transform.Find("circle");
         topTransform = transform.Find("top");
@@ -37,7 +37,7 @@ public class DamageCircle : MonoBehaviourPunCallbacks {
 
         SetCircleSize(new Vector3(150, 150), new Vector3(400, 400));
 
-        SetTargetCircle(new Vector3(150, 150), new Vector3(50, 50), 5f);
+        SetTargetCircle(new Vector3(150, 150), new Vector3(25, 25), 5f);
     }
 
     private void Update() {

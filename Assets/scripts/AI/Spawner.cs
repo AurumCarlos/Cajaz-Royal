@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
             (int, int) p = WalkerGenerator.FindSpawn();
             Instantiate(Creature, new Vector3(p.Item1,p.Item2,0), Quaternion.identity);
             timer = timer2;
-            timer2 += 4;
+            timer2 *= 0.99f;
         }
         timer -= Time.deltaTime;
     }

@@ -25,29 +25,88 @@ public class Inventory : IEnumerable<Item> {
         _items = items;
     }
 
-    public int? FindAvailablePlace()
+    public int? FindAvailablePlace(int startingPos, int finishPos = 16)
     {
-        for (int i = 3; i < _items.Length; ++i)
+        for (int i = startingPos; i < finishPos; ++i)
         {
             if (_items[i] == null) return i;
         }
         return null;
     }
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
-        switch (item.itemType)
-        {
-            case ItemType.Casque: _items[0] = item; break;
-            case ItemType.Armure: _items[1] = item; break;
-            case ItemType.Bas: _items[2] = item; break;
+        if (item == null) return false;
 
-            default:
+        if (item.IsStackable())
+        {
+            foreach (var storedItem in _items)
             {
-                int? index = FindAvailablePlace();
-                if (index != null) _items[index.Value] = item; 
-                break;
+                if (storedItem == item)
+                {
+                    storedItem.Amount += item.Amount;
+                    return true;
+                }
             }
         }
+        
+        switch (item.ItemType)
+        {
+            case ItemType.Casque:
+            {
+                if (_items[0] != null)
+                {
+                    int? index = FindAvailablePlace(8);
+                    if (index != null) _items[index.Value] = item;
+                    else return false;
+                }
+                else _items[0] = item;
+                return true;
+            }
+            case ItemType.Armure:
+            {
+                if (_items[1] != null)
+                {
+                    int? index = FindAvailablePlace(8);
+                    if (index != null) _items[index.Value] = item;
+                    else return false;
+                }
+                else _items[1] = item;
+                return true;
+            }
+            case ItemType.Bas:
+            {
+                if (_items[2] != null)
+                {
+                    int? index = FindAvailablePlace(8);
+                    if (index != null) _items[index.Value] = item;
+                    else return false;
+                }
+                else _items[2] = item;
+                return true;
+            }
+            case ItemType.Arme:
+            {
+                int? index = FindAvailablePlace(3);
+                if (index != null)
+                {
+                    _items[index.Value] = item;
+                    return true;
+                } 
+                return false;
+            }
+                
+            default:
+            {
+                int? index = FindAvailablePlace(8);
+                if (index != null)
+                {
+                    _items[index.Value] = item;
+                    return true;
+                } 
+                return false;
+            }
+        }
+        
     }
     
     public IEnumerator<Item> GetEnumerator()

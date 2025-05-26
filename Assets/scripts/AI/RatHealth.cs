@@ -6,7 +6,7 @@ using UnityEngine;
 public class RatHealth : MonoBehaviour
 {
     private static readonly int IsDead = Animator.StringToHash("is_dead");
-    [SerializeField] private AIAgent playercontGameObject;
+    [SerializeField] private AIAgent playercontAI;
     public bool islocalplayer;
     [Header("UI")]
     
@@ -27,8 +27,9 @@ public class RatHealth : MonoBehaviour
             {
                 RoomManager.Instance.Spwan();
             }
-            Destroy(playercontGameObject);
-           playercontGameObject.animator.SetBool(IsDead, true);
+            Destroy(gameObject);
+            //playercontAI.animator.Play(null);
+            //playercontGameObject.animator.SetBool(IsDead, true);
         }
     }
 

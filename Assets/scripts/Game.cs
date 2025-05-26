@@ -54,9 +54,9 @@ public class Game : MonoBehaviourPunCallbacks
 
             foreach (var VARIABLE in ennemis)
             {
-                if (VARIABLE.GetComponentInChildren<Health>().IsAlive()) nb += 1;
+                if (VARIABLE.GetComponentInChildren<Health>().IsAlive) nb += 1;
             }
-
+            Debug.Log(nb);
             if (nb <= 2) 
             {
                 ToggleHud(false);

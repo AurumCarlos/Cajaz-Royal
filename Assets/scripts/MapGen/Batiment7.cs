@@ -61,8 +61,7 @@ public class Batiment7 : MonoBehaviour
             else
             {
                 HealthSolo t = other.gameObject.GetComponent<HealthSolo>();
-                Playermouv p = other.gameObject.GetComponent<Playermouv>();
-                Debug.Log((t,p));
+                PlayermouvSolo p = other.gameObject.GetComponent<PlayermouvSolo>();
                 if (p != null && t != null)
                 {
                     Ext.SetActive(true);

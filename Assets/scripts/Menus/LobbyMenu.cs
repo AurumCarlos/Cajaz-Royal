@@ -42,13 +42,14 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
 
     private IEnumerator ResumeGameLocal(int s)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         ResumeGame(s);
     }
     
     [PunRPC]
     public void ResumeGame(int s)
     {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
         Game.SetActive(true);
         Circle.SetActive(true);
         camera.SetActive(false);

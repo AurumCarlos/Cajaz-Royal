@@ -184,6 +184,7 @@ public class WalkerGenerator : MonoBehaviourPunCallbacks
                 else if (size == (19, 7))
                 {
                     GameObject temp = GameObject.Instantiate(Bats[2],tileMapBat.transform);
+                    //GameObject temp = PhotonNetwork.Instantiate("(19 x 7)", tileMapBat.transform.position,Quaternion.identity);
                     temp.transform.position = new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0);
                     //tileMapBat.SetTile(new Vector3Int(mapHeight / 3 + pos.Item2, 2 * mapWidth / 3 - pos.Item1, 0), tiles[8]);
                 }
